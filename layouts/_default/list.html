@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{ if .IsHome }}
+  <div class="terminal-box">
+    <h3>Bienvenue sur WebModerne</h3>
+    <p>Nous décortiquons les rapports de recherche scientifique en IA et les expliquons en termes simples, compréhensibles par tous.</p>
+    <p>Chaque jour, 2 nouveaux articles à 8h et 15h.</p>
+  </div>
+  
+  <h2 style="color: #db1a1a; border-bottom: 2px solid #db1a1a; padding-bottom: 10px;">Derniers Articles</h2>
+  
+  <ul class="post-list">
+    {{ range first 10 .Site.RegularPages }}
+      <li class="post-item">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <div class="date">{{ .Date.Format "2 January 2006" }}</div>
+        <div class="summary">{{ .Summary }}</div>
+      </li>
+    {{ end }}
+  </ul>
+{{ else }}
+  <h1 style="color: #db1a1a;">{{ .Title }}</h1>
+  <ul class="post-list">
+    {{ range .Pages }}
+      <li class="post-item">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <div class="date">{{ .Date.Format "2 January 2006" }}</div>
+        <div class="summary">{{ .Summary }}</div>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
+{{ end }}

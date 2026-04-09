@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="keywords" content="{{ with .Site.Params.keywords }}{{ delimit . ", " }}{{ end }}">
+  <link rel="stylesheet" href="{{ "/css/webmoderne.css" | relURL }}">
+  {{ with .Site.Params.googleAnalytics }}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ . }}');
+  </script>
+  {{ end }}
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>{{ .Site.Params.title }}</h1>
+      <div class="subtitle">{{ .Site.Params.subtitle }}</div>
+    </header>
+    
+    <nav class="nav">
+      {{ range .Site.Menus.main }}
+        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+      {{ end }}
+    </nav>
+    
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+    
+    <footer class="footer">
+      <p>&copy; {{ now.Year }} {{ .Site.Params.title }} - Tous droits réservés</p>
+      <p>Propulsé par <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/boucheb615-hue/blog.webmoderne.com">WebModerne</a></p>
+    </footer>
+  </div>
+</body>
+</html>
