@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARTICLE_TITLE - WebModerne</title>
+  <meta name="description" content="ARTICLE_DESC_155CHARS">
+  <meta name="author" content="WebModerne">
+  <meta property="og:title" content="ARTICLE_TITLE - WebModerne">
+  <meta property="og:description" content="ARTICLE_DESC_155CHARS">
+  <meta property="og:url" content="https://blog.webmoderne.com/posts/SLUG.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://blog.webmoderne.com/static/images/SLUG-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ARTICLE_TITLE - WebModerne">
+  <meta name="twitter:description" content="ARTICLE_DESC_155CHARS">
+  <meta name="twitter:image" content="https://blog.webmoderne.com/static/images/SLUG-banner.png">
+  <link rel="canonical" href="https://blog.webmoderne.com/posts/SLUG.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+  <!-- GOOGLE_ANALYTICS -->
+
+  <style>
+    /* ============================================================
+       WEBMODERNE ARTICLE TEMPLATE — Mobile-first, no tables
+       Copy this file as posts/<slug>.html, then replace all
+       ARTICLE_TITLE, ARTICLE_DESC, SLUG placeholders.
+       ============================================================ */
+
+    :root {
+      --bg-color: #090935;
+      --accent-color: #db1a1a;
+      --text-color: #ffffff;
+      --code-bg: #0a0a4a;
+      --border-color: #1a1a5a;
+      --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Fira Code', 'Courier New', monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+    /* HEADER */
+    .header { border-bottom: 2px solid var(--accent-color); padding: 12px 0; margin-bottom: 0; }
+    .header-top { display: flex; align-items: center; justify-content: space-between; }
+    .header-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo { height: 40px; width: auto; border-radius: 6px; }
+    .header h1, .header .brand-name {
+      color: var(--accent-color); font-family: var(--font-mono); font-size: 1.4em;
+      margin: 0; text-transform: uppercase; letter-spacing: 2px;
+    }
+    .nav-toggle {
+      display: none; background: none; border: 1px solid var(--accent-color); color: var(--text-color);
+      padding: 6px 10px; cursor: pointer; font-family: var(--font-mono); font-size: 1.1em; border-radius: 4px;
+    }
+    .nav { display: flex; align-items: center; gap: 6px; }
+    .nav a {
+      color: var(--text-color); text-decoration: none; padding: 6px 14px;
+      border: 1px solid var(--border-color); border-radius: 4px;
+      font-family: var(--font-mono); font-size: 0.85em; transition: all 0.3s ease;
+    }
+    .nav a:hover, .nav a.active {
+      background-color: var(--accent-color); color: var(--bg-color); border-color: var(--accent-color);
+    }
+
+    /* PAGE INTRO */
+    .page-intro { padding: 40px 0 30px; border-bottom: 1px solid var(--border-color); margin-bottom: 30px; }
+    .page-intro h1 {
+      color: var(--accent-color); font-family: var(--font-mono); font-size: 2em;
+      margin: 0 0 8px; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .page-intro p { color: #aaa; font-size: 1.05em; margin: 0; }
+
+    /* BANNER */
+    .post-banner { width: 100%; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 30px; }
+
+    /* CONTENT HEADINGS */
+    .post-content h2 { color: var(--accent-color); font-family: var(--font-mono); margin-top: 35px; font-size: 1.3em; }
+    .post-content h3 { color: var(--accent-color); font-family: var(--font-mono); margin-top: 25px; font-size: 1.1em; }
+    .post-content h4 { color: var(--accent-color); font-family: var(--font-mono); margin-top: 20px; font-size: 1.05em; }
+    .post-content p { color: #ddd; }
+
+    /* CALLOUT — green mono callout for highlights */
+    .callout {
+      color: #00ff00; font-family: var(--font-mono); font-size: 0.95em; line-height: 1.6;
+      background: rgba(0, 255, 0, 0.05); border-left: 3px solid #00ff00;
+      padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 16px 0;
+    }
+
+    /* STAT CARDS — replaces benchmark/data tables */
+    .stat-cards { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+    .stat-card {
+      flex: 1 1 200px; background: var(--code-bg); border: 1px solid var(--border-color);
+      border-radius: 8px; padding: 16px;
+    }
+    .stat-card .stat-name {
+      font-family: var(--font-mono); color: #aaa; font-size: 0.8em;
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
+    }
+    .stat-card .stat-values { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .stat-card .stat-new { color: var(--accent-color); font-size: 1.5em; font-weight: 700; }
+    .stat-card .stat-old { color: #666; font-size: 1em; text-decoration: line-through; }
+    .stat-card .stat-gain { color: #00ff00; font-family: var(--font-mono); font-size: 0.85em; font-weight: 600; }
+
+    /* FINDING CARDS — for key discoveries */
+    .finding-cards { display: flex; flex-wrap: wrap; gap: 16px; margin: 20px 0; }
+    .finding-card {
+      flex: 1 1 280px; background: #000; border: 1px solid var(--accent-color);
+      border-radius: 8px; padding: 20px;
+    }
+    .finding-card .finding-title {
+      font-family: var(--font-mono); color: var(--accent-color); font-weight: 600;
+      font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+    }
+    .finding-card .finding-stat { color: var(--accent-color); font-size: 1.6em; font-weight: 700; line-height: 1.2; }
+    .finding-card .finding-label { color: #aaa; font-size: 0.9em; margin-top: 4px; }
+    .finding-card .finding-detail { color: #ccc; font-size: 0.9em; margin-top: 10px; padding-top: 10px; border-top: 1px solid #222; }
+
+    /* CONTRAST BLOCKS — replaces before/after tables */
+    .contrast-list { display: flex; flex-direction: column; gap: 16px; margin: 20px 0; }
+    .contrast-block {
+      background: var(--code-bg); border: 1px solid var(--border-color);
+      border-radius: 8px; padding: 16px;
+    }
+    .contrast-block .contrast-label {
+      font-family: var(--font-mono); color: var(--accent-color); font-size: 0.85em;
+      font-weight: 600; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .contrast-block .contrast-rows { display: flex; flex-direction: column; gap: 10px; }
+    .contrast-row { display: flex; gap: 12px; align-items: flex-start; }
+    .contrast-row .cr-before { color: #666; font-size: 0.9em; flex: 1; }
+    .contrast-row .cr-after { color: #00ff00; font-size: 0.9em; flex: 1; }
+    .contrast-row .cr-arrow { color: var(--accent-color); font-family: var(--font-mono); flex-shrink: 0; }
+
+    /* FAQ BLOCKS — replaces summary/qa tables */
+    .faq-list { display: flex; flex-direction: column; gap: 16px; margin: 20px 0; }
+    .faq-block {
+      background: var(--code-bg); border: 1px solid var(--border-color);
+      border-left: 3px solid var(--accent-color); border-radius: 0 8px 8px 0; padding: 16px;
+    }
+    .faq-block .faq-q { font-family: var(--font-mono); color: var(--accent-color); font-weight: 600; margin-bottom: 8px; font-size: 0.95em; }
+    .faq-block .faq-a { color: #ddd; font-size: 0.95em; }
+
+    /* GENERAL */
+    .post-content ul, .post-content ol { color: #ddd; }
+    .post-content li { margin-bottom: 8px; }
+    blockquote {
+      border-left: 4px solid var(--accent-color); margin: 20px 0; padding: 15px 20px;
+      background: var(--code-bg); border-radius: 0 8px 8px 0; color: #ccc;
+    }
+    blockquote strong { color: #00ff00; }
+    code {
+      background: var(--code-bg); padding: 2px 6px; border-radius: 3px;
+      font-family: var(--font-mono); font-size: 0.9em;
+    }
+    a { color: var(--accent-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr { border: none; border-top: 1px solid var(--border-color); margin: 30px 0; }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border-color);
+      text-align: center; color: #666; font-size: 0.9em;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .header-top { position: relative; }
+      .nav {
+        display: none; flex-direction: column; position: absolute; top: 52px; right: 0;
+        background: var(--bg-color); border: 1px solid var(--border-color);
+        border-radius: 6px; padding: 8px; z-index: 100; width: 160px;
+      }
+      .nav.active { display: flex; }
+      .nav a { margin: 0; text-align: center; }
+      .logo { height: 32px; }
+      .header h1 { font-size: 1.1em; }
+      .container { padding: 15px; }
+      .page-intro h1 { font-size: 1.5em; }
+      .page-intro { padding: 25px 0 20px; margin-bottom: 20px; }
+      .finding-card { flex: 1 1 100%; }
+      .stat-card { flex: 1 1 100%; }
+      .contrast-row { flex-direction: column; gap: 2px; }
+      .contrast-row .cr-before, .contrast-row .cr-after { flex: auto; }
+      .post-banner { border-radius: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-top">
+        <a href="/" class="header-brand">
+          <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
+          <span class="brand-name">WebModerne</span>
+        </a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
+        <nav class="nav">
+          <a href="/">Accueil</a>
+          <a href="/about.html">À Propos</a>
+          <a href="/posts/" class="active">Articles</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-intro">
+        <h1>ARTICLE_TITLE</h1>
+        <p>Publié le DATE • Tags: <span style="color: #db1a1a;">#tag1</span> <span style="color: #db1a1a;">#tag2</span></p>
+      </div>
+
+      <!-- Banner image (optional — remove if no banner) -->
+      <img src="/static/images/SLUG-banner.png" alt="ARTICLE_TITLE" class="post-banner">
+
+      <article class="post-content">
+        <h2>ARTICLE_TITLE</h2>
+        <p class="callout"><strong>En 30 secondes</strong> : Résumé ultra-court en 1-2 phrases.</p>
+
+        <h3>Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)</h3>
+        <p>Paragraphe de contexte...</p>
+        <p class="callout">💡 <strong>Le saviez-vous ?</strong> Insight surprenant ici.</p>
+
+        <h2>Le Problème</h2>
+        <p>Description du problème...</p>
+
+        <h3>Sous-titre</h3>
+        <p>Détails...</p>
+
+        <h2>La Solution</h2>
+        <p>Description de la solution...</p>
+
+        <h3>Leur Approche (Étape par Étape)</h3>
+        <p>1. <strong>Étape 1</strong> : Description</p>
+        <p>2. <strong>Étape 2</strong> : Description</p>
+        <p>3. <strong>Étape 3</strong> : Description</p>
+
+        <!-- FINDING CARDS — for key discoveries -->
+        <div class="finding-cards">
+          <div class="finding-card">
+            <div class="finding-title">Découverte 1</div>
+            <div class="finding-stat">CHIFFRE CLÉ</div>
+            <div class="finding-label">Description courte</div>
+            <div class="finding-detail">Explication plus détaillée ici.</div>
+          </div>
+        </div>
+
+        <!-- STAT CARDS — for benchmark/performance data -->
+        <h4>Ce Que les Chiffres Disent Vraiment</h4>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-name">Nom du test</div>
+            <div class="stat-values">
+              <span class="stat-new">Nouveau</span>
+              <span class="stat-old">Ancien</span>
+              <span class="stat-gain">+X%</span>
+            </div>
+          </div>
+        </div>
+
+        <h2>Pourquoi Ça Compte Pour Toi (L'Impact Réel)</h2>
+
+        <!-- CONTRAST BLOCKS — before/after comparisons -->
+        <h4>Avant vs Maintenant</h4>
+        <div class="contrast-list">
+          <div class="contrast-block">
+            <div class="contrast-label">Catégorie</div>
+            <div class="contrast-rows">
+              <div class="contrast-row">
+                <span class="cr-before">🕐 Avant</span>
+                <span class="cr-arrow">→</span>
+                <span class="cr-after">⚡ Maintenant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Concrètement, Tu Gagnes :</h4>
+        <ul>
+          <li>✅ <strong>Bénéfice 1</strong> : Explication</li>
+          <li>✅ <strong>Bénéfice 2</strong> : Explication</li>
+        </ul>
+        <p class="callout">⚠️ <strong>Par contre</strong> : Limitation honnête ici.</p>
+
+        <h2>Les Limites</h2>
+        <ul>
+          <li>❌ <strong>Limite 1</strong> : Description</li>
+          <li>❌ <strong>Limite 2</strong> : Description</li>
+        </ul>
+
+        <h2>En Résumé (À Retenir Absolument)</h2>
+        <!-- FAQ BLOCKS — replaces summary tables -->
+        <div class="faq-list">
+          <div class="faq-block">
+            <div class="faq-q">Question fondamentale ?</div>
+            <div class="faq-a">Réponse en 1 phrase.</div>
+          </div>
+        </div>
+
+        <h4>Les 3 Points Clés à Retenir</h4>
+        <p>1. <strong>Point 1</strong> : Phrase mémorable</p>
+        <p>2. <strong>Point 2</strong> : Phrase mémorable</p>
+        <p>3. <strong>Point 3</strong> : Phrase mémorable</p>
+
+        <h3>Pour Aller Plus Loin (Sources et Lectures)</h3>
+        <h4>Sources Originales</h4>
+        <ul>
+          <li>📄 <strong>Nom de la source</strong> : <a href="URL">lien</a></li>
+        </ul>
+
+        <h4>💬 Rejoins la Discussion</h4>
+        <p>Tu as des questions sur cet article ?</p>
+        <p>→ <strong><a href="https://t.me/+Fon2ltdbEcc3N2Nh" style="color: #db1a1a;">Rejoins le Telegram WebModerne</a></strong></p>
+        <p><strong>Prochain article</strong> : Teaser du prochain article.</p>
+        <hr>
+
+        <div style="margin-top: 40px; text-align: center;">
+          <a href="/posts/" style="color: #db1a1a;">← Retour aux articles</a>
+        </div>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>&copy; 2026 WebModerne - Tous droits réservés</p>
+      <p style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://youtube.com/@WebModerne" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#db1a1a" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          YouTube
+        </a>
+        <a href="https://t.me/+Fon2ltdbEcc3N2Nh" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#db1a1a" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.42.9-4.15 2.75-.39.27-.74.4-1.05.39-.35-.01-1.02-.2-1.52-.36-.61-.2-1.1-.31-1.06-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .22z"/>
+          </svg>
+          Telegram
+        </a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

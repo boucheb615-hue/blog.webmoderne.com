@@ -20,7 +20,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/static/favicon.png">
-  
+  <!-- GOOGLE_ANALYTICS -->
+
   <style>
     :root {
       --bg-color: #090935;
@@ -41,6 +42,8 @@
       padding: 0;
     }
     .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+    /* === HEADER === */
     .header {
       border-bottom: 2px solid var(--accent-color);
       padding: 12px 0;
@@ -57,11 +60,7 @@
       gap: 10px;
       text-decoration: none;
     }
-    .logo {
-      height: 40px;
-      width: auto;
-      border-radius: 6px;
-    }
+    .logo { height: 40px; width: auto; border-radius: 6px; }
     .header h1, .header .brand-name {
       color: var(--accent-color);
       font-family: var(--font-mono);
@@ -96,16 +95,287 @@
       font-size: 0.85em;
       transition: all 0.3s ease;
     }
-    .nav a:hover {
+    .nav a:hover, .nav a.active {
       background-color: var(--accent-color);
       color: var(--bg-color);
       border-color: var(--accent-color);
     }
-    .nav a.active {
-      background-color: var(--accent-color);
-      color: var(--bg-color);
-      border-color: var(--accent-color);
+
+    /* === PAGE INTRO === */
+    .page-intro {
+      padding: 40px 0 30px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 30px;
     }
+    .page-intro h1 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      font-size: 2em;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .page-intro p {
+      color: #aaa;
+      font-size: 1.05em;
+      margin: 0;
+    }
+
+    /* === BANNER === */
+    .post-banner {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 30px;
+    }
+
+    /* === CONTENT === */
+    .post-content h2 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      margin-top: 35px;
+      font-size: 1.3em;
+    }
+    .post-content h3 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      margin-top: 25px;
+      font-size: 1.1em;
+    }
+    .post-content h4 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      margin-top: 20px;
+      font-size: 1.05em;
+    }
+    .post-content p {
+      color: #ddd;
+    }
+
+    /* === CALLOUT === */
+    .callout {
+      color: #00ff00;
+      font-family: var(--font-mono);
+      font-size: 0.95em;
+      line-height: 1.6;
+      background: rgba(0, 255, 0, 0.05);
+      border-left: 3px solid #00ff00;
+      padding: 12px 16px;
+      border-radius: 0 6px 6px 0;
+      margin: 16px 0;
+    }
+
+    /* === FINDING CARDS (replaces CLI illustrations) === */
+    .finding-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .finding-card {
+      flex: 1 1 280px;
+      background: #000;
+      border: 1px solid var(--accent-color);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .finding-card .finding-title {
+      font-family: var(--font-mono);
+      color: var(--accent-color);
+      font-weight: 600;
+      font-size: 0.85em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .finding-card .finding-stat {
+      color: var(--accent-color);
+      font-size: 1.6em;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .finding-card .finding-label {
+      color: #aaa;
+      font-size: 0.9em;
+      margin-top: 4px;
+    }
+    .finding-card .finding-detail {
+      color: #ccc;
+      font-size: 0.9em;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #222;
+    }
+
+    /* === STAT CARDS (replaces benchmark table) === */
+    .stat-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .stat-card {
+      flex: 1 1 200px;
+      background: var(--code-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .stat-card .stat-name {
+      font-family: var(--font-mono);
+      color: #aaa;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .stat-card .stat-values {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .stat-card .stat-new {
+      color: var(--accent-color);
+      font-size: 1.5em;
+      font-weight: 700;
+    }
+    .stat-card .stat-old {
+      color: #666;
+      font-size: 1em;
+      text-decoration: line-through;
+    }
+    .stat-card .stat-gain {
+      color: #00ff00;
+      font-family: var(--font-mono);
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+
+    /* === CONTRAST BLOCKS (replaces Avant vs Maintenant table) === */
+    .contrast-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .contrast-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .contrast-block .contrast-label {
+      font-family: var(--font-mono);
+      color: var(--accent-color);
+      font-size: 0.85em;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .contrast-block .contrast-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .contrast-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .contrast-row .cr-label {
+      min-width: 120px;
+      color: #aaa;
+      font-size: 0.9em;
+      flex-shrink: 0;
+    }
+    .contrast-row .cr-before {
+      color: #666;
+      font-size: 0.9em;
+      flex: 1;
+    }
+    .contrast-row .cr-after {
+      color: #00ff00;
+      font-size: 0.9em;
+      flex: 1;
+    }
+    .contrast-row .cr-arrow {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      flex-shrink: 0;
+    }
+
+    /* === FAQ BLOCKS (replaces En Résumé table) === */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .faq-block {
+      background: var(--code-bg);
+      border: 1px solid var(--border-color);
+      border-left: 3px solid var(--accent-color);
+      border-radius: 0 8px 8px 0;
+      padding: 16px;
+    }
+    .faq-block .faq-q {
+      font-family: var(--font-mono);
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.95em;
+    }
+    .faq-block .faq-a {
+      color: #ddd;
+      font-size: 0.95em;
+    }
+
+    /* === GENERAL === */
+    .post-content ul, .post-content ol { color: #ddd; }
+    .post-content li { margin-bottom: 8px; }
+    .post-content .date {
+      color: #888;
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+    blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 20px 0;
+      padding: 15px 20px;
+      background: var(--code-bg);
+      border-radius: 0 8px 8px 0;
+      color: #ccc;
+    }
+    blockquote strong { color: #00ff00; }
+    code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+    }
+    a { color: var(--accent-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr {
+      border: none;
+      border-top: 1px solid var(--border-color);
+      margin: 30px 0;
+    }
+
+    /* === FOOTER === */
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    /* === MOBILE === */
     @media (max-width: 768px) {
       .nav-toggle { display: block; }
       .header-top { position: relative; }
@@ -126,162 +396,22 @@
       .nav a { margin: 0; text-align: center; }
       .logo { height: 32px; }
       .header h1 { font-size: 1.1em; }
-    }
-    .page-intro {
-      padding: 40px 0 30px;
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 40px;
-    }
-    .page-intro h1 {
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      font-size: 2em;
-      margin: 0 0 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .page-intro p {
-      color: #aaa;
-      font-size: 1.05em;
-      margin: 0;
-    }
-    .post-banner {
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      margin-bottom: 30px;
-    }
-    .post-content h1 {
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 15px;
-      margin-top: 0;
-    }
-    .post-content h2 {
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      margin-top: 30px;
-    }
-    .post-content h3 {
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      margin-top: 25px;
-    }
-    .post-content h4 {
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      margin-top: 20px;
-      font-size: 1.05em;
-    }
-    .post-content p {
-      color: #ddd;
-    }
-    .callout {
-      color: #00ff00;
-      font-family: var(--font-mono);
-      font-size: 0.95em;
-      line-height: 1.6;
-      background: rgba(0, 255, 0, 0.05);
-      border-left: 3px solid #00ff00;
-      padding: 12px 16px;
-      border-radius: 0 6px 6px 0;
-      margin: 16px 0;
-    }
-    .post-content ul, .post-content ol {
-      color: #ddd;
-    }
-    .post-content li {
-      margin-bottom: 8px;
-    }
-    .post-content .date {
-      color: #888;
-      font-family: var(--font-mono);
-      font-size: 0.9em;
-      margin-bottom: 20px;
-    }
-    .terminal-box {
-      background: var(--code-bg);
-      border: 1px solid var(--border-color);
-      border-left: 4px solid var(--accent-color);
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 0 8px 8px 0;
-    }
-    .terminal-box h3 {
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      margin-top: 0;
-    }
-    .cli-illustration {
-      background: #000;
-      border: 1px solid var(--accent-color);
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 0.9em;
-    }
-    .cli-illustration .prompt { color: #00ff00; }
-    .cli-illustration .output { color: #ccc; margin-left: 20px; }
-    .cli-illustration .agent { color: var(--accent-color); font-weight: bold; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 0.95em;
-    }
-    th, td {
-      border: 1px solid var(--border-color);
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background: var(--code-bg);
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-    }
-    .footer {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
-      text-align: center;
-      color: #666;
-      font-size: 0.9em;
-    }
-    a { color: var(--accent-color); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    blockquote {
-      border-left: 4px solid var(--accent-color);
-      margin: 20px 0;
-      padding: 15px 20px;
-      background: var(--code-bg);
-      border-radius: 0 8px 8px 0;
-      color: #ccc;
-    }
-    blockquote strong {
-      color: #00ff00;
-    }
-    code {
-      background: var(--code-bg);
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-family: var(--font-mono);
-      font-size: 0.9em;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid var(--border-color);
-      margin: 30px 0;
-    }
-    @media (max-width: 768px) {
       .container { padding: 15px; }
       .page-intro h1 { font-size: 1.5em; }
+      .page-intro { padding: 25px 0 20px; margin-bottom: 20px; }
+      .finding-card { flex: 1 1 100%; }
+      .stat-card { flex: 1 1 100%; }
+      .contrast-row { flex-direction: column; gap: 2px; }
+      .contrast-row .cr-label { min-width: auto; }
+      .contrast-row .cr-before, .contrast-row .cr-after { flex: auto; }
+      .post-banner { border-radius: 4px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
+
+    <!-- HEADER -->
     <header class="header">
       <div class="header-top">
         <a href="/" class="header-brand">
@@ -296,108 +426,130 @@
         </nav>
       </div>
     </header>
-    
+
     <main>
       <div class="page-intro">
         <h1>Project Glasswing : L'IA Trop Puissante Pour Être Publique</h1>
-        <p>Publié le 09 avril 2026 • Tags: <span style="color: #db1a1a;">#ia</span> <span style="color: #db1a1a;">#cybersecurite</span> <span style="color: #db1a1a;">#anthropic</span> <span style="color: #db1a1a;">#vulnerabilites</span> </p>
+        <p>Publié le 09 avril 2026 • Tags: <span style="color: #db1a1a;">#ia</span> <span style="color: #db1a1a;">#cybersecurite</span> <span style="color: #db1a1a;">#anthropic</span> <span style="color: #db1a1a;">#vulnerabilites</span></p>
       </div>
+
       <img src="/static/images/project-glasswing-banner.png" alt="Project Glasswing : L'IA Trop Puissante Pour Être Publique" class="post-banner">
+
       <article class="post-content">
         <h2>Project Glasswing : Quand l'IA Devient Trop Puissante Pour Être Publique</h2>
         <p class="callout"><strong>En 30 secondes</strong> : Anthropic a développé Claude Mythos, un modèle IA qui trouve des milliers de failles de sécurité invisibles aux humains. Problème : les mêmes capacités qui permettent de protéger peuvent aussi servir à attaquer. Résultat ? Anthropic refuse de le publier et le réserve à un cercle fermé de 12 partenaires industriels.</p>
+
         <h3>Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)</h3>
         <p>Le 7 avril 2026, Anthropic a annoncé Project Glasswing — une initiative sans précédent pour sécuriser les infrastructures critiques du monde entier avec l'IA. Ce n'est pas une simple mise à jour de modèle. C'est un changement de paradigme dans la façon dont on pense la cybersécurité.</p>
         <p><strong>Le constat</strong> : Claude Mythos Preview a découvert des dizaines de milliers de vulnérabilités zero-day (des failles jamais identifiées) dans tous les systèmes d'exploitation et navigateurs majeurs. Plus de 99% restent non corrigées aujourd'hui.</p>
         <p class="callout">💡 <strong>Le saviez-vous ?</strong> Mythos a trouvé une faille dans OpenBSD — un système réputé pour son code le plus audité au monde — vieille de 27 ans. Personne ne l'avait jamais vue. Source : Anthropic Frontier Red Team, avril 2026.</p>
+
         <h2>Le Problème (La Fenêtre de Vulnérabilité Se Ferme)</h2>
         <p>Imagine que tu laisses la porte de ta maison ouverte. En temps normal, un cambrioleur met des semaines à la trouver. Mais maintenant, il a un drone qui scanne chaque maison de la ville en quelques minutes. C'est exactement ce qui se passe en cybersécurité.</p>
+
         <h3>La Fenêtre de Vulnérabilité (Le "Problème de Fenêtre")</h3>
         <p><strong>Avant</strong> : Un chercheur trouve un bug → un rapport est publié → l'éditeur corrige → les utilisateurs mettent à jour. La fenêtre entre la découverte et l'exploitation se mesurait en semaines, voire en mois.</p>
         <p><strong>Maintenant</strong> : Une IA peut découvrir et exploiter une vulnérabilité en quelques minutes. La fenêtre s'est effondrée.</p>
         <p class="callout"><strong>Exemple concret</strong> : En novembre 2025, un groupe lié à la Chine a utilisé Claude pour atteindre 80 à 90% d'exécution autonome sur 30 cibles gouvernementales. Plus besoin d'humains derrière le clavier — l'IA fait le travail seule.</p>
-        <p>Le CTO de CrowdStrike, Elia Zaitsev, le dit clairement : *"La fenêtre entre la découverte d'une vulnérabilité et son exploitation s'est effondrée — ce qui prenait des mois se fait maintenant en minutes avec l'IA."*</p>
+        <p>Le CTO de CrowdStrike, Elia Zaitsev, le dit clairement : <em>"La fenêtre entre la découverte d'une vulnérabilité et son exploitation s'est effondrée — ce qui prenait des mois se fait maintenant en minutes avec l'IA."</em></p>
+
         <h2>La Solution (Comment Anthropic A Répondu)</h2>
         <p>Plutôt que de publier Mythos et de laisser n'importe qui s'en servir, Anthropic a fait le choix inverse : restreindre l'accès et le donner uniquement à ceux qui en ont besoin pour défendre.</p>
+
         <h3>Leur Approche (Étape par Étape)</h3>
-        <p>1. <strong>Restriction d'accès</strong> : Claude Mythos Preview n'est pas disponible au public. Anthropic le dit explicitement : *"Nous ne prévoyons pas de rendre Claude Mythos Preview disponible au grand public en raison de ses capacités en cybersécurité."*</p>
+        <p>1. <strong>Restriction d'accès</strong> : Claude Mythos Preview n'est pas disponible au public. Anthropic le dit explicitement : <em>"Nous ne prévoyons pas de rendre Claude Mythos Preview disponible au grand public en raison de ses capacités en cybersécurité."</em></p>
         <p>2. <strong>Consortium défensif</strong> : 12 partenaires fondateurs reçoivent l'accès — AWS, Google, Microsoft, Apple, Cisco, NVIDIA, Broadcom, CrowdStrike, Palo Alto Networks, JPMorgan Chase, et la Linux Foundation.</p>
         <p>3. <strong>Déploiement ciblé</strong> : Plus de 40 organisations d'infrastructures critiques bénéficient aussi des crédits d'utilisation (100 millions de dollars de crédits offerts par Anthropic).</p>
+
         <h3>Leurs Découvertes (Les Résultats Concrets)</h3>
-        <div class="cli-illustration">
-          <div class="prompt">$ mythos scan --target=openbsd --mode=zero-day</div>
-          <div class="output">&gt; Scanning kernel subsystems...</div>
-          <div class="output">&gt; Found: Remote crash vulnerability (unauthenticated)</div>
-          <div class="output">&gt; Age: 27 years undetected</div>
-          <div class="output">&gt; Status: CRITICAL — no authentication required</div>
-          <div class="agent">✓ Mythos a trouvé ce qu'aucun humain n'avait vu depuis 27 ans</div>
+        <div class="finding-cards">
+          <div class="finding-card">
+            <div class="finding-title">OpenBSD — Faille critique</div>
+            <div class="finding-stat">27 ans</div>
+            <div class="finding-label">Vulnérabilité invisible depuis</div>
+            <div class="finding-detail">Crash à distance sans authentification. Le système le plus audité au monde avait une faille que personne n'avait vue depuis 1999.</div>
+          </div>
+          <div class="finding-card">
+            <div class="finding-title">FFmpeg — Code invisible</div>
+            <div class="finding-stat">16 ans</div>
+            <div class="finding-label">Une seule ligne de code, invisible depuis</div>
+            <div class="finding-detail">Exécutée 5 millions de fois par des outils de test — jamais détectée. Mythos l'a trouvée en quelques minutes.</div>
+          </div>
         </div>
-        <div class="cli-illustration">
-          <div class="prompt">$ mythos scan --target=ffmpeg --mode=deep</div>
-          <div class="output">&gt; Analyzing code execution paths...</div>
-          <div class="output">&gt; Found: Single-line code flaw</div>
-          <div class="output">&gt; Executed 5,000,000 times by testing tools — never caught</div>
-          <div class="output">&gt; Age: 16 years undetected</div>
-          <div class="agent">✓ Une seule ligne de code, invisible pendant 16 ans</div>
-        </div>
+
         <h4>Ce Que les Chiffres Disent Vraiment</h4>
-        <table>
-          <tr>
-            <th>Test de performance</th>
-            <th>Mythos Preview</th>
-            <th>Opus 4.6 (précédent meilleur)</th>
-            <th>Gain</th>
-          </tr>
-          <tr>
-            <td>CyberGym (Reproduction de vulnérabilités)</td>
-            <td>83.1%</td>
-            <td>66.6%</td>
-            <td>+25%</td>
-          </tr>
-          <tr>
-            <td>SWE-bench Verified (Correction de code)</td>
-            <td>93.9%</td>
-            <td>80.8%</td>
-            <td>+16%</td>
-          </tr>
-          <tr>
-            <td>SWE-bench Pro</td>
-            <td>77.8%</td>
-            <td>53.4%</td>
-            <td>+46%</td>
-          </tr>
-          <tr>
-            <td>Terminal-Bench 2.0</td>
-            <td>82.0%</td>
-            <td>65.4%</td>
-            <td>+25%</td>
-          </tr>
-        </table>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-name">CyberGym (Reproduction de vulnérabilités)</div>
+            <div class="stat-values">
+              <span class="stat-new">83.1%</span>
+              <span class="stat-old">66.6%</span>
+              <span class="stat-gain">+25%</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-name">SWE-bench Verified (Correction de code)</div>
+            <div class="stat-values">
+              <span class="stat-new">93.9%</span>
+              <span class="stat-old">80.8%</span>
+              <span class="stat-gain">+16%</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-name">SWE-bench Pro</div>
+            <div class="stat-values">
+              <span class="stat-new">77.8%</span>
+              <span class="stat-old">53.4%</span>
+              <span class="stat-gain">+46%</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-name">Terminal-Bench 2.0</div>
+            <div class="stat-values">
+              <span class="stat-new">82.0%</span>
+              <span class="stat-old">65.4%</span>
+              <span class="stat-gain">+25%</span>
+            </div>
+          </div>
+        </div>
         <p>En langage simple : là où le meilleur modèle précédent réussissait 2 fois sur 3, Mythos réussit 4 fois sur 5. Et surtout — il a trouvé des dizaines de milliers de failles zero-day contre ~500 pour Opus 4.6. Ce n'est pas une amélioration progressive. C'est un saut qualitatif.</p>
+
         <h2>Pourquoi Ça Compte Pour Toi (L'Impact Réel)</h2>
+
         <h4>Avant vs Maintenant</h4>
-        <table>
-          <tr>
-            <th>Situation</th>
-            <th>Avant</th>
-            <th>Maintenant</th>
-          </tr>
-          <tr>
-            <td>Détection de failles</td>
-            <td>Des humains, lentement</td>
-            <td>Une IA, à l'échelle industrielle</td>
-          </tr>
-          <tr>
-            <td>Temps de correction</td>
-            <td>Semaines à mois</td>
-            <td>Quelques heures (patch proposé automatiquement)</td>
-          </tr>
-          <tr>
-            <td>Portée du scan</td>
-            <td>Limitée aux composants connus</td>
-            <td>Code source complet, y compris les dépendances cachées</td>
-          </tr>
-        </table>
+        <div class="contrast-list">
+          <div class="contrast-block">
+            <div class="contrast-label">Détection de failles</div>
+            <div class="contrast-rows">
+              <div class="contrast-row">
+                <span class="cr-before">🕐 Des humains, lentement</span>
+                <span class="cr-arrow">→</span>
+                <span class="cr-after">⚡ Une IA, à l'échelle industrielle</span>
+              </div>
+            </div>
+          </div>
+          <div class="contrast-block">
+            <div class="contrast-label">Temps de correction</div>
+            <div class="contrast-rows">
+              <div class="contrast-row">
+                <span class="cr-before">📅 Semaines à mois</span>
+                <span class="cr-arrow">→</span>
+                <span class="cr-after">⚡ Quelques heures (patch proposé automatiquement)</span>
+              </div>
+            </div>
+          </div>
+          <div class="contrast-block">
+            <div class="contrast-label">Portée du scan</div>
+            <div class="contrast-rows">
+              <div class="contrast-row">
+                <span class="cr-before">🔍 Limitée aux composants connus</span>
+                <span class="cr-arrow">→</span>
+                <span class="cr-after">🔍 Code source complet, y compris les dépendances cachées</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <h4>Concrètement, Tu Gagnes :</h4>
         <ul>
           <li>✅ <strong>Des logiciels plus sûrs</strong> : Les bibliothèques open-source que tu utilises tous les jours (Linux, FFmpeg) seront corrigées avant que les attaquants n'y accèdent</li>
@@ -405,6 +557,7 @@
           <li>✅ <strong>Un signal clair sur l'avenir de l'IA</strong> : Si le meilleur modèle IA est "trop dangereux pour publier", c'est que la course à la puissance a franchi une ligne</li>
         </ul>
         <p class="callout">⚠️ <strong>Par contre</strong> : Ce modèle ne sera pas accessible à la communauté de la sécurité ouverte. Seules les plus grandes entreprises du monde y auront accès. Cela pose une question légitime de concentration du pouvoir.</p>
+
         <h2>Les Limites (Ce Que Project Glasswing Ne Résout Pas)</h2>
         <ul>
           <li>❌ <strong>Inégalité d'accès</strong> : Les petites entreprises, les chercheurs indépendants et les pays en développement n'auront pas accès à Mythos. Seules les plus grandes organisations du monde peuvent participer.</li>
@@ -412,53 +565,55 @@
           <li>❌ <strong>La question de la confiance</strong> : Un seul modèle, contrôlé par une seule entreprise, avec un accès limité à quelques élus. Qui surveille le surveillant ?</li>
           <li>❌ <strong>99% des failles non corrigées</strong> : Même avec Mythos, la vaste majorité des vulnérabilités découvertes restent sans correctif. Le problème n'est pas seulement de trouver les bugs — c'est de les corriger à temps.</li>
         </ul>
+
         <h2>En Résumé (À Retenir Absolument)</h2>
-        <table>
-          <tr>
-            <th>Question</th>
-            <th>Réponse</th>
-          </tr>
-          <tr>
-            <td>Qu'est-ce que Project Glasswing ?</td>
-            <td>Un projet d'Anthropic qui donne accès à son IA la plus puissante (Mythos) à 12 partenaires pour trouver et corriger des failles de sécurité</td>
-          </tr>
-          <tr>
-            <td>Pourquoi Mythos n'est-il pas public ?</td>
-            <td>Ses capacités en cybersécurité sont trop dangereuses si elles tombent entre de mauvaises mains — la même IA qui protège peut aussi attaquer</td>
-          </tr>
-          <tr>
-            <td>Quels résultats concrets ?</td>
-            <td>Des dizaines de milliers de vulnérabilités zero-day trouvées, dont une vieille de 27 ans dans OpenBSD que personne n'avait vue</td>
-          </tr>
-        </table>
+        <div class="faq-list">
+          <div class="faq-block">
+            <div class="faq-q">Qu'est-ce que Project Glasswing ?</div>
+            <div class="faq-a">Un projet d'Anthropic qui donne accès à son IA la plus puissante (Mythos) à 12 partenaires pour trouver et corriger des failles de sécurité.</div>
+          </div>
+          <div class="faq-block">
+            <div class="faq-q">Pourquoi Mythos n'est-il pas public ?</div>
+            <div class="faq-a">Ses capacités en cybersécurité sont trop dangereuses si elles tombent entre de mauvaises mains — la même IA qui protège peut aussi attaquer.</div>
+          </div>
+          <div class="faq-block">
+            <div class="faq-q">Quels résultats concrets ?</div>
+            <div class="faq-a">Des dizaines de milliers de vulnérabilités zero-day trouvées, dont une vieille de 27 ans dans OpenBSD que personne n'avait vue.</div>
+          </div>
+        </div>
+
         <h4>Les 3 Points Clés à Retenir</h4>
         <p>1. <strong>L'IA est devenue trop puissante pour être publique</strong> : Anthropic refuse de publier Mythos — un signal sans précédent dans l'industrie.</p>
         <p>2. <strong>La course est lancée</strong> : Anthropic estime 6 à 18 mois avant que des capacités similaires existent ailleurs. Le temps presse pour les défenseurs.</p>
         <p>3. <strong>Le vrai problème n'est pas technique, c'est humain</strong> : Trouver les failles, l'IA sait faire. Les corriger à temps avant que les attaquants n'en profitent — c'est là que tout se joue.</p>
+
         <h3>Pour Aller Plus Loin (Sources et Lectures)</h3>
         <h4>Sources Originales</h4>
         <ul>
-          <li>📄 <strong>Project Glasswing (annonce officielle)</strong> : [anthropic.com/glasswing](https://www.anthropic.com/glasswing) (en anglais)</li>
-          <li>📄 <strong>System Card Claude Mythos Preview</strong> : [anthropic.com](https://www.anthropic.com) (en anglais, technique)</li>
-          <li>🎥 <strong>Article WIRED</strong> : [anthropic-mythos-preview-project-glasswing](https://www.wired.com/story/anthropic-mythos-preview-project-glasswing/) (en anglais)</li>
+          <li>📄 <strong>Project Glasswing (annonce officielle)</strong> : <a href="https://www.anthropic.com/glasswing">anthropic.com/glasswing</a> (en anglais)</li>
+          <li>📄 <strong>System Card Claude Mythos Preview</strong> : <a href="https://www.anthropic.com">anthropic.com</a> (en anglais, technique)</li>
+          <li>🎥 <strong>Article WIRED</strong> : <a href="https://www.wired.com/story/anthropic-mythos-preview-project-glasswing/">Wired — Anthropic Mythos</a> (en anglais)</li>
           <li>💬 <strong>Discussion Hacker News</strong> : 1 217 upvotes, 591 commentaires — le débat fait rage</li>
         </ul>
+
         <h4>Nos Autres Articles Sur le Sujet</h4>
         <ul>
-          <li>[Tous nos articles sur l'IA](/posts/)</li>
+          <li><a href="/posts/">Tous nos articles sur l'IA</a></li>
         </ul>
+
         <h4>💬 Rejoins la Discussion</h4>
         <p>Tu as des questions sur cet article ? Des retours d'expérience à partager ?</p>
         <p>→ <strong><a href="https://t.me/+Fon2ltdbEcc3N2Nh" style="color: #db1a1a;">Rejoins le Telegram WebModerne</a></strong> — on en parle en direct avec la communauté.</p>
         <p><strong>Prochain article</strong> : Comment l'IA transforme la cybersécurité offensive — ce que les États font déjà sans le dire.</p>
-        <hr style="border: 1px solid var(--border-color); margin: 30px 0;">
-        
+        <hr>
+
         <div style="margin-top: 40px; text-align: center;">
           <a href="/posts/" style="color: #db1a1a;">← Retour aux articles</a>
         </div>
       </article>
     </main>
-    
+
+    <!-- FOOTER -->
     <footer class="footer">
       <p>&copy; 2026 WebModerne - Tous droits réservés</p>
       <p style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
