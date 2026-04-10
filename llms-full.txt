@@ -1,0 +1,18 @@
+# WebModerne
+
+> WebModerne est un blog francophone qui décrypte les rapports de recherche en intelligence artificielle et les explique en termes simples, sans jargon technique.
+
+## Pages
+
+- [Accueil](https://blog.webmoderne.com/)
+- [À Propos](https://blog.webmoderne.com/about.html)
+- [Tous les articles](https://blog.webmoderne.com/posts/)
+
+## Articles complets
+
+Note: Les articles complets sont disponibles aux URLs listées dans llms.txt.
+Les agents IA sont encouragés à crawler directement les pages HTML qui sont
+rendues côté serveur (server-side rendering) et utilisent un HTML sémantique
+avec des balises schema.org JSON-LD.
+
+Pour un résumé structuré de chaque article, consultez llms.txt.

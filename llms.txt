@@ -1,0 +1,37 @@
+# WebModerne
+
+> WebModerne est un blog francophone qui décrypte les rapports de recherche en intelligence artificielle et les explique en termes simples, sans jargon technique. Audience cible : non-techniques, entrepreneurs, décideurs.
+
+## À propos
+
+- Nom : WebModerne
+- Langue : Français
+- Thème : Intelligence artificielle expliquée aux non-techniques
+- URL : https://blog.webmoderne.com
+- YouTube : https://youtube.com/@WebModerne
+- Telegram : https://t.me/+Fon2ltdbEcc3N2Nh
+
+## Articles
+
+- [Anthropic Claude 2026 : Ce Qui Change Vraiment](https://blog.webmoderne.com/posts/anthropic-claude-2026.html) : Analyse des modèles Claude Sonnet 4.6 et Opus 4.6 d'Anthropic. Ce qui compte vraiment vs le marketing.
+- [Agents Autonomes : Comment les IA Décident Toutes Seules](https://blog.webmoderne.com/posts/test-agents-autonomes.html) : Les agents IA autonomes peuvent exécuter des tâches complexes sans intervention humaine. Décryptage du concept.
+- [Comment les IA Apprennent-Elles Vraiment ?](https://blog.webmoderne.com/posts/premier-article.html) : Décorticage d'un rapport de recherche sur l'apprentissage des modèles de langage.
+
+## Pages
+
+- [Accueil](https://blog.webmoderne.com/) : Page d'accueil avec les derniers articles
+- [À Propos](https://blog.webmoderne.com/about.html) : Mission et philosophie de WebModerne
+- [Tous les articles](https://blog.webmoderne.com/posts/) : Liste complète des articles publiés
+
+## Structure du site
+
+Chaque article suit le même format :
+1. Introduction contextuelle du sujet
+2. Explication en termes simples (pas de jargon)
+3. Tableaux de données et comparaisons avant/après quand applicable
+4. Section "Les Limites" pour la transparence
+5. Résumé "3 Points Clés" en fin d'article
+
+## Contact
+
+- Email : angel@webmoderne.com

@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/static/favicon.png">
-  <meta http-equiv="refresh" content="8;url=/">
+  <meta http-equiv="refresh" content="30;url=/">
   
   <style>
     :root {
@@ -215,11 +215,11 @@
         <div class="cli-error">
           <div class="prompt">$ curl blog.webmoderne.com/this-page</div>
           <div class="err">✗ 404 Not Found</div>
-          <div class="output">→ Redirecting to / in 8 seconds...</div>
+          <div class="output">→ Redirecting to / in <span id="countdown">30</span>s...</div>
         </div>
         <br>
         <a href="/" class="cta-home">Retour à l'accueil →</a>
-        <p class="redirect-note">Redirection automatique dans 8 secondes...</p>
+        <p class="redirect-note">Redirection automatique dans <span id="countdown-text">30</span> secondes...</p>
       </div>
     </main>
     
@@ -241,5 +241,21 @@
       </p>
     </footer>
   </div>
+  <script>
+    (function() {
+      var seconds = 30;
+      var el1 = document.getElementById('countdown');
+      var el2 = document.getElementById('countdown-text');
+      var timer = setInterval(function() {
+        seconds--;
+        if (el1) el1.textContent = seconds;
+        if (el2) el2.textContent = seconds;
+        if (seconds <= 0) {
+          clearInterval(timer);
+          window.location.href = '/';
+        }
+      }, 1000);
+    })();
+  </script>
 </body>
 </html>
