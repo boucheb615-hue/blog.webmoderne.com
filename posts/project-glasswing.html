@@ -72,6 +72,22 @@
       margin: 0;
       padding: 0;
     }
+
+    /* FULL-WIDTH BANNER — sits outside container */
+    .banner-full {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background: #000;
+    }
+    .banner-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
     .container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
     /* === HEADER === */
@@ -134,9 +150,9 @@
 
     /* === PAGE INTRO === */
     .page-intro {
-      padding: 40px 0 30px;
+      padding: 20px 0 20px;
       border-bottom: 1px solid var(--border-color);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
     .page-intro h1 {
       color: var(--accent-color);
@@ -151,6 +167,21 @@
       font-size: 1.05em;
       margin: 0;
     }
+
+    /* ARTICLE INTRO — 2-3 short phrases */
+    .article-intro {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: var(--code-bg);
+      border-left: 3px solid var(--accent-color);
+      border-radius: 0 8px 8px 0;
+    }
+    .article-intro p {
+      color: #ddd;
+      margin: 0 0 12px;
+      line-height: 1.8;
+    }
+    .article-intro p:last-child { margin-bottom: 0; }
 
     /* === BANNER === */
     .post-banner {
@@ -440,6 +471,11 @@
   </style>
 </head>
 <body>
+  <!-- FULL-WIDTH BANNER AT TOP -->
+  <div class="banner-full">
+    <img src="/static/images/project-glasswing-banner.png" alt="Project Glasswing : L'IA Trop Puissante Pour Être Publique" class="post-banner-full">
+  </div>
+
   <div class="container">
 
     <!-- HEADER -->
@@ -464,7 +500,11 @@
         <p>Publié le 09 avril 2026 • Tags: <span style="color: #db1a1a;">#ia</span> <span style="color: #db1a1a;">#cybersecurite</span> <span style="color: #db1a1a;">#anthropic</span> <span style="color: #db1a1a;">#vulnerabilites</span></p>
       </div>
 
-      <img src="/static/images/project-glasswing-banner.png" alt="Project Glasswing : L'IA Trop Puissante Pour Être Publique" class="post-banner">
+      <!-- INTRO (2-3 short phrases, natural French) -->
+      <div class="article-intro">
+        <p>Le 7 avril 2026, Anthropic a dévoilé Project Glasswing. Claude Mythos, ce modèle IA, identifie des vulnérabilités zero-day à une échelle industrielle.</p>
+        <p>Une faille vieille de 27 ans dans OpenBSD a été découverte en quelques minutes. Anthropic refuse de publier ce modèle — trop dangereux pour un accès public.</p>
+      </div>
 
       <article class="post-content">
         <h3>Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)</h3>
@@ -473,13 +513,13 @@
         <p class="callout">💡 <strong>Le saviez-vous ?</strong> Mythos a trouvé une faille dans OpenBSD — un système réputé pour son code le plus audité au monde — vieille de 27 ans. Personne ne l'avait jamais vue. Source : Anthropic Frontier Red Team, avril 2026.</p>
 
         <h2>Le Problème (La Fenêtre de Vulnérabilité Se Ferme)</h2>
-        <p>Imagine que tu laisses la porte de ta maison ouverte. En temps normal, un cambrioleur met des semaines à la trouver. Mais maintenant, il a un drone qui scanne chaque maison de la ville en quelques minutes. C'est exactement ce qui se passe en cybersécurité.</p>
+        <p>La fenêtre de vulnérabilité — le délai entre la découverte d'une faille et son exploitation — s'est réduite de manière critique.</p>
 
         <h3>La Fenêtre de Vulnérabilité (Le "Problème de Fenêtre")</h3>
         <p><strong>Avant</strong> : Un chercheur trouve un bug → un rapport est publié → l'éditeur corrige → les utilisateurs mettent à jour. La fenêtre entre la découverte et l'exploitation se mesurait en semaines, voire en mois.</p>
         <p><strong>Maintenant</strong> : Une IA peut découvrir et exploiter une vulnérabilité en quelques minutes. La fenêtre s'est effondrée.</p>
         <p class="callout"><strong>Exemple concret</strong> : En novembre 2025, un groupe lié à la Chine a utilisé Claude pour atteindre 80 à 90% d'exécution autonome sur 30 cibles gouvernementales. Plus besoin d'humains derrière le clavier — l'IA fait le travail seule.</p>
-        <p>Le CTO de CrowdStrike, Elia Zaitsev, le dit clairement : <em>"La fenêtre entre la découverte d'une vulnérabilité et son exploitation s'est effondrée — ce qui prenait des mois se fait maintenant en minutes avec l'IA."</em></p>
+        <p>Le CTO de CrowdStrike, Elia Zaitsev, le dit clairement : <em>« La fenêtre entre la découverte d'une vulnérabilité et son exploitation s'est effondrée — ce qui prenait des mois se fait maintenant en minutes avec l'IA. »</em></p>
 
         <h2>La Solution (Comment Anthropic A Répondu)</h2>
         <p>Plutôt que de publier Mythos et de laisser n'importe qui s'en servir, Anthropic a fait le choix inverse : restreindre l'accès et le donner uniquement à ceux qui en ont besoin pour défendre.</p>
@@ -506,36 +546,37 @@
         </div>
 
         <h4>Ce Que les Chiffres Disent Vraiment</h4>
+        <p>Mythos a été testé sur 4 benchmarks de cybersécurité et de développement. Chaque pourcentage représente le taux de réussite du modèle sur des tâches réelles. Comparaison avec Claude Opus 4.6, le meilleur modèle précédent :</p>
         <div class="stat-cards">
           <div class="stat-card">
-            <div class="stat-name">CyberGym (Reproduction de vulnérabilités)</div>
+            <div class="stat-name">CyberGym — Reproduction de vulnérabilités connues</div>
             <div class="stat-values">
-              <span class="stat-new">83.1%</span>
-              <span class="stat-old">66.6%</span>
+              <span class="stat-new">Mythos : 83.1%</span>
+              <span class="stat-old">Opus 4.6 : 66.6%</span>
               <span class="stat-gain">+25%</span>
             </div>
           </div>
           <div class="stat-card">
-            <div class="stat-name">SWE-bench Verified (Correction de code)</div>
+            <div class="stat-name">SWE-bench Verified — Correction de bugs réels</div>
             <div class="stat-values">
-              <span class="stat-new">93.9%</span>
-              <span class="stat-old">80.8%</span>
+              <span class="stat-new">Mythos : 93.9%</span>
+              <span class="stat-old">Opus 4.6 : 80.8%</span>
               <span class="stat-gain">+16%</span>
             </div>
           </div>
           <div class="stat-card">
-            <div class="stat-name">SWE-bench Pro</div>
+            <div class="stat-name">SWE-bench Pro — Tâches complexes multi-fichiers</div>
             <div class="stat-values">
-              <span class="stat-new">77.8%</span>
-              <span class="stat-old">53.4%</span>
+              <span class="stat-new">Mythos : 77.8%</span>
+              <span class="stat-old">Opus 4.6 : 53.4%</span>
               <span class="stat-gain">+46%</span>
             </div>
           </div>
           <div class="stat-card">
-            <div class="stat-name">Terminal-Bench 2.0</div>
+            <div class="stat-name">Terminal-Bench 2.0 — Automatisation de tâches système</div>
             <div class="stat-values">
-              <span class="stat-new">82.0%</span>
-              <span class="stat-old">65.4%</span>
+              <span class="stat-new">Mythos : 82.0%</span>
+              <span class="stat-old">Opus 4.6 : 65.4%</span>
               <span class="stat-gain">+25%</span>
             </div>
           </div>

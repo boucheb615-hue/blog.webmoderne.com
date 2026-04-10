@@ -78,6 +78,22 @@
       margin: 0;
       padding: 0;
     }
+
+    /* FULL-WIDTH BANNER — sits outside container */
+    .banner-full {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background: #000;
+    }
+    .banner-full img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
     .container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
     /* HEADER */
@@ -104,12 +120,27 @@
     }
 
     /* PAGE INTRO */
-    .page-intro { padding: 40px 0 30px; border-bottom: 1px solid var(--border-color); margin-bottom: 30px; }
+    .page-intro { padding: 20px 0 20px; border-bottom: 1px solid var(--border-color); margin-bottom: 20px; }
     .page-intro h1 {
       color: var(--accent-color); font-family: var(--font-mono); font-size: 2em;
       margin: 0 0 8px; text-transform: uppercase; letter-spacing: 1px;
     }
     .page-intro p { color: #aaa; font-size: 1.05em; margin: 0; }
+
+    /* ARTICLE INTRO — 2-3 short phrases */
+    .article-intro {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: var(--code-bg);
+      border-left: 3px solid var(--accent-color);
+      border-radius: 0 8px 8px 0;
+    }
+    .article-intro p {
+      color: #ddd;
+      margin: 0 0 12px;
+      line-height: 1.8;
+    }
+    .article-intro p:last-child { margin-bottom: 0; }
 
     /* BANNER */
     .post-banner { width: 100%; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 30px; }
@@ -228,8 +259,12 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- FULL-WIDTH BANNER AT TOP -->
+  <div class="banner-full">
+    <img src="/static/images/SLUG-banner.png" alt="ARTICLE_TITLE" class="post-banner-full">
+  </div>
 
+  <div class="container">
     <!-- HEADER -->
     <header class="header">
       <div class="header-top">
@@ -247,13 +282,17 @@
     </header>
 
     <main>
+      <!-- TITLE + DATE + TAGS (aligned vertically under banner) -->
       <div class="page-intro">
         <h1>ARTICLE_TITLE</h1>
         <p>Publié le DATE • Tags: <span style="color: #db1a1a;">#tag1</span> <span style="color: #db1a1a;">#tag2</span></p>
       </div>
 
-      <!-- Banner image (optional — remove if no banner) -->
-      <img src="/static/images/SLUG-banner.png" alt="ARTICLE_TITLE" class="post-banner">
+      <!-- INTRO (2-3 short phrases, natural French) -->
+      <div class="article-intro">
+        <p>Phrase d'accroche courte. Fait concret. Pas de traduction littérale de l'anglais.</p>
+        <p>Deuxième phrase sur l'impact réel. Troisième phrase si nécessaire.</p>
+      </div>
 
       <article class="post-content">
         <h3>Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)</h3>
