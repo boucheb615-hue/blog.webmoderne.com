@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Articles - WebModerne</title>
-  <meta name="description" content="Tous les articles WebModerne - L'IA expliquée simplement aux non-techniques.">
+  <title>404 - Page Introuvable | WebModerne</title>
+  <meta name="description" content="Cette page n'existe pas. Retour à l'accueil WebModerne.">
   <meta name="author" content="WebModerne">
-  <meta property="og:title" content="Articles - WebModerne">
-  <meta property="og:description" content="Tous les articles WebModerne - L'IA expliquée simplement aux non-techniques.">
-  <meta property="og:url" content="https://blog.webmoderne.com/posts/">
+  <meta property="og:title" content="404 - Page Introuvable | WebModerne">
+  <meta property="og:description" content="Cette page n'existe pas. Retour à l'accueil WebModerne.">
+  <meta property="og:url" content="https://blog.webmoderne.com/404.html">
   <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Articles - WebModerne">
-  <meta name="twitter:description" content="Tous les articles WebModerne - L'IA expliquée simplement aux non-techniques.">
-  <link rel="canonical" href="https://blog.webmoderne.com/posts/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://blog.webmoderne.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/static/favicon.png">
+  <meta http-equiv="refresh" content="8;url=/">
   
   <style>
     :root {
@@ -55,11 +54,7 @@
       gap: 10px;
       text-decoration: none;
     }
-    .logo {
-      height: 40px;
-      width: auto;
-      border-radius: 6px;
-    }
+    .logo { height: 40px; width: auto; border-radius: 6px; }
     .header h1 {
       color: var(--accent-color);
       font-family: var(--font-mono);
@@ -99,29 +94,77 @@
       color: var(--bg-color);
       border-color: var(--accent-color);
     }
-    .nav a.active {
-      background-color: var(--accent-color);
-      color: var(--bg-color);
-      border-color: var(--accent-color);
+    .error-content {
+      text-align: center;
+      padding: 80px 20px;
     }
-    .page-intro {
-      padding: 40px 0 30px;
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 40px;
-    }
-    .page-intro h1 {
-      color: var(--accent-color);
+    .error-code {
       font-family: var(--font-mono);
-      font-size: 2em;
-      margin: 0 0 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-size: 6em;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin: 0;
+      line-height: 1;
     }
-    .page-intro p {
+    .error-content h2 {
+      font-family: var(--font-mono);
+      color: var(--text-color);
+      font-size: 1.5em;
+      margin: 20px 0 10px;
+    }
+    .error-content p {
       color: #aaa;
       font-size: 1.05em;
-      margin: 0;
+      margin: 0 0 30px;
     }
+    .error-content .redirect-note {
+      color: #666;
+      font-family: var(--font-mono);
+      font-size: 0.85em;
+      margin-top: 20px;
+    }
+    .cta-home {
+      display: inline-block;
+      background: var(--accent-color);
+      color: var(--bg-color);
+      padding: 12px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-weight: bold;
+      font-size: 0.95em;
+      transition: all 0.3s ease;
+    }
+    .cta-home:hover {
+      background: #ff3333;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    .cli-error {
+      background: #000;
+      border: 1px solid var(--accent-color);
+      padding: 15px 20px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      display: inline-block;
+      text-align: left;
+      margin-bottom: 30px;
+      color: #00ff00;
+    }
+    .cli-error .prompt { color: #00ff00; }
+    .cli-error .output { color: #ccc; margin-left: 20px; }
+    .cli-error .err { color: var(--accent-color); font-weight: bold; }
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+    }
+    a { color: var(--accent-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
     @media (max-width: 768px) {
       .nav-toggle { display: block; }
       .header-top { position: relative; }
@@ -142,45 +185,8 @@
       .nav a { margin: 0; text-align: center; }
       .logo { height: 32px; }
       .header h1 { font-size: 1.1em; }
-      .page-intro h1 { font-size: 1.5em; }
-    }
-    .post-list { list-style: none; padding: 0; }
-    .post-item {
-      background: var(--code-bg);
-      border-left: 4px solid var(--accent-color);
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 0 8px 8px 0;
-      transition: border-color 0.3s ease;
-    }
-    .post-item:hover { border-left-color: #ff3333; }
-    .post-item h2 {
-      margin: 0 0 10px 0;
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      font-size: 1.15em;
-    }
-    .post-item h2 a { color: inherit; text-decoration: none; }
-    .post-item h2 a:hover { text-decoration: underline; }
-    .post-item .date {
-      color: #888;
-      font-family: var(--font-mono);
-      font-size: 0.85em;
-      margin-bottom: 10px;
-    }
-    .post-item .summary { color: #ccc; }
-    .footer {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
-      text-align: center;
-      color: #666;
-      font-size: 0.9em;
-    }
-    a { color: var(--accent-color); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    @media (max-width: 768px) {
-      .container { padding: 15px; }
+      .error-code { font-size: 4em; }
+      .error-content { padding: 50px 15px; }
     }
   </style>
 </head>
@@ -196,34 +202,25 @@
         <nav class="nav">
           <a href="/">Accueil</a>
           <a href="/about.html">À Propos</a>
-          <a href="/posts/" class="active">Articles</a>
+          <a href="/posts/">Articles</a>
         </nav>
       </div>
     </header>
     
     <main>
-      <div class="page-intro">
-        <h1>Articles</h1>
-        <p>Tous nos décryptages IA, expliqués simplement.</p>
+      <div class="error-content">
+        <p class="error-code">404</p>
+        <h2>Page Introuvable</h2>
+        <p>Cette page n'existe pas — ou elle a été déplacée.</p>
+        <div class="cli-error">
+          <div class="prompt">$ curl blog.webmoderne.com/this-page</div>
+          <div class="err">✗ 404 Not Found</div>
+          <div class="output">→ Redirecting to / in 8 seconds...</div>
+        </div>
+        <br>
+        <a href="/" class="cta-home">Retour à l'accueil →</a>
+        <p class="redirect-note">Redirection automatique dans 8 secondes...</p>
       </div>
-      
-      <ul class="post-list">
-        <li class="post-item">
-          <h2><a href="/posts/anthropic-claude-2026.html">Anthropic Claude 2026 : Ce Qui Change Vraiment Pour Toi</a></h2>
-          <div class="date">09 avril 2026</div>
-          <div class="summary">Anthropic vient de sortir Claude Sonnet 4.6 et Opus 4.6. On trie ce qui compte vraiment de ce qui est du marketing.</div>
-        </li>
-        <li class="post-item">
-          <h2><a href="/posts/test-agents-autonomes.html">Agents Autonomes : Comment les IA Prennent des Décisions Toutes Seules</a></h2>
-          <div class="date">09 avril 2026</div>
-          <div class="summary">Les agents IA autonomes peuvent exécuter des tâches complexes sans intervention humaine. On décortique comment ils fonctionnent vraiment.</div>
-        </li>
-        <li class="post-item">
-          <h2><a href="/posts/premier-article.html">Comment les IA Apprennent-Elles Vraiment ? Décryptage d'un Rapport ArXiv</a></h2>
-          <div class="date">9 avril 2026</div>
-          <div class="summary">On décortique ensemble un rapport de recherche sur l'apprentissage des modèles de langage - expliqué simplement, sans jargon technique.</div>
-        </li>
-      </ul>
     </main>
     
     <footer class="footer">

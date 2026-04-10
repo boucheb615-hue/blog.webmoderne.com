@@ -43,8 +43,8 @@
     .container { max-width: 900px; margin: 0 auto; padding: 20px; }
     .header {
       border-bottom: 2px solid var(--accent-color);
-      padding: 20px 0;
-      margin-bottom: 40px;
+      padding: 12px 0;
+      margin-bottom: 0;
     }
     .header-top {
       display: flex;
@@ -54,42 +54,37 @@
     .header-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      text-decoration: none;
     }
     .logo {
-      height: 44px;
+      height: 40px;
       width: auto;
       border-radius: 6px;
     }
     .header h1 {
       color: var(--accent-color);
       font-family: var(--font-mono);
-      font-size: 1.8em;
+      font-size: 1.4em;
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 2px;
-    }
-    .header .subtitle {
-      color: #aaa;
-      font-size: 0.95em;
-      margin-top: 2px;
-      margin-left: 2px;
     }
     .nav-toggle {
       display: none;
       background: none;
       border: 1px solid var(--accent-color);
       color: var(--text-color);
-      padding: 8px 12px;
+      padding: 6px 10px;
       cursor: pointer;
       font-family: var(--font-mono);
-      font-size: 1.2em;
+      font-size: 1.1em;
       border-radius: 4px;
     }
     .nav {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
     .nav a {
       color: var(--text-color);
@@ -100,7 +95,6 @@
       font-family: var(--font-mono);
       font-size: 0.85em;
       transition: all 0.3s ease;
-      display: inline-block;
     }
     .nav a:hover {
       background-color: var(--accent-color);
@@ -112,18 +106,32 @@
       color: var(--bg-color);
       border-color: var(--accent-color);
     }
+    .page-intro {
+      padding: 40px 0 30px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 40px;
+    }
+    .page-intro h1 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      font-size: 2em;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .page-intro p {
+      color: #aaa;
+      font-size: 1.05em;
+      margin: 0;
+    }
     @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-      }
-      .header-top {
-        position: relative;
-      }
+      .nav-toggle { display: block; }
+      .header-top { position: relative; }
       .nav {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 52px;
         right: 0;
         background: var(--bg-color);
         border: 1px solid var(--border-color);
@@ -132,22 +140,11 @@
         z-index: 100;
         width: 160px;
       }
-      .nav.active {
-        display: flex;
-      }
-      .nav a {
-        margin: 0;
-        text-align: center;
-      }
-      .logo {
-        height: 36px;
-      }
-      .header h1 {
-        font-size: 1.3em;
-      }
-      .header .subtitle {
-        font-size: 0.85em;
-      }
+      .nav.active { display: flex; }
+      .nav a { margin: 0; text-align: center; }
+      .logo { height: 32px; }
+      .header h1 { font-size: 1.1em; }
+      .page-intro h1 { font-size: 1.5em; }
     }
     .terminal-box {
       background: var(--code-bg);
@@ -167,13 +164,6 @@
       border-radius: 8px;
       border: 1px solid var(--border-color);
     }
-    .post-content h1 {
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 15px;
-      margin-top: 0;
-    }
     .post-content h2 {
       color: var(--accent-color);
       font-family: var(--font-mono);
@@ -183,10 +173,6 @@
       color: var(--accent-color);
       font-family: var(--font-mono);
       margin-top: 25px;
-    }
-    .post-content .date {
-      color: #888;
-      margin-bottom: 20px;
     }
     .post-content p {
       color: #ddd;
@@ -250,13 +236,10 @@
   <div class="container">
     <header class="header">
       <div class="header-top">
-        <div class="header-brand">
+        <a href="/" class="header-brand">
           <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
-          <div>
-            <h1>WebModerne</h1>
-            <div class="subtitle">L'IA expliquée simplement aux non-techniques</div>
-          </div>
-        </div>
+          <h1>WebModerne</h1>
+        </a>
         <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
         <nav class="nav">
           <a href="/">Accueil</a>
@@ -267,9 +250,11 @@
     </header>
     
     <main>
-      <article class="post-content">
+      <div class="page-intro">
         <h1>Agents Autonomes : Comment les IA Décident Vraiment Toutes Seules</h1>
-        <div class="date">Publié le 09 avril 2026 • Tags: <span style="color: #db1a1a;">#agents</span> <span style="color: #db1a1a;">#autonomie</span> <span style="color: #db1a1a;">#ia</span> <span style="color: #db1a1a;">#decision</span> <span style="color: #db1a1a;">#automatisation</span> </div>
+        <p>Publié le 09 avril 2026 · Tags: <span style="color: #db1a1a;">#agents</span> <span style="color: #db1a1a;">#autonomie</span> <span style="color: #db1a1a;">#ia</span> <span style="color: #db1a1a;">#decision</span> <span style="color: #db1a1a;">#automatisation</span></p>
+      </div>
+      <article class="post-content">
         <img src="/static/images/agents-autonomes-hero.svg" alt="Illustration doodle : agent IA autonome en 5 étapes" style="width: 100%; border-radius: 8px; margin: 20px 0; border: 1px solid var(--border-color);">
 
         <h1>Agents Autonomes : La Fin du Micro-Management ?</h1>

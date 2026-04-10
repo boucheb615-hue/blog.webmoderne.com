@@ -41,8 +41,8 @@
     .container { max-width: 900px; margin: 0 auto; padding: 20px; }
     .header {
       border-bottom: 2px solid var(--accent-color);
-      padding: 20px 0;
-      margin-bottom: 40px;
+      padding: 12px 0;
+      margin-bottom: 0;
     }
     .header-top {
       display: flex;
@@ -52,42 +52,37 @@
     .header-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      text-decoration: none;
     }
     .logo {
-      height: 44px;
+      height: 40px;
       width: auto;
       border-radius: 6px;
     }
     .header h1 {
       color: var(--accent-color);
       font-family: var(--font-mono);
-      font-size: 1.8em;
+      font-size: 1.4em;
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 2px;
-    }
-    .header .subtitle {
-      color: #aaa;
-      font-size: 0.95em;
-      margin-top: 2px;
-      margin-left: 2px;
     }
     .nav-toggle {
       display: none;
       background: none;
       border: 1px solid var(--accent-color);
       color: var(--text-color);
-      padding: 8px 12px;
+      padding: 6px 10px;
       cursor: pointer;
       font-family: var(--font-mono);
-      font-size: 1.2em;
+      font-size: 1.1em;
       border-radius: 4px;
     }
     .nav {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
     .nav a {
       color: var(--text-color);
@@ -98,7 +93,6 @@
       font-family: var(--font-mono);
       font-size: 0.85em;
       transition: all 0.3s ease;
-      display: inline-block;
     }
     .nav a:hover {
       background-color: var(--accent-color);
@@ -110,18 +104,32 @@
       color: var(--bg-color);
       border-color: var(--accent-color);
     }
+    .page-intro {
+      padding: 40px 0 30px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 40px;
+    }
+    .page-intro h1 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      font-size: 2em;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .page-intro p {
+      color: #aaa;
+      font-size: 1.05em;
+      margin: 0;
+    }
     @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-      }
-      .header-top {
-        position: relative;
-      }
+      .nav-toggle { display: block; }
+      .header-top { position: relative; }
       .nav {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 52px;
         right: 0;
         background: var(--bg-color);
         border: 1px solid var(--border-color);
@@ -130,57 +138,11 @@
         z-index: 100;
         width: 160px;
       }
-      .nav.active {
-        display: flex;
-      }
-      .nav a {
-        margin: 0;
-        text-align: center;
-      }
-      .logo {
-        height: 36px;
-      }
-      .header h1 {
-        font-size: 1.3em;
-      }
-      .header .subtitle {
-        font-size: 0.85em;
-      }
-    }
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-      background: var(--code-bg);
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      margin-bottom: 40px;
-    }
-    .hero h2 {
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      color: #ccc;
-      font-size: 1.1em;
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-    .hero .cta {
-      display: inline-block;
-      background: var(--accent-color);
-      color: var(--bg-color);
-      padding: 12px 24px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-family: var(--font-mono);
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-    .hero .cta:hover {
-      background: #ff3333;
-      transform: translateY(-2px);
+      .nav.active { display: flex; }
+      .nav a { margin: 0; text-align: center; }
+      .logo { height: 32px; }
+      .header h1 { font-size: 1.1em; }
+      .page-intro h1 { font-size: 1.5em; }
     }
     .latest-posts {
       margin-top: 40px;
@@ -239,8 +201,6 @@
     a:hover { text-decoration: underline; }
     @media (max-width: 768px) {
       .container { padding: 15px; }
-      .hero { padding: 40px 15px; }
-      .hero h2 { font-size: 1.5em; }
     }
   </style>
 </head>
@@ -248,13 +208,10 @@
   <div class="container">
     <header class="header">
       <div class="header-top">
-        <div class="header-brand">
+        <a href="/" class="header-brand">
           <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
-          <div>
-            <h1>WebModerne</h1>
-            <div class="subtitle">L'IA expliquée simplement aux non-techniques</div>
-          </div>
-        </div>
+          <h1>WebModerne</h1>
+        </a>
         <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
         <nav class="nav">
           <a href="/" class="active">Accueil</a>
@@ -265,10 +222,9 @@
     </header>
     
     <main>
-      <div class="hero">
-        <h2>Comprendre l'IA Sans Devenir Ingénieur</h2>
+      <div class="page-intro">
+        <h1>Comprendre l'IA Sans Devenir Ingénieur</h1>
         <p>On lit les rapports de recherche scientifique et on les explique en français simple, sans jargon technique.</p>
-        <a href="/posts/" class="cta">Voir les articles →</a>
       </div>
       
       <div class="latest-posts">
