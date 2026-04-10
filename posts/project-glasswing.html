@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Glasswing : L'IA Trop Puissante Pour Être Publique - WebModerne</title>
-  <meta name="description" content="Anthropic a crée un modèle IA capable de trouver des failles vieilles de 27 ans — mais trop dangereux pour le rendre public. Décryptage de Project Glasswing.">
+  <meta name="description" content="Anthropic a créé un modèle IA capable de trouver des failles vieilles de 27 ans — mais trop dangereux pour le rendre public. Décryptage de Project Glasswing.">
   <meta name="author" content="WebModerne">
   <meta property="og:title" content="Project Glasswing : L'IA Trop Puissante Pour Être Publique - WebModerne">
   <meta property="og:description" content="Anthropic a crée un modèle IA capable de trouver des failles vieilles de 27 ans — mais trop dangereux pour le rendre public. Décryptage de Project Glasswing.">
@@ -76,7 +76,7 @@
     <main>
       <div class="page-intro">
         <h1>Project Glasswing : L'IA Trop Puissante Pour Être Publique</h1>
-        <p>Publié le 09 avril 2026 • Tags: <span style="color: #db1a1a;">#ia</span> <span style="color: #db1a1a;">#cybersecurite</span> <span style="color: #db1a1a;">#anthropic</span> <span style="color: #db1a1a;">#vulnerabilites</span></p>
+        <p>Publié le 09 avril 2026 • Tags : <span style="color: #db1a1a;">#IA</span> <span style="color: #db1a1a;">#Cybersécurité</span> <span style="color: #db1a1a;">#Anthropic</span> <span style="color: #db1a1a;">#Vulnérabilités</span></p>
       </div>
 
       <!-- BANNER (after title, before intro) -->
@@ -88,13 +88,26 @@
         <p>Une faille vieille de 27 ans dans OpenBSD a été découverte en quelques minutes. Anthropic refuse de publier ce modèle — trop dangereux pour un accès public.</p>
       </div>
 
+      <!-- TABLE DES MATIÈRES -->
+      <nav class="toc" style="background: var(--code-bg); border-left: 3px solid var(--accent-color); border-radius: 0 8px 8px 0; padding: 20px; margin: 30px 0;">
+        <h4 style="color: var(--accent-color); font-family: var(--font-mono); margin: 0 0 15px; text-transform: uppercase; font-size: 0.85em;">📋 Sommaire</h4>
+        <ul style="margin: 0; padding-left: 20px; color: #ddd;">
+          <li style="margin-bottom: 8px;"><a href="#contexte" style="color: var(--accent-color); text-decoration: none;">Le Contexte — Pourquoi ce sujet est important maintenant</a></li>
+          <li style="margin-bottom: 8px;"><a href="#probleme" style="color: var(--accent-color); text-decoration: none;">Le Problème — La fenêtre de vulnérabilité se ferme</a></li>
+          <li style="margin-bottom: 8px;"><a href="#solution" style="color: var(--accent-color); text-decoration: none;">La Solution — Comment Anthropic a répondu</a></li>
+          <li style="margin-bottom: 8px;"><a href="#impact" style="color: var(--accent-color); text-decoration: none;">L'Impact Réel — Pourquoi ça compte pour toi</a></li>
+          <li style="margin-bottom: 8px;"><a href="#limites" style="color: var(--accent-color); text-decoration: none;">Les Limites — Ce que Glasswing ne résout pas</a></li>
+          <li style="margin-bottom: 8px;"><a href="#conclusion" style="color: var(--accent-color); text-decoration: none;">Les 3 Points Clés</a></li>
+        </ul>
+      </nav>
+
       <article class="post-content">
-        <h3>Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)</h3>
+        <h2 id="contexte">Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)</h2>
         <p>Le 7 avril 2026, Anthropic a annoncé Project Glasswing — une initiative sans précédent pour sécuriser les infrastructures critiques du monde entier avec l'IA. Ce n'est pas une simple mise à jour de modèle. C'est un changement de paradigme dans la façon dont on pense la cybersécurité.</p>
         <p><strong>Le constat</strong> : Claude Mythos Preview a découvert des dizaines de milliers de vulnérabilités zero-day (des failles jamais identifiées) dans tous les systèmes d'exploitation et navigateurs majeurs. Plus de 99% restent non corrigées aujourd'hui.</p>
-        <p class="callout">💡 <strong>Le saviez-vous ?</strong> Mythos a trouvé une faille dans OpenBSD — un système réputé pour son code le plus audité au monde — vieille de 27 ans. Personne ne l'avait jamais vue. Source : Anthropic Frontier Red Team, avril 2026.</p>
+        <p class="callout">💡 <strong>Le saviez-vous ?</strong> Mythos a aussi trouvé une faille dans FFmpeg — une bibliothèque utilisée par des milliards d'appareils — vieille de 16 ans. Une seule ligne de code, exécutée 5 millions de fois par des outils de test, jamais détectée. Source : Anthropic Frontier Red Team, avril 2026.</p>
 
-        <h2>Le Problème (La Fenêtre de Vulnérabilité Se Ferme)</h2>
+        <h2 id="probleme">Le Problème (La Fenêtre de Vulnérabilité Se Ferme)</h2>
         <p>La fenêtre de vulnérabilité — le délai entre la découverte d'une faille et son exploitation — s'est réduite de manière critique.</p>
 
         <h3>La Fenêtre de Vulnérabilité (Le "Problème de Fenêtre")</h3>
@@ -103,7 +116,7 @@
         <p class="callout"><strong>Exemple concret</strong> : En novembre 2025, un groupe lié à la Chine a utilisé Claude pour atteindre 80 à 90% d'exécution autonome sur 30 cibles gouvernementales. Plus besoin d'humains derrière le clavier — l'IA fait le travail seule.</p>
         <p>Le CTO de CrowdStrike, Elia Zaitsev, le dit clairement : <em>« La fenêtre entre la découverte d'une vulnérabilité et son exploitation s'est effondrée — ce qui prenait des mois se fait maintenant en minutes avec l'IA. »</em></p>
 
-        <h2>La Solution (Comment Anthropic A Répondu)</h2>
+        <h2 id="solution">La Solution (Comment Anthropic A Répondu)</h2>
         <p>Plutôt que de publier Mythos et de laisser n'importe qui s'en servir, Anthropic a fait le choix inverse : restreindre l'accès et le donner uniquement à ceux qui en ont besoin pour défendre.</p>
 
         <h3>Leur Approche (Étape par Étape)</h3>
@@ -165,7 +178,7 @@
         </div>
         <p>En langage simple : là où le meilleur modèle précédent réussissait 2 fois sur 3, Mythos réussit 4 fois sur 5. Et surtout — il a trouvé des dizaines de milliers de failles zero-day contre ~500 pour Opus 4.6. Ce n'est pas une amélioration progressive. C'est un saut qualitatif.</p>
 
-        <h2>Pourquoi Ça Compte Pour Toi (L'Impact Réel)</h2>
+        <h2 id="impact">Pourquoi Ça Compte Pour Toi (L'Impact Réel)</h2>
 
         <h4>Avant vs Maintenant</h4>
         <div class="contrast-list">
@@ -209,7 +222,7 @@
         </ul>
         <p class="callout">⚠️ <strong>Par contre</strong> : Ce modèle ne sera pas accessible à la communauté de la sécurité ouverte. Seules les plus grandes entreprises du monde y auront accès. Cela pose une question légitime de concentration du pouvoir.</p>
 
-        <h2>Les Limites (Ce Que Project Glasswing Ne Résout Pas)</h2>
+        <h2 id="limites">Les Limites (Ce Que Project Glasswing Ne Résout Pas)</h2>
         <ul>
           <li>❌ <strong>Inégalité d'accès</strong> : Les petites entreprises, les chercheurs indépendants et les pays en développement n'auront pas accès à Mythos. Seules les plus grandes organisations du monde peuvent participer.</li>
           <li>❌ <strong>Double usage</strong> : Les mêmes capacités qui trouvent les failles pour les corriger peuvent aussi les exploiter. C'est le dilemme fondamental de Project Glasswing.</li>
@@ -217,10 +230,21 @@
           <li>❌ <strong>99% des failles non corrigées</strong> : Même avec Mythos, la vaste majorité des vulnérabilités découvertes restent sans correctif. Le problème n'est pas seulement de trouver les bugs — c'est de les corriger à temps.</li>
         </ul>
 
-        <h2>Les 3 Points Clés à Retenir</h2>
-        <p>1. <strong>L'IA est devenue trop puissante pour être publique</strong> : Anthropic refuse de publier Mythos — un signal sans précédent dans l'industrie.</p>
-        <p>2. <strong>La course est lancée</strong> : Anthropic estime 6 à 18 mois avant que des capacités similaires existent ailleurs. Le temps presse pour les défenseurs.</p>
-        <p>3. <strong>Le vrai problème n'est pas technique, c'est humain</strong> : Trouver les failles, l'IA sait faire. Les corriger à temps avant que les attaquants n'en profitent — c'est là que tout se joue.</p>
+        <h2 id="conclusion">Les 3 Points Clés à Retenir</h2>
+        <div class="faq-list">
+          <div class="faq-block">
+            <div class="faq-q">🔐 Pourquoi l'IA est-elle "trop puissante pour être publique" ?</div>
+            <div class="faq-a">Anthropic refuse de publier Mythos — un signal sans précédent. Le modèle trouve des dizaines de milliers de failles zero-day que n'importe qui pourrait exploiter. Le risque dépasse le bénéfice.</div>
+          </div>
+          <div class="faq-block">
+            <div class="faq-q">⏱️ Quelle est l'urgence réelle ?</div>
+            <div class="faq-a">Anthropic estime 6 à 18 mois avant que des capacités similaires soient disponibles ailleurs. C'est la fenêtre pour corriger les infrastructures critiques avant que les attaquants n'obtiennent les mêmes outils.</div>
+          </div>
+          <div class="faq-block">
+            <div class="faq-q">🎯 Quel est le vrai problème ?</div>
+            <div class="faq-a">Trouver les failles, l'IA sait faire. Les corriger à temps avant que les attaquants n'en profitent — c'est là que tout se joue. 99% des vulnérabilités découvertes restent non corrigées aujourd'hui.</div>
+          </div>
+        </div>
 
         <h3>Pour Aller Plus Loin (Sources et Lectures)</h3>
         <h4>Sources Originales</h4>
