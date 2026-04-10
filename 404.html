@@ -55,7 +55,7 @@
       text-decoration: none;
     }
     .logo { height: 40px; width: auto; border-radius: 6px; }
-    .header h1 {
+    .header h1, .header .brand-name {
       color: var(--accent-color);
       font-family: var(--font-mono);
       font-size: 1.4em;
@@ -196,7 +196,7 @@
       <div class="header-top">
         <a href="/" class="header-brand">
           <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
-          <h1>WebModerne</h1>
+          <span class="brand-name">WebModerne</span>
         </a>
         <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
         <nav class="nav">
@@ -219,7 +219,6 @@
         </div>
         <br>
         <a href="/" class="cta-home">Retour à l'accueil →</a>
-        <p class="redirect-note">Redirection automatique dans <span id="countdown-text">30</span> secondes...</p>
       </div>
     </main>
     
@@ -244,12 +243,10 @@
   <script>
     (function() {
       var seconds = 30;
-      var el1 = document.getElementById('countdown');
-      var el2 = document.getElementById('countdown-text');
+      var el = document.getElementById('countdown');
       var timer = setInterval(function() {
         seconds--;
-        if (el1) el1.textContent = seconds;
-        if (el2) el2.textContent = seconds;
+        if (el) el.textContent = seconds;
         if (seconds <= 0) {
           clearInterval(timer);
           window.location.href = '/';

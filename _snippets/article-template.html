@@ -22,6 +22,37 @@
   <link rel="icon" type="image/png" href="/static/favicon.png">
   <!-- GOOGLE_ANALYTICS -->
 
+  <!-- JSON-LD Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ARTICLE_TITLE",
+    "description": "ARTICLE_DESC_155CHARS",
+    "url": "https://blog.webmoderne.com/posts/SLUG.html",
+    "inLanguage": "fr",
+    "datePublished": "DATE",
+    "author": {
+      "@type": "Organization",
+      "name": "WebModerne",
+      "url": "https://blog.webmoderne.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "WebModerne",
+      "url": "https://blog.webmoderne.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://blog.webmoderne.com/static/logo.png"
+      }
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://blog.webmoderne.com/static/images/SLUG-banner.png"
+    }
+  }
+  </script>
+
   <style>
     /* ============================================================
        WEBMODERNE ARTICLE TEMPLATE — Mobile-first, no tables
@@ -225,9 +256,6 @@
       <img src="/static/images/SLUG-banner.png" alt="ARTICLE_TITLE" class="post-banner">
 
       <article class="post-content">
-        <h2>ARTICLE_TITLE</h2>
-        <p class="callout"><strong>En 30 secondes</strong> : Résumé ultra-court en 1-2 phrases.</p>
-
         <h3>Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)</h3>
         <p>Paragraphe de contexte...</p>
         <p class="callout">💡 <strong>Le saviez-vous ?</strong> Insight surprenant ici.</p>
@@ -299,16 +327,7 @@
           <li>❌ <strong>Limite 2</strong> : Description</li>
         </ul>
 
-        <h2>En Résumé (À Retenir Absolument)</h2>
-        <!-- FAQ BLOCKS — replaces summary tables -->
-        <div class="faq-list">
-          <div class="faq-block">
-            <div class="faq-q">Question fondamentale ?</div>
-            <div class="faq-a">Réponse en 1 phrase.</div>
-          </div>
-        </div>
-
-        <h4>Les 3 Points Clés à Retenir</h4>
+        <h2>Les 3 Points Clés à Retenir</h2>
         <p>1. <strong>Point 1</strong> : Phrase mémorable</p>
         <p>2. <strong>Point 2</strong> : Phrase mémorable</p>
         <p>3. <strong>Point 3</strong> : Phrase mémorable</p>
