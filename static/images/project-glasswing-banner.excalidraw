@@ -1,0 +1,188 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "hermes-agent",
+  "elements": [
+    {
+      "type": "rectangle", "id": "bg",
+      "x": -200, "y": -100, "width": 1200, "height": 600,
+      "backgroundColor": "#090935", "fillStyle": "solid",
+      "strokeColor": "transparent", "strokeWidth": 0
+    },
+    {
+      "type": "diamond", "id": "shield",
+      "x": 80, "y": 60, "width": 200, "height": 260,
+      "backgroundColor": "#1a1a5a", "fillStyle": "solid",
+      "strokeColor": "#db1a1a", "strokeWidth": 3,
+      "roughness": 2,
+      "boundElements": [{ "id": "shield_text", "type": "text" }]
+    },
+    {
+      "type": "text", "id": "shield_text",
+      "x": 130, "y": 155, "width": 100, "height": 30,
+      "text": "DEFEND", "fontSize": 24, "fontFamily": 1,
+      "strokeColor": "#db1a1a",
+      "textAlign": "center", "verticalAlign": "middle",
+      "containerId": "shield", "originalText": "DEFEND", "autoResize": true
+    },
+    {
+      "type": "text", "id": "check",
+      "x": 155, "y": 200, "width": 50, "height": 40,
+      "text": ">> SECURED", "fontSize": 18, "fontFamily": 1,
+      "strokeColor": "#22c55e",
+      "textAlign": "center",
+      "originalText": ">> SECURED", "autoResize": true
+    },
+    {
+      "type": "ellipse", "id": "wing_left",
+      "x": 350, "y": 80, "width": 180, "height": 140,
+      "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeColor": "#db1a1a", "strokeWidth": 2,
+      "roughness": 3
+    },
+    {
+      "type": "ellipse", "id": "wing_left_inner",
+      "x": 380, "y": 110, "width": 100, "height": 80,
+      "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeColor": "#db1a1a", "strokeWidth": 1,
+      "roughness": 3
+    },
+    {
+      "type": "ellipse", "id": "wing_right",
+      "x": 470, "y": 80, "width": 180, "height": 140,
+      "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeColor": "#db1a1a", "strokeWidth": 2,
+      "roughness": 3
+    },
+    {
+      "type": "ellipse", "id": "wing_right_inner",
+      "x": 520, "y": 110, "width": 100, "height": 80,
+      "backgroundColor": "transparent", "fillStyle": "solid",
+      "strokeColor": "#db1a1a", "strokeWidth": 1,
+      "roughness": 3
+    },
+    {
+      "type": "line", "id": "body",
+      "x": 500, "y": 70, "width": 0, "height": 180,
+      "points": [[0,0],[0,180]],
+      "strokeColor": "#e5e5e5", "strokeWidth": 3,
+      "roughness": 2
+    },
+    {
+      "type": "line", "id": "antenna_l",
+      "x": 500, "y": 70, "width": -40, "height": -40,
+      "points": [[0,0],[-40,-40]],
+      "strokeColor": "#e5e5e5", "strokeWidth": 2,
+      "roughness": 3
+    },
+    {
+      "type": "line", "id": "antenna_r",
+      "x": 500, "y": 70, "width": 40, "height": -40,
+      "points": [[0,0],[40,-40]],
+      "strokeColor": "#e5e5e5", "strokeWidth": 2,
+      "roughness": 3
+    },
+    {
+      "type": "arrow", "id": "arrow_to_shield",
+      "x": 340, "y": 180, "width": -60, "height": 0,
+      "points": [[0,0],[-60,0]],
+      "strokeColor": "#22c55e", "strokeWidth": 2,
+      "endArrowhead": "arrow",
+      "roughness": 2
+    },
+    {
+      "type": "rectangle", "id": "terminal_box",
+      "x": 720, "y": 60, "width": 240, "height": 260,
+      "backgroundColor": "#000000", "fillStyle": "solid",
+      "strokeColor": "#db1a1a", "strokeWidth": 2,
+      "roughness": 1
+    },
+    {
+      "type": "text", "id": "code1",
+      "x": 740, "y": 80, "width": 200, "height": 20,
+      "text": "$ mythos scan", "fontSize": 16, "fontFamily": 3,
+      "strokeColor": "#22c55e",
+      "originalText": "$ mythos scan", "autoResize": true
+    },
+    {
+      "type": "text", "id": "code2",
+      "x": 740, "y": 108, "width": 200, "height": 20,
+      "text": "> Found: 0-day vuln", "fontSize": 16, "fontFamily": 3,
+      "strokeColor": "#a0a0a0",
+      "originalText": "> Found: 0-day vuln", "autoResize": true
+    },
+    {
+      "type": "text", "id": "code3",
+      "x": 740, "y": 136, "width": 200, "height": 20,
+      "text": "> Age: 27 years", "fontSize": 16, "fontFamily": 3,
+      "strokeColor": "#a0a0a0",
+      "originalText": "> Age: 27 years", "autoResize": true
+    },
+    {
+      "type": "text", "id": "code4",
+      "x": 740, "y": 164, "width": 200, "height": 20,
+      "text": "> Risk: CRITICAL", "fontSize": 16, "fontFamily": 3,
+      "strokeColor": "#db1a1a",
+      "originalText": "> Risk: CRITICAL", "autoResize": true
+    },
+    {
+      "type": "text", "id": "code5",
+      "x": 740, "y": 200, "width": 200, "height": 20,
+      "text": "> Patch proposed...", "fontSize": 16, "fontFamily": 3,
+      "strokeColor": "#a0a0a0",
+      "originalText": "> Patch proposed...", "autoResize": true
+    },
+    {
+      "type": "text", "id": "code6",
+      "x": 740, "y": 240, "width": 200, "height": 20,
+      "text": "✓ Secured", "fontSize": 18, "fontFamily": 3,
+      "strokeColor": "#22c55e",
+      "originalText": "✓ Secured", "autoResize": true
+    },
+    {
+      "type": "arrow", "id": "arrow_to_code",
+      "x": 660, "y": 180, "width": 60, "height": 0,
+      "points": [[0,0],[60,0]],
+      "strokeColor": "#db1a1a", "strokeWidth": 2,
+      "endArrowhead": "arrow",
+      "roughness": 2
+    },
+    {
+      "type": "text", "id": "title",
+      "x": 180, "y": 360, "width": 600, "height": 50,
+      "text": "PROJECT GLASSWING", "fontSize": 40, "fontFamily": 1,
+      "strokeColor": "#db1a1a",
+      "textAlign": "center",
+      "originalText": "PROJECT GLASSWING", "autoResize": true
+    },
+    {
+      "type": "text", "id": "subtitle",
+      "x": 230, "y": 420, "width": 500, "height": 30,
+      "text": "L'IA trop puissante pour etre publique", "fontSize": 20, "fontFamily": 1,
+      "strokeColor": "#a0a0a0",
+      "textAlign": "center",
+      "originalText": "L'IA trop puissante pour etre publique", "autoResize": true
+    },
+    {
+      "type": "ellipse", "id": "dot1",
+      "x": 700, "y": 380, "width": 12, "height": 12,
+      "backgroundColor": "#db1a1a", "fillStyle": "solid",
+      "strokeColor": "transparent", "strokeWidth": 0
+    },
+    {
+      "type": "ellipse", "id": "dot2",
+      "x": 725, "y": 380, "width": 12, "height": 12,
+      "backgroundColor": "#22c55e", "fillStyle": "solid",
+      "strokeColor": "transparent", "strokeWidth": 0
+    },
+    {
+      "type": "ellipse", "id": "dot3",
+      "x": 750, "y": 380, "width": 12, "height": 12,
+      "backgroundColor": "#4a9eed", "fillStyle": "solid",
+      "strokeColor": "transparent", "strokeWidth": 0
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#090935"
+  }
+}
