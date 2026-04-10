@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agents Autonomes : Comment les IA Prennent des Décisions Toutes Seules - WebModerne</title>
+  <meta name="description" content="Les agents IA autonomes peuvent exécuter des tâches complexes sans intervention humaine. On décortique comment ils fonctionnent vraiment.">
+  <meta name="author" content="Angel - WebModerne">
+  <link rel="icon" type="image/png" href="/favicon.ico">
+  
+  <style>
+    :root {
+      --bg-color: #090935;
+      --accent-color: #db1a1a;
+      --text-color: #ffffff;
+      --code-bg: #0a0a4a;
+      --border-color: #1a1a5a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+    .header {
+      border-bottom: 2px solid var(--accent-color);
+      padding: 30px 0;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      color: var(--accent-color);
+      font-size: 2.5em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .header .subtitle {
+      color: #aaa;
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+    .nav { margin: 20px 0; }
+    .nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin-right: 20px;
+      padding: 8px 16px;
+      border: 1px solid var(--accent-color);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .nav a:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+    }
+    .terminal-box {
+      background: var(--code-bg);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .terminal-box h3 {
+      color: var(--accent-color);
+      margin-top: 0;
+    }
+    .post-content {
+      background: var(--code-bg);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+    .post-content h1 {
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 15px;
+      margin-top: 0;
+    }
+    .post-content h2 {
+      color: var(--accent-color);
+      margin-top: 30px;
+    }
+    .post-content h3 {
+      color: var(--accent-color);
+      margin-top: 25px;
+    }
+    .post-content .date {
+      color: #888;
+      margin-bottom: 20px;
+    }
+    .post-content p {
+      color: #ddd;
+    }
+    .cli-illustration {
+      background: #000;
+      border: 1px solid var(--accent-color);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    .cli-illustration .prompt { color: #00ff00; }
+    .cli-illustration .output { color: #ccc; margin-left: 20px; }
+    .cli-illustration .agent { color: var(--accent-color); font-weight: bold; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: var(--code-bg);
+      color: var(--accent-color);
+    }
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+    }
+    a { color: var(--accent-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    @media (max-width: 768px) {
+      .container { padding: 15px; }
+      .header h1 { font-size: 1.8em; }
+      .nav a { display: block; margin-bottom: 10px; }
+      .post-content { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>WebModerne</h1>
+      <div class="subtitle">L'IA expliquée simplement aux non-techniques</div>
+    </header>
+    
+    <nav class="nav">
+      <a href="/">Accueil</a>
+      <a href="/about.html">À Propos</a>
+      <a href="/posts/">Articles</a>
+    </nav>
+    
+    <main>
+      <article class="post-content">
+        <h1>Agents Autonomes : Comment les IA Prennent des Décisions Toutes Seules</h1>
+        <div class="date">Publié le 09 avril 2026 • Tags: <span style="color: #db1a1a;">#agents</span> <span style="color: #db1a1a;">#autonomie</span> <span style="color: #db1a1a;">#ia</span> <span style="color: #db1a1a;">#decision</span> </div>
+
+        <h1>Le Problème</h1>
+        <p>Tu as entendu parler des "agents IA autonomes" partout : Claude Code, Devin, AutoGPT...</p>
+        <p>Mais <strong>comment une IA peut-elle prendre des décisions toute seule ?</strong></p>
+        <p>Est-ce de la magie ? De la vraie intelligence ? Ou juste du code bien orchestré ?</p>
+        <h2>La Question en Termes Simples</h2>
+        <p>C'est comme demander :</p>
+        <p style="color: #00ff00; font-family: monospace;">"Comment un enfant apprend à faire ses devoirs sans que tu sois derrière lui ?"</p>
+        <p>Au début, tu guides chaque étape. Puis il comprend le processus. Enfin, il travaille seul.</p>
+        <p>Les agents IA, c'est la même chose.</p>
+        <h1>La Solution (Ce Qu'On A Testé)</h1>
+        <p>On a observé un agent IA exécuter une tâche complexe : créer un blog post from scratch.</p>
+        <div class="cli-illustration">
+          <div class="prompt">$ agent run --task="create-blog-post" --topic="Claude 2026"</div>
+          <div class="output">&gt; Step 1: Researching topic...</div>
+          <div class="output">&gt; Step 2: Outlining structure...</div>
+          <div class="output">&gt; Step 3: Writing content...</div>
+          <div class="output">&gt; Step 4: Generating HTML...</div>
+          <div class="output">&gt; Step 5: Validating output...</div>
+          <div class="agent">✓ Agent IA a complété la tâche en 47 secondes</div>
+        </div>
+        <h2>Leur Découverte</h2>
+        <p>Voici ce qui se passe <strong>vraiment</strong> sous le capot :</p>
+        <table>
+          <tr>
+            <th>Étape</th>
+            <th>Ce que fait l'agent</th>
+            <th>Outils utilisés</th>
+          </tr>
+          <tr>
+            <td>1. Compréhension</td>
+            <td>Analyse la demande</td>
+            <td>LLM (Claude, GPT)</td>
+          </tr>
+          <tr>
+            <td>2. Planification</td>
+            <td>Découpe en sous-tâches</td>
+            <td>Reasoning model</td>
+          </tr>
+          <tr>
+            <td>3. Exécution</td>
+            <td>Appelle des outils</td>
+            <td>API, terminal, fichiers</td>
+          </tr>
+          <tr>
+            <td>4. Validation</td>
+            <td>Vérifie le résultat</td>
+            <td>Tests, comparaison</td>
+          </tr>
+          <tr>
+            <td>5. Itération</td>
+            <td>Corrige les erreurs</td>
+            <td>Boucle de feedback</td>
+          </tr>
+        </table>
+        <h1>Pourquoi Ça Compte Pour Toi</h1>
+        <h3>L'Impact Réel</h3>
+        <p><strong>Avant</strong> : Tu devais écrire chaque commande, chaque fichier, chaque ligne de code</p>
+        <p><strong>Maintenant</strong> : Tu décris le résultat voulu, l'agent s'occupe du reste</p>
+        <p><strong>Pour toi</strong> : Gain de temps massif sur les tâches répétitives</p>
+        <h3>Concrètement :</h3>
+        <ul>
+          <li>✅ <strong>Développement</strong> : L'agent écrit le code, tu reviews</li>
+          <li>✅ <strong>Recherche</strong> : L'agent lit 50 articles, tu lis le résumé</li>
+          <li>✅ <strong>Automatisation</strong> : L'agent surveille, alerte, agit pendant que tu dors</li>
+        </ul>
+        <h3>Par contre :</h3>
+        <ul>
+          <li>❌ L'agent peut faire des erreurs de compréhension</li>
+          <li>❌ Tu dois toujours valider le résultat final</li>
+          <li>❌ Les tâches créatives pures restent humaines</li>
+        </ul>
+        <h1>Le Cycle de Décision d'un Agent</h1>
+        <div class="cli-illustration">
+          <div class="prompt">$ agent analyze --mode=decision-cycle</div>
+          <div class="output">&gt; Input: "Create a blog post about AI agents"</div>
+          <div class="output">&gt; </div>
+          <div class="output">&gt; [PERCEPTION]</div>
+          <div class="output">&gt;   - Detected: task type = content creation</div>
+          <div class="output">&gt;   - Detected: topic = AI agents</div>
+          <div class="output">&gt;   - Detected: format = blog post</div>
+          <div class="output">&gt;</div>
+          <div class="output">&gt; [PLANNING]</div>
+          <div class="output">&gt;   - Subtask 1: Research existing content</div>
+          <div class="output">&gt;   - Subtask 2: Create outline</div>
+          <div class="output">&gt;   - Subtask 3: Write draft</div>
+          <div class="output">&gt;   - Subtask 4: Generate HTML</div>
+          <div class="output">&gt;</div>
+          <div class="output">&gt; [EXECUTION]</div>
+          <div class="output">&gt;   - Calling: web_search(query="AI agents 2026")</div>
+          <div class="output">&gt;   - Calling: write_file(path="post.md")</div>
+          <div class="output">&gt;   - Calling: wm build post</div>
+          <div class="output">&gt;</div>
+          <div class="output">&gt; [VALIDATION]</div>
+          <div class="output">&gt;   - Check: file exists? ✓</div>
+          <div class="output">&gt;   - Check: HTML valid? ✓</div>
+          <div class="output">&gt;   - Check: content relevant? ✓</div>
+          <div class="output">&gt;</div>
+          <div class="output">&gt; ✓ Agent IA a pris 12 décisions autonomes</div>
+        </div>
+        <h1>En Résumé</h1>
+        <table>
+          <tr>
+            <th>Question</th>
+            <th>Réponse</th>
+          </tr>
+          <tr>
+            <td>C'est vraiment autonome ?</td>
+            <td>Oui, mais dans un cadre défini</td>
+          </tr>
+          <tr>
+            <td>Ça remplace les humains ?</td>
+            <td>Non, ça amplifie tes capacités</td>
+          </tr>
+          <tr>
+            <td>Je dois savoir coder ?</td>
+            <td>Non, mais ça aide pour debugger</td>
+          </tr>
+          <tr>
+            <td>C'est fiable ?</td>
+            <td>80-90% du temps. Tu reviews le reste</td>
+          </tr>
+        </table>
+        <p><strong>Prochain article</strong> : On va comparer les principaux agents autonomes (Claude Code vs Cursor vs Devin) - lequel vaut le coup ?</p>
+        <h3>Tu veux aller plus loin ?</h3>
+        <p>Le rapport original : <a href="https://www.anthropic.com/claude-code" style="color: #db1a1a;">Anthropic Claude Code</a> (en anglais)</p>
+        <p>Notre version : celle que tu viens de lire 😊</p>
+        <hr style="border: 1px solid var(--border-color); margin: 30px 0;">
+        
+        <div style="margin-top: 40px; text-align: center;">
+          <a href="/posts/" style="color: #db1a1a;">← Retour aux articles</a>
+        </div>
+      </article>
+    </main>
+    
+    <footer class="footer">
+      <p>&copy; 2026 WebModerne - Tous droits réservés</p>
+      <p>Propulsé par <a href="https://github.com/boucheb615-hue/blog.webmoderne.com">GitHub Pages</a></p>
+    </footer>
+  </div>
+</body>
+</html>
