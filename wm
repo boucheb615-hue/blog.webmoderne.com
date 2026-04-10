@@ -88,71 +88,126 @@ cmd_create() {
     fi
     
     local today=$(date +"%d %B %Y")
-    
-    cat > "$file" << TEMPLATE
+# Template pour les articles (optimisé selon best practices Kontent.ai)
+cat << 'TEMPLATE' > "$file"
 ---
-title: "Titre de l'article"
-date: "$today"
-tags: ["ia", "vulgarisation", "recherche"]
-description: "Description courte en une phrase"
+title: "[Titre accrocheur : bénéfice concret OU question provocante - max 60 caractères]"
+date: "$(date +'%d %B %Y')"
+tags: ["ia", "recherche", "vulgarisation"]
+description: "[Résumé en 150-160 caractères max - ce qui apparaît dans Google. Doit contenir le bénéfice principal]"
 ---
 
-# Le Problème
+# [Titre H1 : Le problème principal ou la promesse principale]
+
+> **En 30 secondes** : [Résumé ultra-court en 1-2 phrases. Ce que le lecteur va apprendre et pourquoi ça le concerne directement.]
+
+## Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)
+
+[Paragraphe court : 2-3 phrases max. Situer le problème dans l'actualité ou une tendance récente.]
+
+**Le constat** : [Chiffre clé, statistique ou fait marquant qui prouve l'importance du sujet]
+
+> 💡 **Le saviez-vous ?** : [Insight surprenant ou contre-intuitif. Source : nom de l'étude/rapport]
+
+# Le Problème (Ce Que les Chercheurs Ont Voulu Résoudre)
 
 [Expliquer le problème que le rapport de recherche adresse]
 
 ## La Question en Termes Simples
 
-[Une analogie ou explication simple]
+[Une analogie du quotidien pour expliquer le concept technique]
 
-# La Solution (Ce qu'ont fait les chercheurs)
+> **Exemple concret** : [Scénario réel que le lecteur peut visualiser immédiatement]
 
-[Décrire la méthodologie]
+# La Solution (Comment les Chercheurs Ont Testé Leur Hypothèse)
 
-## Leur Découverte
+[Décrire la méthodologie en termes accessibles]
+
+## Leur Approche (Step-by-Step)
+
+1. **[Étape 1]** : [Description simple]
+2. **[Étape 2]** : [Description simple]
+3. **[Étape 3]** : [Description simple]
+
+## Leur Découverte (Les Résultats Concrets)
 
 \`\`\`
 \$ agent analyze --task=comprehension
 > Testing...
-> Result: [résultat]
-✓ Agent IA a détecté [conclusion]
+> Result: [résultat chiffré si possible]
+✓ Agent IA a détecté [conclusion claire]
 \`\`\`
 
-[Interprétation des résultats]
+### Ce Que les Chiffres Disent Vraiment
 
-# Pourquoi Ça Compte Pour Toi
+| Métrique | Avant | Après | Gain |
+|----------|-------|-------|------|
+| [Métrique 1] | [Valeur] | [Valeur] | [+X%] |
+| [Métrique 2] | [Valeur] | [Valeur] | [+X%] |
+| [Métrique 3] | [Valeur] | [Valeur] | [+X%] |
 
-### L'Impact Réel
+[Interprétation : qu'est-ce que ces chiffres signifient pour un non-expert]
 
-**Avant** : [situation avant]
+# Pourquoi Ça Compte Pour Toi (L'Impact Réel)
 
-**Maintenant** : [situation maintenant]
+### Avant vs Maintenant
 
-**Pour toi** : [bénéfice concret]
+| Situation | Avant | Maintenant |
+|-----------|-------|------------|
+| [Tâche 1] | [Description] | [Description] |
+| [Tâche 2] | [Description] | [Description] |
+| [Tâche 3] | [Description] | [Description] |
 
-### Concrètement :
+### Concrètement, Tu Gagnes :
 
-- ✅ [Bénéfice 1]
-- ✅ [Bénéfice 2]
-- ✅ [Bénéfice 3]
+- ✅ **[Bénéfice 1]** : [Explication en 1 phrase]
+- ✅ **[Bénéfice 2]** : [Explication en 1 phrase]
+- ✅ **[Bénéfice 3]** : [Explication en 1 phrase]
 
-# En Résumé
+> ⚠️ **Par contre** : [Limitation honnête - ce que la solution ne fait PAS. Crée la crédibilité]
+
+# Les Limites (Ce Que l'Étude Ne Dit Pas)
+
+[Soyez transparent sur les faiblesses méthodologiques ou les questions sans réponse]
+
+- ❌ [Limite 1]
+- ❌ [Limite 2]
+- ❌ [Limite 3]
+
+# En Résumé (À Retenir Absolument)
 
 | Question | Réponse |
 |----------|---------|
-| [Question 1] | [Réponse 1] |
-| [Question 2] | [Réponse 2] |
-| [Question 3] | [Réponse 3] |
+| [Question fondamentale 1] | [Réponse en 1 phrase] |
+| [Question fondamentale 2] | [Réponse en 1 phrase] |
+| [Question fondamentale 3] | [Réponse en 1 phrase] |
+
+### Les 3 Points Clés à Retenir
+
+1. **[Point 1]** : [Phrase mémorable]
+2. **[Point 2]** : [Phrase mémorable]
+3. **[Point 3]** : [Phrase mémorable]
 
 ---
 
-**Prochain article** : [Teaser du prochain article]
+## Pour Aller Plus loin (Sources et Lectures)
 
-### Tu veux aller plus loin ?
+### Sources Originales
 
-Le rapport original : [Lien arXiv](https://arxiv.org) (en anglais, très technique)
+- 📄 **[Titre du rapport]** : [Lien arXiv ou DOI] (en anglais, technique)
+- 🎥 **[Vidéo explicative]** : [Lien YouTube si disponible]
+- 💬 **[Discussion communauté]** : [Lien Reddit/Twitter/HackerNews]
 
-Notre version : celle que tu viens de lire 😊
+### Nos Autres Articles Sur le Sujet
+
+- [Lien vers article connexe 1 sur votre blog]
+- [Lien vers article connexe 2 sur votre blog]
+
+---
+
+**Prochain article** : [Teaser concret - ce que le lecteur va apprendre la prochaine fois]
+
+> **Tu as des questions ?** [Lien vers Telegram/YouTube/Discord pour la communauté]
 TEMPLATE
 
     log_info "Created: $file"
