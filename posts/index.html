@@ -6,7 +6,18 @@
   <title>Articles - WebModerne</title>
   <meta name="description" content="Tous les articles WebModerne - L'IA expliquée simplement aux non-techniques.">
   <meta name="author" content="WebModerne">
-  <link rel="icon" type="image/png" href="/favicon.ico">
+  <meta property="og:title" content="Articles - WebModerne">
+  <meta property="og:description" content="Tous les articles WebModerne - L'IA expliquée simplement aux non-techniques.">
+  <meta property="og:url" content="https://blog.webmoderne.com/posts/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Articles - WebModerne">
+  <meta name="twitter:description" content="Tous les articles WebModerne - L'IA expliquée simplement aux non-techniques.">
+  <link rel="canonical" href="https://blog.webmoderne.com/posts/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
   
   <style>
     :root {
@@ -15,13 +26,15 @@
       --text-color: #ffffff;
       --code-bg: #0a0a4a;
       --border-color: #1a1a5a;
+      --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Fira Code', 'Courier New', monospace;
     }
     * { box-sizing: border-box; }
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
-      line-height: 1.6;
+      font-family: var(--font-body);
+      line-height: 1.7;
       margin: 0;
       padding: 0;
     }
@@ -37,22 +50,16 @@
       justify-content: center;
       gap: 15px;
     }
-    .logo {
-      height: 50px;
-      width: auto;
-    }
+    .logo { height: 50px; width: auto; }
     .header h1 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       font-size: 2.5em;
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
-    .header .subtitle {
-      color: #aaa;
-      font-size: 1.1em;
-      margin-top: 10px;
-    }
+    .header .subtitle { color: #aaa; font-size: 1.1em; margin-top: 10px; }
     .nav-toggle {
       display: none;
       background: none;
@@ -60,7 +67,7 @@
       color: var(--text-color);
       padding: 8px 12px;
       cursor: pointer;
-      font-family: inherit;
+      font-family: var(--font-mono);
       font-size: 1.2em;
     }
     .nav { margin: 20px 0; }
@@ -71,42 +78,26 @@
       padding: 8px 16px;
       border: 1px solid var(--accent-color);
       border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.9em;
       transition: all 0.3s ease;
       display: inline-block;
     }
-    .nav a:hover {
-      background-color: var(--accent-color);
-      color: var(--bg-color);
-    }
+    .nav a:hover { background-color: var(--accent-color); color: var(--bg-color); }
     @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-      }
-      .nav {
-        display: none;
-        flex-direction: column;
-        margin-top: 20px;
-      }
-      .nav.active {
-        display: flex;
-      }
-      .nav a {
-        margin-bottom: 10px;
-        margin-right: 0;
-      }
-      .header-content {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-      }
-      .logo {
-        height: 40px;
-      }
-      .header h1 {
-        font-size: 1.5em;
-      }
+      .nav-toggle { display: block; position: absolute; top: 20px; right: 20px; }
+      .nav { display: none; flex-direction: column; margin-top: 20px; }
+      .nav.active { display: flex; }
+      .nav a { margin-bottom: 10px; margin-right: 0; }
+      .header-content { justify-content: flex-start; flex-wrap: wrap; }
+      .logo { height: 40px; }
+      .header h1 { font-size: 1.5em; }
+    }
+    h1.page-title {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 10px;
     }
     .post-list { list-style: none; padding: 0; }
     .post-item {
@@ -115,23 +106,24 @@
       padding: 20px;
       margin-bottom: 20px;
       border-radius: 0 8px 8px 0;
+      transition: border-color 0.3s ease;
     }
+    .post-item:hover { border-left-color: #ff3333; }
     .post-item h2 {
       margin: 0 0 10px 0;
       color: var(--accent-color);
+      font-family: var(--font-mono);
+      font-size: 1.15em;
     }
-    .post-item h2 a {
-      color: inherit;
-      text-decoration: none;
-    }
+    .post-item h2 a { color: inherit; text-decoration: none; }
+    .post-item h2 a:hover { text-decoration: underline; }
     .post-item .date {
       color: #888;
-      font-size: 0.9em;
+      font-family: var(--font-mono);
+      font-size: 0.85em;
       margin-bottom: 10px;
     }
-    .post-item .summary {
-      color: #ccc;
-    }
+    .post-item .summary { color: #ccc; }
     .footer {
       margin-top: 60px;
       padding-top: 20px;
@@ -169,7 +161,7 @@
     </nav>
     
     <main>
-      <h1 style="color: #db1a1a; border-bottom: 2px solid #db1a1a; padding-bottom: 10px;">Tous les Articles</h1>
+      <h1 class="page-title">Tous les Articles</h1>
       
       <ul class="post-list">
         <li class="post-item">

@@ -6,7 +6,20 @@
   <title>Agents Autonomes : Comment les IA Décident Vraiment Toutes Seules - WebModerne</title>
   <meta name="description" content="Les agents IA autonomes exécutent des tâches complexes sans intervention humaine. On décortique le processus de décision — et ce que ça change pour ton travail.">
   <meta name="author" content="WebModerne">
-  <link rel="icon" type="image/png" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Agents Autonomes : Comment les IA Décident Vraiment Toutes Seules - WebModerne">
+  <meta property="og:description" content="Les agents IA autonomes exécutent des tâches complexes sans intervention humaine. Décryptage du processus en 5 étapes.">
+  <meta property="og:url" content="https://blog.webmoderne.com/posts/test-agents-autonomes.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://blog.webmoderne.com/static/images/agents-autonomes-hero.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agents Autonomes : Comment les IA Décident Vraiment Toutes Seules - WebModerne">
+  <meta name="twitter:description" content="Les agents IA autonomes exécutent des tâches complexes sans intervention humaine. Décryptage du processus en 5 étapes.">
+  <meta name="twitter:image" content="https://blog.webmoderne.com/static/images/agents-autonomes-hero.svg">
+  <link rel="canonical" href="https://blog.webmoderne.com/posts/test-agents-autonomes.html">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
   
   <style>
     :root {
@@ -15,12 +28,14 @@
       --text-color: #ffffff;
       --code-bg: #0a0a4a;
       --border-color: #1a1a5a;
+      --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Fira Code', 'Courier New', monospace;
     }
     * { box-sizing: border-box; }
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+      font-family: var(--font-body);
       line-height: 1.6;
       margin: 0;
       padding: 0;
@@ -43,6 +58,7 @@
     }
     .header h1 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       font-size: 2.5em;
       margin: 0;
       text-transform: uppercase;
@@ -60,7 +76,7 @@
       color: var(--text-color);
       padding: 8px 12px;
       cursor: pointer;
-      font-family: inherit;
+      font-family: var(--font-mono);
       font-size: 1.2em;
     }
     .nav { margin: 20px 0; }
@@ -71,6 +87,8 @@
       padding: 8px 16px;
       border: 1px solid var(--accent-color);
       border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.9em;
       transition: all 0.3s ease;
       display: inline-block;
     }
@@ -128,16 +146,19 @@
     }
     .post-content h1 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       border-bottom: 2px solid var(--accent-color);
       padding-bottom: 15px;
       margin-top: 0;
     }
     .post-content h2 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       margin-top: 30px;
     }
     .post-content h3 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       margin-top: 25px;
     }
     .post-content .date {
@@ -188,7 +209,20 @@
       .header h1 { font-size: 1.8em; }
       .nav a { display: block; margin-bottom: 10px; }
       .post-content { padding: 20px; }
+      .post-nav-inner { flex-direction: column; }
     }
+    .post-nav { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); }
+    .post-nav-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .post-nav-prev, .post-nav-next { flex: 1; }
+    .post-nav a { display: inline-block; padding: 10px 16px; background: var(--code-bg); border: 1px solid var(--border-color); border-radius: 4px; color: var(--text-color); text-decoration: none; font-family: var(--font-mono); font-size: 0.9em; transition: all 0.3s ease; }
+    .post-nav a:hover { border-color: var(--accent-color); color: var(--accent-color); text-decoration: none; }
+    .related-posts { margin-top: 30px; padding: 20px; background: var(--bg-color); border-radius: 8px; border: 1px solid var(--border-color); }
+    .related-posts h3 { color: var(--accent-color); font-family: var(--font-mono); margin-top: 0; margin-bottom: 15px; font-size: 1.1em; }
+    .related-posts ul { list-style: none; padding: 0; margin: 0; }
+    .related-posts li { padding: 8px 0; border-bottom: 1px solid var(--border-color); }
+    .related-posts li:last-child { border-bottom: none; }
+    .related-posts a { color: var(--text-color); text-decoration: none; }
+    .related-posts a:hover { color: var(--accent-color); }
   </style>
 </head>
 <body>
@@ -214,6 +248,7 @@
       <article class="post-content">
         <h1>Agents Autonomes : Comment les IA Décident Vraiment Toutes Seules</h1>
         <div class="date">Publié le 09 avril 2026 • Tags: <span style="color: #db1a1a;">#agents</span> <span style="color: #db1a1a;">#autonomie</span> <span style="color: #db1a1a;">#ia</span> <span style="color: #db1a1a;">#decision</span> <span style="color: #db1a1a;">#automatisation</span> </div>
+        <img src="/static/images/agents-autonomes-hero.svg" alt="Illustration doodle : agent IA autonome en 5 étapes" style="width: 100%; border-radius: 8px; margin: 20px 0; border: 1px solid var(--border-color);">
 
         <h1>Agents Autonomes : La Fin du Micro-Management ?</h1>
         <p style="color: #00ff00; font-family: monospace;"><strong>En 30 secondes</strong> : Tu vas découvrir comment une IA prend des décisions seule — pas de magie, juste un processus en 5 étapes. À la fin, tu sauras exactement quand lui faire confiance et quand garder la main.</p>
@@ -416,20 +451,41 @@
         <p style="color: #00ff00; font-family: monospace;"><strong>Tu as des questions ?</strong> Rejoins la discussion sur <a href="https://t.me/webmoderne" style="color: #db1a1a;">Telegram</a> ou regarde nos démos sur <a href="https://youtube.com/@WebModerne" style="color: #db1a1a;">YouTube</a>.</p>
         <hr style="border: 1px solid var(--border-color); margin: 30px 0;">
         
-        <div style="margin-top: 40px; text-align: center;">
-          <a href="/posts/" style="color: #db1a1a;">← Retour aux articles</a>
+        <div class="related-posts">
+          <h3>Articles Connexes</h3>
+          <ul>
+            <li><a href="/posts/premier-article.html">Comment les IA apprennent-elles vraiment ?</a></li>
+            <li><a href="/posts/anthropic-claude-2026.html">Anthropic Claude 2026 : Ce qui change vraiment pour toi</a></li>
+          </ul>
+        </div>
+
+        <div class="post-nav">
+          <div class="post-nav-inner">
+            <div class="post-nav-prev">
+              <a href="/posts/premier-article.html">&larr; Comment les IA Apprennent-Elles Vraiment ?</a>
+            </div>
+            <div class="post-nav-next" style="text-align: right;">
+              <a href="/posts/anthropic-claude-2026.html">Anthropic Claude 2026 : Ce Qui Change Vraiment &rarr;</a>
+            </div>
+          </div>
         </div>
       </article>
     </main>
     
     <footer class="footer">
       <p>&copy; 2026 WebModerne - Tous droits réservés</p>
-      <p>
+      <p style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
         <a href="https://youtube.com/@WebModerne" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#db1a1a" xmlns="http://www.w3.org/2000/svg">
             <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
           </svg>
           YouTube
+        </a>
+        <a href="https://t.me/+Fon2ltdbEcc3N2Nh" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#db1a1a" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.42.9-4.15 2.75-.39.27-.74.4-1.05.39-.35-.01-1.02-.2-1.52-.36-.61-.2-1.1-.31-1.06-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .22z"/>
+          </svg>
+          Telegram
         </a>
       </p>
     </footer>

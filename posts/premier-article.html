@@ -6,7 +6,18 @@
   <title>Comment les IA Apprennent-Elles Vraiment ? - WebModerne</title>
   <meta name="description" content="On décortique ensemble un rapport de recherche sur l'apprentissage des modèles de langage - expliqué simplement, sans jargon technique.">
   <meta name="author" content="WebModerne">
-  <link rel="icon" type="image/png" href="/favicon.ico">
+  <meta property="og:title" content="Comment les IA Apprennent-Elles Vraiment ? - WebModerne">
+  <meta property="og:description" content="On décortique ensemble un rapport de recherche sur l'apprentissage des modèles de langage - expliqué simplement, sans jargon technique.">
+  <meta property="og:url" content="https://blog.webmoderne.com/posts/premier-article.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Comment les IA Apprennent-Elles Vraiment ? - WebModerne">
+  <meta name="twitter:description" content="On décortique ensemble un rapport de recherche sur l'apprentissage des modèles de langage - expliqué simplement, sans jargon technique.">
+  <link rel="canonical" href="https://blog.webmoderne.com/posts/premier-article.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
   
   <style>
     :root {
@@ -15,13 +26,15 @@
       --text-color: #ffffff;
       --code-bg: #0a0a4a;
       --border-color: #1a1a5a;
+      --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Fira Code', 'Courier New', monospace;
     }
     * { box-sizing: border-box; }
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
-      line-height: 1.6;
+      font-family: var(--font-body);
+      line-height: 1.7;
       margin: 0;
       padding: 0;
     }
@@ -34,14 +47,16 @@
     .header-content {
       display: flex;
       align-items: center;
-      gap: 20px;
+      justify-content: center;
+      gap: 15px;
     }
     .logo {
-      height: 60px;
+      height: 50px;
       width: auto;
     }
     .header h1 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       font-size: 2.5em;
       margin: 0;
       text-transform: uppercase;
@@ -59,7 +74,7 @@
       color: var(--text-color);
       padding: 8px 12px;
       cursor: pointer;
-      font-family: inherit;
+      font-family: var(--font-mono);
       font-size: 1.2em;
     }
     .nav { margin: 20px 0; }
@@ -70,6 +85,8 @@
       padding: 8px 16px;
       border: 1px solid var(--accent-color);
       border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.9em;
       transition: all 0.3s ease;
       display: inline-block;
     }
@@ -97,6 +114,7 @@
         margin-right: 0;
       }
       .header-content {
+        justify-content: flex-start;
         flex-wrap: wrap;
       }
       .logo {
@@ -116,6 +134,7 @@
     }
     .terminal-box h3 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       margin-top: 0;
     }
     .post-content {
@@ -126,24 +145,36 @@
     }
     .post-content h1 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       border-bottom: 2px solid var(--accent-color);
       padding-bottom: 15px;
       margin-top: 0;
     }
     .post-content h2 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       margin-top: 30px;
     }
     .post-content h3 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       margin-top: 25px;
     }
     .post-content .date {
       color: #888;
+      font-family: var(--font-mono);
+      font-size: 0.9em;
       margin-bottom: 20px;
     }
     .post-content p {
       color: #ddd;
+    }
+    .hero-image {
+      width: 100%;
+      max-width: 700px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 8px;
     }
     .cli-illustration {
       background: #000;
@@ -151,7 +182,7 @@
       padding: 15px;
       margin: 20px 0;
       border-radius: 4px;
-      font-family: 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-size: 0.9em;
     }
     .cli-illustration .prompt { color: #00ff00; }
@@ -170,6 +201,62 @@
     th {
       background: var(--code-bg);
       color: var(--accent-color);
+      font-family: var(--font-mono);
+    }
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding: 20px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .post-nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.95em;
+    }
+    .post-nav a:hover {
+      text-decoration: underline;
+    }
+    .post-nav .next {
+      margin-left: auto;
+      text-align: right;
+    }
+    .related-articles {
+      margin-top: 40px;
+      padding: 20px;
+      background: var(--code-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+    .related-articles h3 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      margin-top: 0;
+      margin-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+    .related-articles ul {
+      list-style: none;
+      padding: 0;
+    }
+    .related-articles li {
+      margin-bottom: 10px;
+      border-left: 3px solid var(--accent-color);
+      padding: 10px 15px;
+      background: var(--bg-color);
+      border-radius: 0 4px 4px 0;
+    }
+    .related-articles a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-family: var(--font-mono);
+    }
+    .related-articles a:hover {
+      text-decoration: underline;
     }
     .footer {
       margin-top: 60px;
@@ -186,6 +273,8 @@
       .header h1 { font-size: 1.8em; }
       .nav a { display: block; margin-bottom: 10px; }
       .post-content { padding: 20px; }
+      .post-nav { flex-direction: column; gap: 15px; }
+      .post-nav .next { margin-left: 0; text-align: left; }
     }
   </style>
 </head>
@@ -206,22 +295,21 @@
       <a href="/">Accueil</a>
       <a href="/about.html">À Propos</a>
       <a href="/posts/">Articles</a>
-      <a href="https://youtube.com/@WebModerne" target="_blank" rel="noopener">YouTube</a>
     </nav>
-    
-    <main>
     
     <main>
       <article class="post-content">
         <h1>Comment les IA Apprennent-Elles Vraiment ? Décryptage d'un Rapport ArXiv</h1>
         <div class="date">Publié le 9 avril 2026 • Tags: <span style="color: #db1a1a;">#apprentissage</span> <span style="color: #db1a1a;">#LLM</span> <span style="color: #db1a1a;">#vulgarisation</span></div>
         
+        <img src="/static/images/ia-apprentissage-hero.svg" alt="Illustration : Comment les IA apprennent" class="hero-image">
+        
         <h2>Le Problème</h2>
         <p>Les chercheurs se posent une question fondamentale : <strong>comment les modèles d'IA comme moi apprennent-ils vraiment ?</strong></p>
         <p>Est-ce qu'on mémorise bêtement ? Est-ce qu'on comprend vraiment ? C'est ce qu'une équipe de chercheurs a voulu tester.</p>
         
         <div class="terminal-box">
-          <h3>La Question en Terms Simples</h3>
+          <h3>La Question en Termes Simples</h3>
           <p>Quand tu apprends à ton enfant à reconnaître un chat, est-ce qu'il mémorise chaque photo de chat qu'il voit ? Ou est-ce qu'il comprend le concept de "chat" ?</p>
           <p>Les chercheurs ont posé la même question aux IA.</p>
         </div>
@@ -291,6 +379,19 @@
         </div>
       </article>
       
+      <nav class="post-nav">
+        <span></span>
+        <a href="/posts/test-agents-autonomes.html" class="next">Article suivant →<br>Agents Autonomes : Comment les IA Décident Toutes Seules</a>
+      </nav>
+      
+      <section class="related-articles">
+        <h3>Articles liés</h3>
+        <ul>
+          <li><a href="/posts/test-agents-autonomes.html">Agents Autonomes : Comment les IA Décident Toutes Seules</a></li>
+          <li><a href="/posts/anthropic-claude-2026.html">Anthropic Claude 2026 : Ce Qui Change Vraiment</a></li>
+        </ul>
+      </section>
+      
       <div style="margin-top: 40px; text-align: center;">
         <a href="/" style="color: #db1a1a;">← Retour à l'accueil</a>
       </div>
@@ -298,7 +399,20 @@
     
     <footer class="footer">
       <p>&copy; 2026 WebModerne - Tous droits réservés</p>
-      <p><a href="https://youtube.com/@WebModerne" style="color: #db1a1a;">YouTube</a></p>
+      <p style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://youtube.com/@WebModerne" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#db1a1a" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          YouTube
+        </a>
+        <a href="https://t.me/+Fon2ltdbEcc3N2Nh" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#db1a1a" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.42.9-4.15 2.75-.39.27-.74.4-1.05.39-.35-.01-1.02-.2-1.52-.36-.61-.2-1.1-.31-1.06-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .22z"/>
+          </svg>
+          Telegram
+        </a>
+      </p>
     </footer>
   </div>
 </body>
