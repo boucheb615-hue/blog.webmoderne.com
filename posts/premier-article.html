@@ -5,18 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comment les IA Apprennent-Elles Vraiment ? - WebModerne</title>
   <meta name="description" content="On décortique ensemble un rapport de recherche sur l'apprentissage des modèles de langage - expliqué simplement, sans jargon technique.">
-  <meta name="keywords" content="IA, apprentissage, LLM, vulgarisation, arxiv, recherche scientifique">
-  <meta name="author" content="Angel - WebModerne">
+  <meta name="author" content="WebModerne">
   <link rel="icon" type="image/png" href="/favicon.ico">
-  
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
   
   <style>
     :root {
@@ -41,6 +31,15 @@
       padding: 30px 0;
       margin-bottom: 40px;
     }
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo {
+      height: 60px;
+      width: auto;
+    }
     .header h1 {
       color: var(--accent-color);
       font-size: 2.5em;
@@ -52,6 +51,16 @@
       color: #aaa;
       font-size: 1.1em;
       margin-top: 10px;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--accent-color);
+      color: var(--text-color);
+      padding: 8px 12px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1.2em;
     }
     .nav { margin: 20px 0; }
     .nav a {
@@ -67,6 +76,35 @@
     .nav a:hover {
       background-color: var(--accent-color);
       color: var(--bg-color);
+    }
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+      .nav {
+        display: none;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+      .nav.active {
+        display: flex;
+      }
+      .nav a {
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+      .header-content {
+        flex-wrap: wrap;
+      }
+      .logo {
+        height: 40px;
+      }
+      .header h1 {
+        font-size: 1.5em;
+      }
     }
     .terminal-box {
       background: var(--code-bg);
@@ -95,6 +133,10 @@
     .post-content h2 {
       color: var(--accent-color);
       margin-top: 30px;
+    }
+    .post-content h3 {
+      color: var(--accent-color);
+      margin-top: 25px;
     }
     .post-content .date {
       color: #888;
@@ -150,15 +192,24 @@
 <body>
   <div class="container">
     <header class="header">
-      <h1>WebModerne</h1>
-      <div class="subtitle">L'IA expliquée simplement aux non-techniques</div>
+      <div class="header-content">
+        <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
+        <div>
+          <h1>WebModerne</h1>
+          <div class="subtitle">L'IA expliquée simplement aux non-techniques</div>
+        </div>
+      </div>
+      <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
     </header>
     
     <nav class="nav">
       <a href="/">Accueil</a>
       <a href="/about.html">À Propos</a>
       <a href="/posts/">Articles</a>
+      <a href="https://youtube.com/@WebModerne" target="_blank" rel="noopener">YouTube</a>
     </nav>
+    
+    <main>
     
     <main>
       <article class="post-content">
@@ -247,7 +298,7 @@
     
     <footer class="footer">
       <p>&copy; 2026 WebModerne - Tous droits réservés</p>
-      <p>Propulsé par <a href="https://github.com/boucheb615-hue/blog.webmoderne.com">GitHub Pages</a></p>
+      <p><a href="https://youtube.com/@WebModerne" style="color: #db1a1a;">YouTube</a></p>
     </footer>
   </div>
 </body>

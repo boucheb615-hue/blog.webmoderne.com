@@ -1,10 +1,17 @@
-<!DOCTYPE html>
+#!/bin/bash
+# Update all existing HTML posts with new header/footer template
+
+BLOG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+POSTS_DIR="$BLOG_DIR/posts"
+
+# New header (up to </nav>)
+NEW_HEADER='<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>À Propos - WebModerne</title>
-  <meta name="description" content="À propos de WebModerne - Notre mission : démocratiser l'accès à la recherche scientifique en IA.">
+  <title>PLACEHOLDER_TITLE</title>
+  <meta name="description" content="PLACEHOLDER_DESC">
   <meta name="author" content="WebModerne">
   <link rel="icon" type="image/png" href="/favicon.ico">
   
@@ -20,7 +27,7 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+      font-family: '"'"'Courier New'"'"', '"'"'Consolas'"'"', '"'"'Monaco'"'"', monospace;
       line-height: 1.6;
       margin: 0;
       padding: 0;
@@ -106,25 +113,6 @@
         font-size: 1.5em;
       }
     }
-    .about-content {
-      background: var(--code-bg);
-      padding: 30px;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-    }
-    .about-content h1 {
-      color: var(--accent-color);
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 15px;
-      margin-top: 0;
-    }
-    .about-content h2 {
-      color: var(--accent-color);
-      margin-top: 30px;
-    }
-    .about-content p {
-      color: #ddd;
-    }
     .terminal-box {
       background: var(--code-bg);
       border: 1px solid var(--border-color);
@@ -136,6 +124,59 @@
     .terminal-box h3 {
       color: var(--accent-color);
       margin-top: 0;
+    }
+    .post-content {
+      background: var(--code-bg);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+    .post-content h1 {
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 15px;
+      margin-top: 0;
+    }
+    .post-content h2 {
+      color: var(--accent-color);
+      margin-top: 30px;
+    }
+    .post-content h3 {
+      color: var(--accent-color);
+      margin-top: 25px;
+    }
+    .post-content .date {
+      color: #888;
+      margin-bottom: 20px;
+    }
+    .post-content p {
+      color: #ddd;
+    }
+    .cli-illustration {
+      background: #000;
+      border: 1px solid var(--accent-color);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      font-family: '"'"'Courier New'"'"', monospace;
+      font-size: 0.9em;
+    }
+    .cli-illustration .prompt { color: #00ff00; }
+    .cli-illustration .output { color: #ccc; margin-left: 20px; }
+    .cli-illustration .agent { color: var(--accent-color); font-weight: bold; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: var(--code-bg);
+      color: var(--accent-color);
     }
     .footer {
       margin-top: 60px;
@@ -151,6 +192,7 @@
       .container { padding: 15px; }
       .header h1 { font-size: 1.8em; }
       .nav a { display: block; margin-bottom: 10px; }
+      .post-content { padding: 20px; }
     }
   </style>
 </head>
@@ -161,10 +203,10 @@
         <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
         <div>
           <h1>WebModerne</h1>
-          <div class="subtitle">L'IA expliquée simplement aux non-techniques</div>
+          <div class="subtitle">L'"'"'IA expliquée simplement aux non-techniques</div>
         </div>
       </div>
-      <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
+      <button class="nav-toggle" onclick="document.querySelector('"'"'.nav'"'"').classList.toggle('"'"'active'"'"')">☰</button>
     </header>
     
     <nav class="nav">
@@ -174,49 +216,10 @@
       <a href="https://youtube.com/@WebModerne" target="_blank" rel="noopener">YouTube</a>
     </nav>
     
-    <main>
-      <article class="about-content">
-        <h1>À Propos de WebModerne</h1>
-        
-        <h2>Notre Mission</h2>
-        <p>WebModerne est né d'un constat simple : la recherche scientifique en IA avance à une vitesse fulgurante, mais reste inaccessible pour la plupart des gens.</p>
-        <p><strong>Notre objectif</strong> : lire les rapports de recherche (arXiv, conférences, etc.) et les transformer en contenu compréhensible par des personnes non-techniques.</p>
-        
-        <div class="terminal-box">
-          <h3>Ce Que Tu Vas Trouver Ici</h3>
-          <ul>
-            <li>✅ Décryptages de rapports de recherche en IA</li>
-            <li>✅ Explications simples, sans jargon technique</li>
-            <li>✅ Illustrations type CLI et agents IA</li>
-            <li>✅ Focus sur l'impact concret pour toi</li>
-          </ul>
-        </div>
-        
-        <h2>Pour Qui ?</h2>
-        <p>Ce blog est fait pour :</p>
-        <ul>
-          <li>Les curieux qui veulent comprendre l'IA sans devenir ingénieurs</li>
-          <li>Les professionnels qui veulent rester à jour sans lire 50 pages techniques</li>
-          <li>Les étudiants qui découvrent le domaine</li>
-          <li>Toute personne qui veut séparer le marketing de la réalité</li>
-        </ul>
-        
-        <h2>Notre Approche</h2>
-        <p>Chaque article suit la même structure :</p>
-        <ol>
-          <li><strong>Le Problème</strong> : Quelle question les chercheurs se posent-ils ?</li>
-          <li><strong>La Solution</strong> : Comment ont-ils testé leur hypothèse ?</li>
-          <li><strong>Pourquoi Ça Compte</strong> : Quel est l'impact concret pour toi ?</li>
-        </ol>
-        
-        <div class="terminal-box">
-          <h3>Rejoins le Mouvement</h3>
-          <p>📺 <a href="https://youtube.com/@WebModerne" style="color: #db1a1a;">YouTube : @WebModerne</a></p>
-          <p>💬 Telegram : <a href="https://t.me/webmoderne" style="color: #db1a1a;">t.me/webmoderne</a></p>
-          <p>📧 Contact : angel@webmoderne.com</p>
-        </div>
-      </article>
-    </main>
+    <main>'
+
+# New footer
+NEW_FOOTER='    </main>
     
     <footer class="footer">
       <p>&copy; 2026 WebModerne - Tous droits réservés</p>
@@ -224,4 +227,34 @@
     </footer>
   </div>
 </body>
-</html>
+</html>'
+
+echo "Updating existing posts..."
+
+for file in "$POSTS_DIR"/*.html; do
+    if [ -f "$file" ]; then
+        fname=$(basename "$file")
+        echo "Processing $fname..."
+        
+        # Extract title from existing file
+        title=$(grep "<title>" "$file" | sed 's/.*<title>\(.*\)<\/title>.*/\1/')
+        desc=$(grep "<meta name=\"description\"" "$file" | sed 's/.*content="\([^"]*\)".*/\1/')
+        
+        # Extract main content (between </nav> and </main>)
+        content=$(sed -n '/<\/nav>/,/<\/main>/p' "$file" | sed '1d;$d')
+        
+        # Build new file
+        header="$NEW_HEADER"
+        header="${header//PLACEHOLDER_TITLE/$title}"
+        header="${header//PLACEHOLDER_DESC/$desc}"
+        
+        echo "$header" > "$file"
+        echo "$content" >> "$file"
+        echo "$NEW_FOOTER" >> "$file"
+        
+        echo "  ✓ Updated $fname"
+    fi
+done
+
+echo ""
+echo "All posts updated!"
