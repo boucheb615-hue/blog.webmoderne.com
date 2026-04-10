@@ -18,185 +18,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/static/favicon.png">
-  
-  <style>
-    :root {
-      --bg-color: #090935;
-      --accent-color: #db1a1a;
-      --text-color: #ffffff;
-      --code-bg: #0a0a4a;
-      --border-color: #1a1a5a;
-      --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      --font-mono: 'Fira Code', 'Courier New', monospace;
+  <link rel="stylesheet" href="/static/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "WebModerne",
+    "url": "https://blog.webmoderne.com/",
+    "description": "Blog francophone qui décrypte les rapports de recherche en IA et les explique en termes simples.",
+    "inLanguage": "fr",
+    "publisher": {
+      "@type": "Organization",
+      "name": "WebModerne",
+      "url": "https://blog.webmoderne.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://blog.webmoderne.com/static/logo.png"
+      },
+      "sameAs": [
+        "https://youtube.com/@WebModerne",
+        "https://t.me/+Fon2ltdbEcc3N2Nh"
+      ]
     }
-    * { box-sizing: border-box; }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-body);
-      line-height: 1.7;
-      margin: 0;
-      padding: 0;
-    }
-    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-    .header {
-      border-bottom: 2px solid var(--accent-color);
-      padding: 12px 0;
-      margin-bottom: 0;
-    }
-    .header-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .header-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .logo {
-      height: 40px;
-      width: auto;
-      border-radius: 6px;
-    }
-    .header h1, .header .brand-name {
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      font-size: 1.4em;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: 1px solid var(--accent-color);
-      color: var(--text-color);
-      padding: 6px 10px;
-      cursor: pointer;
-      font-family: var(--font-mono);
-      font-size: 1.1em;
-      border-radius: 4px;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .nav a {
-      color: var(--text-color);
-      text-decoration: none;
-      padding: 6px 14px;
-      border: 1px solid var(--border-color);
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 0.85em;
-      transition: all 0.3s ease;
-    }
-    .nav a:hover {
-      background-color: var(--accent-color);
-      color: var(--bg-color);
-      border-color: var(--accent-color);
-    }
-    .nav a.active {
-      background-color: var(--accent-color);
-      color: var(--bg-color);
-      border-color: var(--accent-color);
-    }
-    .page-intro {
-      padding: 40px 0 30px;
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 40px;
-    }
-    .page-intro h1 {
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      font-size: 2em;
-      margin: 0 0 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .page-intro p {
-      color: #aaa;
-      font-size: 1.05em;
-      margin: 0;
-    }
-    @media (max-width: 768px) {
-      .nav-toggle { display: block; }
-      .header-top { position: relative; }
-      .nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 52px;
-        right: 0;
-        background: var(--bg-color);
-        border: 1px solid var(--border-color);
-        border-radius: 6px;
-        padding: 8px;
-        z-index: 100;
-        width: 160px;
-      }
-      .nav.active { display: flex; }
-      .nav a { margin: 0; text-align: center; }
-      .logo { height: 32px; }
-      .header h1 { font-size: 1.1em; }
-      .page-intro h1 { font-size: 1.5em; }
-    }
-    .post-list { list-style: none; padding: 0; }
-    .post-item {
-      background: var(--code-bg);
-      border-left: 4px solid var(--accent-color);
-      padding: 0;
-      margin-bottom: 20px;
-      border-radius: 0 8px 8px 0;
-      transition: border-color 0.3s ease, transform 0.3s ease;
-      overflow: hidden;
-    }
-    .post-item:hover {
-      border-left-color: #ff3333;
-      transform: translateX(4px);
-    }
-    .post-banner-thumb {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .post-content {
-      padding: 20px;
-    }
-    .post-item h2 {
-      margin: 0 0 10px 0;
-      color: var(--accent-color);
-      font-family: var(--font-mono);
-      font-size: 1.15em;
-    }
-    .post-item h2 a { color: inherit; text-decoration: none; }
-    .post-item h2 a:hover { text-decoration: underline; }
-    .post-item .date {
-      color: #888;
-      font-family: var(--font-mono);
-      font-size: 0.85em;
-      margin-bottom: 10px;
-    }
-    .post-item .summary { color: #ccc; }
-    .footer {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
-      text-align: center;
-      color: #666;
-      font-size: 0.9em;
-    }
-    a { color: var(--accent-color); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    @media (max-width: 768px) {
-      .container { padding: 15px; }
-    }
-  </style>
+  }
+  </script>
 </head>
 <body>
   <div class="container">
