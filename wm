@@ -226,6 +226,9 @@ TEMPLATE
 generate_html_header() {
     local title="$1"
     local description="$2"
+    local slug="$3"
+    local date="$4"
+    local tags="$5"
     
     cat << HEADER
 <!DOCTYPE html>
@@ -233,110 +236,177 @@ generate_html_header() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>$title - WebModerne</title>
-  <meta name="description" content="$description">
+  <title>${title} - WebModerne</title>
+  <meta name="description" content="${description}">
   <meta name="author" content="WebModerne">
-  <link rel="icon" type="image/png" href="/favicon.ico">
+  <meta property="og:title" content="${title} - WebModerne">
+  <meta property="og:description" content="${description}">
+  <meta property="og:url" content="https://blog.webmoderne.com/posts/${slug}.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${title} - WebModerne">
+  <meta name="twitter:description" content="${description}">
+  <link rel="canonical" href="https://blog.webmoderne.com/posts/${slug}.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/static/favicon.png">
   
   <style>
     :root {
-      --bg-color: $BG_COLOR;
-      --accent-color: $ACCENT_COLOR;
-      --text-color: $TEXT_COLOR;
-      --code-bg: $CODE_BG;
-      --border-color: $BORDER_COLOR;
+      --bg-color: ${BG_COLOR};
+      --accent-color: ${ACCENT_COLOR};
+      --text-color: ${TEXT_COLOR};
+      --code-bg: ${CODE_BG};
+      --border-color: ${BORDER_COLOR};
+      --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Fira Code', 'Courier New', monospace;
     }
     * { box-sizing: border-box; }
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-      font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
-      line-height: 1.6;
+      font-family: var(--font-body);
+      line-height: 1.7;
       margin: 0;
       padding: 0;
     }
     .container { max-width: 900px; margin: 0 auto; padding: 20px; }
     .header {
       border-bottom: 2px solid var(--accent-color);
-      padding: 30px 0;
-      margin-bottom: 40px;
+      padding: 12px 0;
+      margin-bottom: 0;
     }
-    .header-content {
+    .header-top {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 15px;
+      justify-content: space-between;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
     }
     .logo {
-      height: 50px;
+      height: 40px;
       width: auto;
+      border-radius: 6px;
     }
     .header h1 {
       color: var(--accent-color);
-      font-size: 2.5em;
+      font-family: var(--font-mono);
+      font-size: 1.4em;
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 2px;
-    }
-    .header .subtitle {
-      color: #aaa;
-      font-size: 1.1em;
-      margin-top: 10px;
     }
     .nav-toggle {
       display: none;
       background: none;
       border: 1px solid var(--accent-color);
       color: var(--text-color);
-      padding: 8px 12px;
+      padding: 6px 10px;
       cursor: pointer;
-      font-family: inherit;
-      font-size: 1.2em;
+      font-family: var(--font-mono);
+      font-size: 1.1em;
+      border-radius: 4px;
     }
-    .nav { margin: 20px 0; }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
     .nav a {
       color: var(--text-color);
       text-decoration: none;
-      margin-right: 20px;
-      padding: 8px 16px;
-      border: 1px solid var(--accent-color);
+      padding: 6px 14px;
+      border: 1px solid var(--border-color);
       border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.85em;
       transition: all 0.3s ease;
-      display: inline-block;
     }
     .nav a:hover {
       background-color: var(--accent-color);
       color: var(--bg-color);
+      border-color: var(--accent-color);
+    }
+    .nav a.active {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+      border-color: var(--accent-color);
     }
     @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-      }
+      .nav-toggle { display: block; }
+      .header-top { position: relative; }
       .nav {
         display: none;
         flex-direction: column;
-        margin-top: 20px;
+        position: absolute;
+        top: 52px;
+        right: 0;
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        padding: 8px;
+        z-index: 100;
+        width: 160px;
       }
-      .nav.active {
-        display: flex;
-      }
-      .nav a {
-        margin-bottom: 10px;
-        margin-right: 0;
-      }
-      .header-content {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-      }
-      .logo {
-        height: 40px;
-      }
-      .header h1 {
-        font-size: 1.5em;
-      }
+      .nav.active { display: flex; }
+      .nav a { margin: 0; text-align: center; }
+      .logo { height: 32px; }
+      .header h1 { font-size: 1.1em; }
+    }
+    .page-intro {
+      padding: 40px 0 30px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 40px;
+    }
+    .page-intro h1 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      font-size: 2em;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .page-intro p {
+      color: #aaa;
+      font-size: 1.05em;
+      margin: 0;
+    }
+    .post-content h1 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 15px;
+      margin-top: 0;
+    }
+    .post-content h2 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      margin-top: 30px;
+    }
+    .post-content h3 {
+      color: var(--accent-color);
+      font-family: var(--font-mono);
+      margin-top: 25px;
+    }
+    .post-content p {
+      color: #ddd;
+    }
+    .post-content ul, .post-content ol {
+      color: #ddd;
+    }
+    .post-content li {
+      margin-bottom: 8px;
+    }
+    .post-content .date {
+      color: #888;
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      margin-bottom: 20px;
     }
     .terminal-box {
       background: var(--code-bg);
@@ -348,34 +418,8 @@ generate_html_header() {
     }
     .terminal-box h3 {
       color: var(--accent-color);
+      font-family: var(--font-mono);
       margin-top: 0;
-    }
-    .post-content {
-      background: var(--code-bg);
-      padding: 30px;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-    }
-    .post-content h1 {
-      color: var(--accent-color);
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 15px;
-      margin-top: 0;
-    }
-    .post-content h2 {
-      color: var(--accent-color);
-      margin-top: 30px;
-    }
-    .post-content h3 {
-      color: var(--accent-color);
-      margin-top: 25px;
-    }
-    .post-content .date {
-      color: #888;
-      margin-bottom: 20px;
-    }
-    .post-content p {
-      color: #ddd;
     }
     .cli-illustration {
       background: #000;
@@ -383,7 +427,7 @@ generate_html_header() {
       padding: 15px;
       margin: 20px 0;
       border-radius: 4px;
-      font-family: 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-size: 0.9em;
     }
     .cli-illustration .prompt { color: #00ff00; }
@@ -393,6 +437,7 @@ generate_html_header() {
       width: 100%;
       border-collapse: collapse;
       margin: 20px 0;
+      font-size: 0.95em;
     }
     th, td {
       border: 1px solid var(--border-color);
@@ -402,6 +447,7 @@ generate_html_header() {
     th {
       background: var(--code-bg);
       color: var(--accent-color);
+      font-family: var(--font-mono);
     }
     .footer {
       margin-top: 60px;
@@ -413,34 +459,57 @@ generate_html_header() {
     }
     a { color: var(--accent-color); text-decoration: none; }
     a:hover { text-decoration: underline; }
+    blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 20px 0;
+      padding: 15px 20px;
+      background: var(--code-bg);
+      border-radius: 0 8px 8px 0;
+      color: #ccc;
+    }
+    blockquote strong {
+      color: #00ff00;
+    }
+    code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid var(--border-color);
+      margin: 30px 0;
+    }
     @media (max-width: 768px) {
       .container { padding: 15px; }
-      .header h1 { font-size: 1.8em; }
-      .nav a { display: block; margin-bottom: 10px; }
-      .post-content { padding: 20px; }
+      .page-intro h1 { font-size: 1.5em; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header class="header">
-      <div class="header-content">
-        <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
-        <div>
+      <div class="header-top">
+        <a href="/" class="header-brand">
+          <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
           <h1>WebModerne</h1>
-          <div class="subtitle">L'IA expliquée simplement aux non-techniques</div>
-        </div>
+        </a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
+        <nav class="nav">
+          <a href="/">Accueil</a>
+          <a href="/about.html">À Propos</a>
+          <a href="/posts/" class="active">Articles</a>
+        </nav>
       </div>
-      <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
     </header>
     
-    <nav class="nav">
-      <a href="/">Accueil</a>
-      <a href="/about.html">À Propos</a>
-      <a href="/posts/">Articles</a>
-    </nav>
-    
     <main>
+      <div class="page-intro">
+        <h1>${title}</h1>
+        <p>Publié le ${date} • Tags: ${tags}</p>
+      </div>
       <article class="post-content">
 HEADER
 }
@@ -686,10 +755,7 @@ cmd_build() {
     
     # Write complete HTML file
     {
-        generate_html_header "$title" "$description"
-        echo "        <h1>$title</h1>"
-        echo "        <div class=\"date\">Publié le $date • Tags: $tags_html</div>"
-        echo ""
+        generate_html_header "$title" "$description" "$slug" "$date" "$tags_html"
         echo -e "$html_body"
         generate_html_footer
     } > "$html_file"
