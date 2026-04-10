@@ -79,22 +79,17 @@
       padding: 0;
     }
 
-    /* FULL-WIDTH BANNER — sits outside container */
-    .banner-full {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      background: #000;
-    }
-    .banner-full img {
-      width: 100%;
-      height: auto;
-      display: block;
-      max-width: 100%;
-      object-fit: cover;
-    }
-
     .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+    /* BANNER - inside container, after title */
+    .article-banner {
+      width: 100%;
+      margin: 20px 0;
+      border-radius: 8px;
+      border: 2px solid var(--accent-color);
+      box-shadow: 0 0 30px rgba(219, 26, 26, 0.3);
+      display: block;
+    }
 
     /* HEADER */
     .header { border-bottom: 2px solid var(--accent-color); padding: 12px 0; margin-bottom: 0; }
@@ -120,7 +115,12 @@
     }
 
     /* PAGE INTRO */
-    .page-intro { padding: 20px 0 20px; border-bottom: 1px solid var(--border-color); margin-bottom: 20px; }
+    .page-intro {
+      padding: 40px 0 20px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
     .page-intro h1 {
       color: var(--accent-color); font-family: var(--font-mono); font-size: 2em;
       margin: 0 0 8px; text-transform: uppercase; letter-spacing: 1px;
@@ -259,11 +259,6 @@
   </style>
 </head>
 <body>
-  <!-- FULL-WIDTH BANNER AT TOP -->
-  <div class="banner-full">
-    <img src="/static/images/SLUG-banner.png" alt="ARTICLE_TITLE" class="post-banner-full">
-  </div>
-
   <div class="container">
     <!-- HEADER -->
     <header class="header">
@@ -282,11 +277,14 @@
     </header>
 
     <main>
-      <!-- TITLE + DATE + TAGS (aligned vertically under banner) -->
+      <!-- TITLE + DATE + TAGS -->
       <div class="page-intro">
         <h1>ARTICLE_TITLE</h1>
         <p>Publié le DATE • Tags: <span style="color: #db1a1a;">#tag1</span> <span style="color: #db1a1a;">#tag2</span></p>
       </div>
+
+      <!-- BANNER (after title, before intro) -->
+      <img src="/static/images/SLUG-banner.png" alt="ARTICLE_TITLE" class="article-banner">
 
       <!-- INTRO (2-3 short phrases, natural French) -->
       <div class="article-intro">
