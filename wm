@@ -2,10 +2,23 @@
 
 # wm - WebModerne Blog CLI
 # Create, build, and deploy blog posts for webmoderne.com
+# Portable: works from any directory, detects blog root automatically
 
 set -e
 
-BLOG_DIR="/home/agentic/blog.webmoderne.com"
+# Detect blog directory (follow symlinks to find actual script location)
+get_script_dir() {
+    local source="${BASH_SOURCE[0]}"
+    while [ -h "$source" ]; do
+        local dir="$(cd -P "$(dirname "$source")" && pwd)"
+        source="$(readlink "$source")"
+        [[ "$source" != /* ]] && source="$dir/$source"
+    done
+    echo "$(cd -P "$(dirname "$source")" && pwd)"
+}
+
+SCRIPT_DIR="$(get_script_dir)"
+BLOG_DIR="$SCRIPT_DIR"
 POSTS_MD_DIR="$BLOG_DIR/posts-md"
 POSTS_HTML_DIR="$BLOG_DIR/posts"
 INDEX_FILE="$POSTS_HTML_DIR/index.html"
@@ -43,6 +56,7 @@ show_help() {
     echo "  wm build mon-article"
     echo "  wm deploy"
     echo ""
+    echo "Blog directory: $BLOG_DIR"
 }
 
 log_info() {
@@ -73,10 +87,12 @@ cmd_create() {
         exit 1
     fi
     
-    cat > "$file" << 'TEMPLATE'
+    local today=$(date +"%d %B %Y")
+    
+    cat > "$file" << TEMPLATE
 ---
 title: "Titre de l'article"
-date: "{{DATE}}"
+date: "$today"
 tags: ["ia", "vulgarisation", "recherche"]
 description: "Description courte en une phrase"
 ---
@@ -95,12 +111,12 @@ description: "Description courte en une phrase"
 
 ## Leur Découverte
 
-```
-$ agent analyze --task=comprehension
+\`\`\`
+\$ agent analyze --task=comprehension
 > Testing...
 > Result: [résultat]
 ✓ Agent IA a détecté [conclusion]
-```
+\`\`\`
 
 [Interprétation des résultats]
 
@@ -139,137 +155,18 @@ Le rapport original : [Lien arXiv](https://arxiv.org) (en anglais, très techniq
 Notre version : celle que tu viens de lire 😊
 TEMPLATE
 
-    # Replace date placeholder
-    local today=$(date +"%d %B %Y")
-    sed -i "s/{{DATE}}/$today/" "$file"
-    
     log_info "Created: $file"
     echo ""
     echo -e "Edit this file with your content, then run:"
     echo -e "  ${GREEN}wm build $slug${NC}"
 }
 
-# Simple markdown to HTML converter for WebModerne style
-markdown_to_html() {
-    local input="$1"
-    local title="$2"
-    local date="$3"
-    local tags="$4"
-    local description="$5"
+# Generate HTML header (shared styles)
+generate_html_header() {
+    local title="$1"
+    local description="$2"
     
-    # Read markdown content
-    local content=$(cat "$input")
-    
-    # Remove frontmatter
-    content=$(echo "$content" | sed '1,/^---$/d')
-    
-    # Convert markdown to HTML (simplified)
-    local html_body=""
-    
-    # Process line by line for basic markdown
-    local in_list=0
-    local in_table=0
-    
-    while IFS= read -r line || [ -n "$line" ]; do
-        # Headers
-        if [[ "$line" =~ ^#\ (.+)$ ]]; then
-            html_body+="        <h1>${BASH_REMATCH[1]}</h1>\n"
-        elif [[ "$line" =~ ^##\ (.+)$ ]]; then
-            html_body+="        <h2>${BASH_REMATCH[1]}</h2>\n"
-        elif [[ "$line" =~ ^###\ (.+)$ ]]; then
-            html_body+="        <h3>${BASH_REMATCH[1]}</h3>\n"
-        # Code blocks
-        elif [[ "$line" =~ ^\`\`\`$ ]]; then
-            if [ $in_list -eq 1 ]; then
-                html_body+="        </ul>\n"
-                in_list=0
-            fi
-            html_body+="        <div class=\"cli-illustration\">\n"
-        # List items
-        elif [[ "$line" =~ ^-\ \[\?]\ (.+)$ ]]; then
-            if [ $in_list -eq 0 ]; then
-                html_body+="        <ul>\n"
-                in_list=1
-            fi
-            html_body+="          <li>✅ ${BASH_REMATCH[1]}</li>\n"
-        elif [[ "$line" =~ ^-\ (.+)$ ]]; then
-            if [ $in_list -eq 0 ]; then
-                html_body+="        <ul>\n"
-                in_list=1
-            fi
-            html_body+="          <li>${BASH_REMATCH[1]}</li>\n"
-        # Bold
-        elif [[ "$line" =~ \*\*(.+)\*\* ]]; then
-            line=$(echo "$line" | sed 's/\*\*\([^*]*\)\*\*/<strong>\1<\/strong>/g')
-            html_body+="        <p>$line</p>\n"
-        # Regular paragraphs
-        elif [[ -n "$line" && ! "$line" =~ ^[[:space:]]*$ ]]; then
-            # Check for pipe in line (potential table)
-            if [[ "$line" =~ ^\| ]]; then
-                if [ $in_table -eq 0 ]; then
-                    html_body+="        <table>\n"
-                    in_table=1
-                fi
-                # Skip separator line
-                if [[ ! "$line" =~ ^\|-+ ]]; then
-                    html_body+="          <tr>\n"
-                    # Split by pipe and create cells
-                    IFS='|' read -ra cells <<< "$line"
-                    for cell in "${cells[@]}"; do
-                        cell=$(echo "$cell" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//') # trim
-                        if [ -n "$cell" ]; then
-                            if [[ "$line" =~ ^\|.*\|.*\|.*$ && ! "$line" =~ ^\|-+ ]]; then
-                                html_body+="            <td>$cell</td>\n"
-                            fi
-                        fi
-                    done
-                    html_body+="          </tr>\n"
-                fi
-            else
-                if [ $in_table -eq 1 ]; then
-                    html_body+="        </table>\n"
-                    in_table=0
-                fi
-                if [ $in_list -eq 1 ]; then
-                    html_body+="        </ul>\n"
-                    in_list=0
-                fi
-                # Convert links [text](url)
-                line=$(echo "$line" | sed 's/\[\([^]]*\)\](\([^)]*\))/<a href="\2" style="color: #db1a1a;">\1<\/a>/g')
-                # Convert inline code
-                line=$(echo "$line" | sed 's/`\([^`]*\)`/<code style="background: #0a0a4a; padding: 2px 6px; border-radius: 3px;">\1<\/code>/g')
-                html_body+="        <p>$line</p>\n"
-            fi
-        else
-            if [ $in_list -eq 1 ]; then
-                html_body+="        </ul>\n"
-                in_list=0
-            fi
-            if [ $in_table -eq 1 ]; then
-                html_body+="        </table>\n"
-                in_table=0
-            fi
-        fi
-    done <<< "$content"
-    
-    # Close any open tags
-    if [ $in_list -eq 1 ]; then
-        html_body+="        </ul>\n"
-    fi
-    if [ $in_table -eq 1 ]; then
-        html_body+="        </table>\n"
-    fi
-    
-    # Generate tags HTML
-    local tags_html=""
-    IFS=',' read -ra tag_array <<< "$tags"
-    for tag in "${tag_array[@]}"; do
-        tag=$(echo "$tag" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | tr -d '[]"')
-        tags_html+="<span style=\"color: #db1a1a;\">#$tag</span> "
-    done
-    
-    # Build full HTML
-    cat << HTML
+    cat << HEADER
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -358,6 +255,10 @@ markdown_to_html() {
       color: var(--accent-color);
       margin-top: 30px;
     }
+    .post-content h3 {
+      color: var(--accent-color);
+      margin-top: 25px;
+    }
     .post-content .date {
       color: #888;
       margin-bottom: 20px;
@@ -424,11 +325,12 @@ markdown_to_html() {
     
     <main>
       <article class="post-content">
-        <h1>$title</h1>
-        <div class="date">Publié le $date • Tags: $tags_html</div>
-        
-$html_body
-        
+HEADER
+}
+
+# Generate HTML footer
+generate_html_footer() {
+    cat << 'FOOTER'
         <hr style="border: 1px solid var(--border-color); margin: 30px 0;">
         
         <div style="margin-top: 40px; text-align: center;">
@@ -444,7 +346,169 @@ $html_body
   </div>
 </body>
 </html>
-HTML
+FOOTER
+}
+
+# Convert markdown content to HTML
+convert_markdown_to_html() {
+    local content="$1"
+    local html=""
+    local in_code_block=0
+    local in_list=0
+    local in_table=0
+    local table_is_header=1
+    
+    # Process line by line
+    while IFS= read -r line || [ -n "$line" ]; do
+        
+        # Code block toggle
+        if [[ "$line" == '```' ]]; then
+            # Close any open structures
+            [ $in_list -eq 1 ] && { html+="        </ul>\n"; in_list=0; }
+            [ $in_table -eq 1 ] && { html+="        </table>\n"; in_table=0; }
+            
+            if [ $in_code_block -eq 0 ]; then
+                html+="        <div class=\"cli-illustration\">\n"
+                in_code_block=1
+            else
+                html+="        </div>\n"
+                in_code_block=0
+            fi
+            continue
+        fi
+        
+        # Inside code block - output as CLI lines
+        if [ $in_code_block -eq 1 ]; then
+            line=$(echo "$line" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
+            if [[ "$line" == \$* ]]; then
+                html+="          <div class=\"prompt\">$line</div>\n"
+            elif [[ "$line" == ✓* ]]; then
+                html+="          <div class=\"agent\">$line</div>\n"
+            elif [[ "$line" == \>* ]]; then
+                html+="          <div class=\"output\">$line</div>\n"
+            elif [ -n "$line" ]; then
+                html+="          <div class=\"output\">$line</div>\n"
+            fi
+            continue
+        fi
+        
+        # Skip pure separator lines
+        if [[ "$line" =~ ^---+$ ]]; then
+            continue
+        fi
+        
+        # Empty line - close open structures
+        if [[ -z "$line" || "$line" =~ ^[[:space:]]*$ ]]; then
+            [ $in_list -eq 1 ] && { html+="        </ul>\n"; in_list=0; }
+            [ $in_table -eq 1 ] && { html+="        </table>\n"; in_table=0; }
+            continue
+        fi
+        
+        # H1 headers (# Title)
+        if [[ "$line" =~ ^#\ (.+)$ ]]; then
+            [ $in_list -eq 1 ] && { html+="        </ul>\n"; in_list=0; }
+            [ $in_table -eq 1 ] && { html+="        </table>\n"; in_table=0; }
+            html+="        <h1>${BASH_REMATCH[1]}</h1>\n"
+            continue
+        fi
+        
+        # H2 headers (## Title)
+        if [[ "$line" =~ ^##\ (.+)$ ]]; then
+            [ $in_list -eq 1 ] && { html+="        </ul>\n"; in_list=0; }
+            [ $in_table -eq 1 ] && { html+="        </table>\n"; in_table=0; }
+            html+="        <h2>${BASH_REMATCH[1]}</h2>\n"
+            continue
+        fi
+        
+        # H3 headers (### Title)
+        if [[ "$line" =~ ^###\ (.+)$ ]]; then
+            [ $in_list -eq 1 ] && { html+="        </ul>\n"; in_list=0; }
+            [ $in_table -eq 1 ] && { html+="        </table>\n"; in_table=0; }
+            html+="        <h3>${BASH_REMATCH[1]}</h3>\n"
+            continue
+        fi
+        
+        # Table rows (lines starting with |)
+        if [[ "$line" == \|* ]]; then
+            [ $in_list -eq 1 ] && { html+="        </ul>\n"; in_list=0; }
+            
+            # Skip table separator line
+            if [[ "$line" =~ ^\|[\-\|[:space:]]+\|$ ]]; then
+                continue
+            fi
+            
+            if [ $in_table -eq 0 ]; then
+                html+="        <table>\n"
+                in_table=1
+                table_is_header=1
+            fi
+            
+            html+="          <tr>\n"
+            IFS='|' read -ra cells <<< "$line"
+            for cell in "${cells[@]}"; do
+                cell=$(echo "$cell" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+                if [ -n "$cell" ]; then
+                    if [ $table_is_header -eq 1 ]; then
+                        html+="            <th>$cell</th>\n"
+                    else
+                        html+="            <td>$cell</td>\n"
+                    fi
+                fi
+            done
+            html+="          </tr>\n"
+            table_is_header=0
+            continue
+        fi
+        
+        # Not a table row - close table if open
+        if [ $in_table -eq 1 ]; then
+            html+="        </table>\n"
+            in_table=0
+        fi
+        
+        # List items (- ✅ text or - ❌ text or - text)
+        if [[ "$line" =~ ^-\ (.*[^[:space:]].*)$ ]]; then
+            if [ $in_list -eq 0 ]; then
+                html+="        <ul>\n"
+                in_list=1
+            fi
+            local item_text="${BASH_REMATCH[1]}"
+            # Convert bold
+            item_text=$(echo "$item_text" | sed 's/\*\*\([^*]*\)\*\*/<strong>\1<\/strong>/g')
+            html+="          <li>$item_text</li>\n"
+            continue
+        fi
+        
+        # Not a list item - close list if open
+        if [ $in_list -eq 1 ]; then
+            html+="        </ul>\n"
+            in_list=0
+        fi
+        
+        # Regular paragraph - apply inline formatting
+        # Links [text](url)
+        line=$(echo "$line" | sed 's/\[\([^]]*\)\](\([^)]*\))/<a href="\2" style="color: #db1a1a;">\1<\/a>/g')
+        # Bold **text**
+        line=$(echo "$line" | sed 's/\*\*\([^*]*\)\*\*/<strong>\1<\/strong>/g')
+        # Inline code `text`
+        line=$(echo "$line" | sed 's/`\([^`]*\)`/<code style="background: #0a0a4a; padding: 2px 6px; border-radius: 3px;">\1<\/code>/g')
+        
+        # Blockquote > text
+        if [[ "$line" == \>* ]]; then
+            local quote_text="${line#\> }"
+            html+="        <p style=\"color: #00ff00; font-family: monospace;\">$quote_text</p>\n"
+        else
+            html+="        <p>$line</p>\n"
+        fi
+        
+    done <<< "$content"
+    
+    # Close any remaining open structures
+    [ $in_list -eq 1 ] && html+="        </ul>\n"
+    [ $in_table -eq 1 ] && html+="        </table>\n"
+    [ $in_code_block -eq 1 ] && html+="        </div>\n"
+    
+    printf "%b" "$html"
 }
 
 # Build a post from markdown to HTML
@@ -467,14 +531,38 @@ cmd_build() {
     
     log_info "Building: $slug"
     
-    # Extract frontmatter
-    local title=$(grep "^title:" "$md_file" | sed 's/title: "\(.*\)"/\1/')
-    local date=$(grep "^date:" "$md_file" | sed 's/date: "\(.*\)"/\1/')
-    local tags=$(grep "^tags:" "$md_file" | sed 's/tags: \(.*\)/\1/')
-    local description=$(grep "^description:" "$md_file" | sed 's/description: "\(.*\)"/\1/')
+    # Extract frontmatter using grep and sed (handles French quotes)
+    local title=$(grep "^title:" "$md_file" | sed 's/^title:[[:space:]]*"\(.*\)"$/\1/')
+    local date=$(grep "^date:" "$md_file" | sed 's/^date:[[:space:]]*"\(.*\)"$/\1/')
+    local tags=$(grep "^tags:" "$md_file" | sed 's/^tags:[[:space:]]*\(.*\)$/\1/')
+    local description=$(grep "^description:" "$md_file" | sed 's/^description:[[:space:]]*"\(.*\)"$/\1/')
     
-    # Convert to HTML
-    markdown_to_html "$md_file" "$title" "$date" "$tags" "$description" > "$html_file"
+    # Remove frontmatter (content between first two --- lines)
+    local content=$(awk '/^---$/{n++; next} n>=2' "$md_file")
+    
+    # Generate tags HTML
+    local tags_html=""
+    # Remove brackets and quotes, split by comma
+    tags=$(echo "$tags" | tr -d '[]"' | tr ',' '\n')
+    while IFS= read -r tag; do
+        tag=$(echo "$tag" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+        if [ -n "$tag" ]; then
+            tags_html+="<span style=\"color: #db1a1a;\">#$tag</span> "
+        fi
+    done <<< "$tags"
+    
+    # Convert markdown to HTML
+    local html_body=$(convert_markdown_to_html "$content")
+    
+    # Write complete HTML file
+    {
+        generate_html_header "$title" "$description"
+        echo "        <h1>$title</h1>"
+        echo "        <div class=\"date\">Publié le $date • Tags: $tags_html</div>"
+        echo ""
+        echo -e "$html_body"
+        generate_html_footer
+    } > "$html_file"
     
     log_info "Generated: $html_file"
     
@@ -482,7 +570,7 @@ cmd_build() {
     update_index "$slug" "$title" "$date" "$description"
     
     echo ""
-    echo "Next step: ${GREEN}wm deploy${NC}"
+    echo -e "Next step: ${GREEN}wm deploy${NC}"
 }
 
 # Update the posts index.html with new entry
@@ -492,11 +580,17 @@ update_index() {
     local date="$3"
     local description="$4"
     
-    # Format date for display (remove year if present, capitalize month)
-    local display_date=$(echo "$date" | sed 's/ [0-9]\{4\}$//' | sed 's/\b\(.\)\([a-z]*\)\b/\u\1/g')
+    # Format date for display (ensure proper format)
+    local display_date="$date"
     
     # Create new post entry HTML
     local new_entry="        <li class=\"post-item\">\n          <h2><a href=\"/posts/$slug.html\">$title</a></h2>\n          <div class=\"date\">$display_date</div>\n          <div class=\"summary\">$description</div>\n        </li>\n"
+    
+    # Check if entry already exists
+    if grep -q "href=\"/posts/$slug.html\"" "$INDEX_FILE"; then
+        log_warn "Index already contains: $slug"
+        return 0
+    fi
     
     # Insert after the opening ul tag
     local temp_file=$(mktemp)
@@ -520,14 +614,19 @@ cmd_list() {
     echo -e "${BLUE}Posts in posts-md/ (source):${NC}"
     echo "─────────────────────────────────────"
     
-    if [ -d "$POSTS_MD_DIR" ] && [ "$(ls -A $POSTS_MD_DIR 2>/dev/null)" ]; then
+    if [ -d "$POSTS_MD_DIR" ]; then
+        local found=0
         for f in "$POSTS_MD_DIR"/*.md; do
             if [ -f "$f" ]; then
                 local slug=$(basename "$f" .md)
-                local title=$(grep "^title:" "$f" 2>/dev/null | sed 's/title: "\(.*\)"/\1/' || echo "Untitled")
+                local title=$(grep "^title:" "$f" 2>/dev/null | sed 's/^title:[[:space:]]*"\(.*\)"$/\1/' || echo "Untitled")
                 echo -e "  ${GREEN}✓${NC} $slug - $title"
+                found=1
             fi
         done
+        if [ $found -eq 0 ]; then
+            echo "  (no posts yet)"
+        fi
     else
         echo "  (no posts yet)"
     fi
@@ -537,12 +636,20 @@ cmd_list() {
     echo "─────────────────────────────────────"
     
     if [ -d "$POSTS_HTML_DIR" ]; then
+        local found=0
         for f in "$POSTS_HTML_DIR"/*.html; do
-            if [ -f "$f" ] && [ "$(basename "$f")" != "index.html" ]; then
-                local slug=$(basename "$f" .html)
-                echo -e "  ${GREEN}✓${NC} $slug.html"
+            if [ -f "$f" ]; then
+                local fname=$(basename "$f")
+                if [ "$fname" != "index.html" ]; then
+                    local slug=$(basename "$f" .html)
+                    echo -e "  ${GREEN}✓${NC} $slug.html"
+                    found=1
+                fi
             fi
         done
+        if [ $found -eq 0 ]; then
+            echo "  (no posts published)"
+        fi
     else
         echo "  (no posts published)"
     fi
@@ -561,6 +668,11 @@ cmd_deploy() {
         exit 0
     fi
     
+    # Show what will be committed
+    echo ""
+    git status --short
+    echo ""
+    
     # Add all changes
     git add -A
     
@@ -573,7 +685,7 @@ cmd_deploy() {
     
     log_info "Deployed successfully!"
     echo ""
-    echo "Your blog will be live at: ${BLUE}https://blog.webmoderne.com${NC}"
+    echo -e "Your blog will be live at: ${BLUE}https://blog.webmoderne.com${NC}"
 }
 
 # Main command router
