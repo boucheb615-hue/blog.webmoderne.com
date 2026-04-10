@@ -1,0 +1,601 @@
+#!/bin/bash
+
+# wm - WebModerne Blog CLI
+# Create, build, and deploy blog posts for webmoderne.com
+
+set -e
+
+BLOG_DIR="/home/agentic/blog.webmoderne.com"
+POSTS_MD_DIR="$BLOG_DIR/posts-md"
+POSTS_HTML_DIR="$BLOG_DIR/posts"
+INDEX_FILE="$POSTS_HTML_DIR/index.html"
+
+# WebModerne brand colors
+BG_COLOR="#090935"
+ACCENT_COLOR="#db1a1a"
+TEXT_COLOR="#ffffff"
+CODE_BG="#0a0a4a"
+BORDER_COLOR="#1a1a5a"
+
+# Colors for CLI output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+show_help() {
+    echo -e "${BLUE}╔════════════════════════════════════════════╗${NC}"
+    echo -e "${BLUE}║${NC}  ${ACCENT_COLOR}wm${NC} - WebModerne Blog CLI               ${BLUE}║${NC}"
+    echo -e "${BLUE}╚════════════════════════════════════════════╝${NC}"
+    echo ""
+    echo "Usage: wm <command> [options]"
+    echo ""
+    echo "Commands:"
+    echo "  create <slug>     Create a new markdown post template"
+    echo "  build <slug>      Convert markdown to HTML and publish"
+    echo "  list              Show all posts"
+    echo "  deploy            Commit and push to GitHub Pages"
+    echo "  help              Show this help message"
+    echo ""
+    echo "Examples:"
+    echo "  wm create mon-article"
+    echo "  wm build mon-article"
+    echo "  wm deploy"
+    echo ""
+}
+
+log_info() {
+    echo -e "${GREEN}✓${NC} $1"
+}
+
+log_warn() {
+    echo -e "${YELLOW}⚠${NC} $1"
+}
+
+log_error() {
+    echo -e "${RED}✗${NC} $1"
+}
+
+# Create a new markdown post template
+cmd_create() {
+    local slug="$1"
+    
+    if [ -z "$slug" ]; then
+        log_error "Slug required. Usage: wm create <slug>"
+        exit 1
+    fi
+    
+    local file="$POSTS_MD_DIR/$slug.md"
+    
+    if [ -f "$file" ]; then
+        log_error "Post already exists: $slug"
+        exit 1
+    fi
+    
+    cat > "$file" << 'TEMPLATE'
+---
+title: "Titre de l'article"
+date: "{{DATE}}"
+tags: ["ia", "vulgarisation", "recherche"]
+description: "Description courte en une phrase"
+---
+
+# Le Problème
+
+[Expliquer le problème que le rapport de recherche adresse]
+
+## La Question en Termes Simples
+
+[Une analogie ou explication simple]
+
+# La Solution (Ce qu'ont fait les chercheurs)
+
+[Décrire la méthodologie]
+
+## Leur Découverte
+
+```
+$ agent analyze --task=comprehension
+> Testing...
+> Result: [résultat]
+✓ Agent IA a détecté [conclusion]
+```
+
+[Interprétation des résultats]
+
+# Pourquoi Ça Compte Pour Toi
+
+### L'Impact Réel
+
+**Avant** : [situation avant]
+
+**Maintenant** : [situation maintenant]
+
+**Pour toi** : [bénéfice concret]
+
+### Concrètement :
+
+- ✅ [Bénéfice 1]
+- ✅ [Bénéfice 2]
+- ✅ [Bénéfice 3]
+
+# En Résumé
+
+| Question | Réponse |
+|----------|---------|
+| [Question 1] | [Réponse 1] |
+| [Question 2] | [Réponse 2] |
+| [Question 3] | [Réponse 3] |
+
+---
+
+**Prochain article** : [Teaser du prochain article]
+
+### Tu veux aller plus loin ?
+
+Le rapport original : [Lien arXiv](https://arxiv.org) (en anglais, très technique)
+
+Notre version : celle que tu viens de lire 😊
+TEMPLATE
+
+    # Replace date placeholder
+    local today=$(date +"%d %B %Y")
+    sed -i "s/{{DATE}}/$today/" "$file"
+    
+    log_info "Created: $file"
+    echo ""
+    echo -e "Edit this file with your content, then run:"
+    echo -e "  ${GREEN}wm build $slug${NC}"
+}
+
+# Simple markdown to HTML converter for WebModerne style
+markdown_to_html() {
+    local input="$1"
+    local title="$2"
+    local date="$3"
+    local tags="$4"
+    local description="$5"
+    
+    # Read markdown content
+    local content=$(cat "$input")
+    
+    # Remove frontmatter
+    content=$(echo "$content" | sed '1,/^---$/d')
+    
+    # Convert markdown to HTML (simplified)
+    local html_body=""
+    
+    # Process line by line for basic markdown
+    local in_list=0
+    local in_table=0
+    
+    while IFS= read -r line || [ -n "$line" ]; do
+        # Headers
+        if [[ "$line" =~ ^#\ (.+)$ ]]; then
+            html_body+="        <h1>${BASH_REMATCH[1]}</h1>\n"
+        elif [[ "$line" =~ ^##\ (.+)$ ]]; then
+            html_body+="        <h2>${BASH_REMATCH[1]}</h2>\n"
+        elif [[ "$line" =~ ^###\ (.+)$ ]]; then
+            html_body+="        <h3>${BASH_REMATCH[1]}</h3>\n"
+        # Code blocks
+        elif [[ "$line" =~ ^\`\`\`$ ]]; then
+            if [ $in_list -eq 1 ]; then
+                html_body+="        </ul>\n"
+                in_list=0
+            fi
+            html_body+="        <div class=\"cli-illustration\">\n"
+        # List items
+        elif [[ "$line" =~ ^-\ \[\?]\ (.+)$ ]]; then
+            if [ $in_list -eq 0 ]; then
+                html_body+="        <ul>\n"
+                in_list=1
+            fi
+            html_body+="          <li>✅ ${BASH_REMATCH[1]}</li>\n"
+        elif [[ "$line" =~ ^-\ (.+)$ ]]; then
+            if [ $in_list -eq 0 ]; then
+                html_body+="        <ul>\n"
+                in_list=1
+            fi
+            html_body+="          <li>${BASH_REMATCH[1]}</li>\n"
+        # Bold
+        elif [[ "$line" =~ \*\*(.+)\*\* ]]; then
+            line=$(echo "$line" | sed 's/\*\*\([^*]*\)\*\*/<strong>\1<\/strong>/g')
+            html_body+="        <p>$line</p>\n"
+        # Regular paragraphs
+        elif [[ -n "$line" && ! "$line" =~ ^[[:space:]]*$ ]]; then
+            # Check for pipe in line (potential table)
+            if [[ "$line" =~ ^\| ]]; then
+                if [ $in_table -eq 0 ]; then
+                    html_body+="        <table>\n"
+                    in_table=1
+                fi
+                # Skip separator line
+                if [[ ! "$line" =~ ^\|-+ ]]; then
+                    html_body+="          <tr>\n"
+                    # Split by pipe and create cells
+                    IFS='|' read -ra cells <<< "$line"
+                    for cell in "${cells[@]}"; do
+                        cell=$(echo "$cell" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//') # trim
+                        if [ -n "$cell" ]; then
+                            if [[ "$line" =~ ^\|.*\|.*\|.*$ && ! "$line" =~ ^\|-+ ]]; then
+                                html_body+="            <td>$cell</td>\n"
+                            fi
+                        fi
+                    done
+                    html_body+="          </tr>\n"
+                fi
+            else
+                if [ $in_table -eq 1 ]; then
+                    html_body+="        </table>\n"
+                    in_table=0
+                fi
+                if [ $in_list -eq 1 ]; then
+                    html_body+="        </ul>\n"
+                    in_list=0
+                fi
+                # Convert links [text](url)
+                line=$(echo "$line" | sed 's/\[\([^]]*\)\](\([^)]*\))/<a href="\2" style="color: #db1a1a;">\1<\/a>/g')
+                # Convert inline code
+                line=$(echo "$line" | sed 's/`\([^`]*\)`/<code style="background: #0a0a4a; padding: 2px 6px; border-radius: 3px;">\1<\/code>/g')
+                html_body+="        <p>$line</p>\n"
+            fi
+        else
+            if [ $in_list -eq 1 ]; then
+                html_body+="        </ul>\n"
+                in_list=0
+            fi
+            if [ $in_table -eq 1 ]; then
+                html_body+="        </table>\n"
+                in_table=0
+            fi
+        fi
+    done <<< "$content"
+    
+    # Close any open tags
+    if [ $in_list -eq 1 ]; then
+        html_body+="        </ul>\n"
+    fi
+    if [ $in_table -eq 1 ]; then
+        html_body+="        </table>\n"
+    fi
+    
+    # Generate tags HTML
+    local tags_html=""
+    IFS=',' read -ra tag_array <<< "$tags"
+    for tag in "${tag_array[@]}"; do
+        tag=$(echo "$tag" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | tr -d '[]"')
+        tags_html+="<span style=\"color: #db1a1a;\">#$tag</span> "
+    done
+    
+    # Build full HTML
+    cat << HTML
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$title - WebModerne</title>
+  <meta name="description" content="$description">
+  <meta name="author" content="Angel - WebModerne">
+  <link rel="icon" type="image/png" href="/favicon.ico">
+  
+  <style>
+    :root {
+      --bg-color: $BG_COLOR;
+      --accent-color: $ACCENT_COLOR;
+      --text-color: $TEXT_COLOR;
+      --code-bg: $CODE_BG;
+      --border-color: $BORDER_COLOR;
+    }
+    * { box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+    .header {
+      border-bottom: 2px solid var(--accent-color);
+      padding: 30px 0;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      color: var(--accent-color);
+      font-size: 2.5em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .header .subtitle {
+      color: #aaa;
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+    .nav { margin: 20px 0; }
+    .nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin-right: 20px;
+      padding: 8px 16px;
+      border: 1px solid var(--accent-color);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .nav a:hover {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+    }
+    .terminal-box {
+      background: var(--code-bg);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-color);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .terminal-box h3 {
+      color: var(--accent-color);
+      margin-top: 0;
+    }
+    .post-content {
+      background: var(--code-bg);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+    .post-content h1 {
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 15px;
+      margin-top: 0;
+    }
+    .post-content h2 {
+      color: var(--accent-color);
+      margin-top: 30px;
+    }
+    .post-content .date {
+      color: #888;
+      margin-bottom: 20px;
+    }
+    .post-content p {
+      color: #ddd;
+    }
+    .cli-illustration {
+      background: #000;
+      border: 1px solid var(--accent-color);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    .cli-illustration .prompt { color: #00ff00; }
+    .cli-illustration .output { color: #ccc; margin-left: 20px; }
+    .cli-illustration .agent { color: var(--accent-color); font-weight: bold; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background: var(--code-bg);
+      color: var(--accent-color);
+    }
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+    }
+    a { color: var(--accent-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    @media (max-width: 768px) {
+      .container { padding: 15px; }
+      .header h1 { font-size: 1.8em; }
+      .nav a { display: block; margin-bottom: 10px; }
+      .post-content { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>WebModerne</h1>
+      <div class="subtitle">L'IA expliquée simplement aux non-techniques</div>
+    </header>
+    
+    <nav class="nav">
+      <a href="/">Accueil</a>
+      <a href="/about.html">À Propos</a>
+      <a href="/posts/">Articles</a>
+    </nav>
+    
+    <main>
+      <article class="post-content">
+        <h1>$title</h1>
+        <div class="date">Publié le $date • Tags: $tags_html</div>
+        
+$html_body
+        
+        <hr style="border: 1px solid var(--border-color); margin: 30px 0;">
+        
+        <div style="margin-top: 40px; text-align: center;">
+          <a href="/posts/" style="color: #db1a1a;">← Retour aux articles</a>
+        </div>
+      </article>
+    </main>
+    
+    <footer class="footer">
+      <p>&copy; 2026 WebModerne - Tous droits réservés</p>
+      <p>Propulsé par <a href="https://github.com/boucheb615-hue/blog.webmoderne.com">GitHub Pages</a></p>
+    </footer>
+  </div>
+</body>
+</html>
+HTML
+}
+
+# Build a post from markdown to HTML
+cmd_build() {
+    local slug="$1"
+    
+    if [ -z "$slug" ]; then
+        log_error "Slug required. Usage: wm build <slug>"
+        exit 1
+    fi
+    
+    local md_file="$POSTS_MD_DIR/$slug.md"
+    local html_file="$POSTS_HTML_DIR/$slug.html"
+    
+    if [ ! -f "$md_file" ]; then
+        log_error "Markdown file not found: $md_file"
+        echo "Create it first with: ${GREEN}wm create $slug${NC}"
+        exit 1
+    fi
+    
+    log_info "Building: $slug"
+    
+    # Extract frontmatter
+    local title=$(grep "^title:" "$md_file" | sed 's/title: "\(.*\)"/\1/')
+    local date=$(grep "^date:" "$md_file" | sed 's/date: "\(.*\)"/\1/')
+    local tags=$(grep "^tags:" "$md_file" | sed 's/tags: \(.*\)/\1/')
+    local description=$(grep "^description:" "$md_file" | sed 's/description: "\(.*\)"/\1/')
+    
+    # Convert to HTML
+    markdown_to_html "$md_file" "$title" "$date" "$tags" "$description" > "$html_file"
+    
+    log_info "Generated: $html_file"
+    
+    # Update index
+    update_index "$slug" "$title" "$date" "$description"
+    
+    echo ""
+    echo "Next step: ${GREEN}wm deploy${NC}"
+}
+
+# Update the posts index.html with new entry
+update_index() {
+    local slug="$1"
+    local title="$2"
+    local date="$3"
+    local description="$4"
+    
+    # Format date for display (remove year if present, capitalize month)
+    local display_date=$(echo "$date" | sed 's/ [0-9]\{4\}$//' | sed 's/\b\(.\)\([a-z]*\)\b/\u\1/g')
+    
+    # Create new post entry HTML
+    local new_entry="        <li class=\"post-item\">\n          <h2><a href=\"/posts/$slug.html\">$title</a></h2>\n          <div class=\"date\">$display_date</div>\n          <div class=\"summary\">$description</div>\n        </li>\n"
+    
+    # Insert after the opening ul tag
+    local temp_file=$(mktemp)
+    awk -v entry="$new_entry" '
+        /<ul class="post-list">/ {
+            print
+            printf entry
+            next
+        }
+        {print}
+    ' "$INDEX_FILE" > "$temp_file"
+    
+    mv "$temp_file" "$INDEX_FILE"
+    
+    log_info "Updated index with: $title"
+}
+
+# List all posts
+cmd_list() {
+    echo ""
+    echo -e "${BLUE}Posts in posts-md/ (source):${NC}"
+    echo "─────────────────────────────────────"
+    
+    if [ -d "$POSTS_MD_DIR" ] && [ "$(ls -A $POSTS_MD_DIR 2>/dev/null)" ]; then
+        for f in "$POSTS_MD_DIR"/*.md; do
+            if [ -f "$f" ]; then
+                local slug=$(basename "$f" .md)
+                local title=$(grep "^title:" "$f" 2>/dev/null | sed 's/title: "\(.*\)"/\1/' || echo "Untitled")
+                echo -e "  ${GREEN}✓${NC} $slug - $title"
+            fi
+        done
+    else
+        echo "  (no posts yet)"
+    fi
+    
+    echo ""
+    echo -e "${BLUE}Posts in posts/ (published):${NC}"
+    echo "─────────────────────────────────────"
+    
+    if [ -d "$POSTS_HTML_DIR" ]; then
+        for f in "$POSTS_HTML_DIR"/*.html; do
+            if [ -f "$f" ] && [ "$(basename "$f")" != "index.html" ]; then
+                local slug=$(basename "$f" .html)
+                echo -e "  ${GREEN}✓${NC} $slug.html"
+            fi
+        done
+    else
+        echo "  (no posts published)"
+    fi
+    echo ""
+}
+
+# Deploy to GitHub Pages
+cmd_deploy() {
+    log_info "Deploying to GitHub Pages..."
+    
+    cd "$BLOG_DIR"
+    
+    # Check for changes
+    if [ -z "$(git status --porcelain)" ]; then
+        log_warn "No changes to commit"
+        exit 0
+    fi
+    
+    # Add all changes
+    git add -A
+    
+    # Commit
+    local timestamp=$(date +"%Y-%m-%d %H:%M")
+    git commit -m "Deploy blog update - $timestamp"
+    
+    # Push
+    git push origin main
+    
+    log_info "Deployed successfully!"
+    echo ""
+    echo "Your blog will be live at: ${BLUE}https://blog.webmoderne.com${NC}"
+}
+
+# Main command router
+case "${1:-help}" in
+    create)
+        cmd_create "$2"
+        ;;
+    build)
+        cmd_build "$2"
+        ;;
+    list)
+        cmd_list
+        ;;
+    deploy)
+        cmd_deploy
+        ;;
+    help|--help|-h)
+        show_help
+        ;;
+    *)
+        log_error "Unknown command: $1"
+        show_help
+        exit 1
+        ;;
+esac
