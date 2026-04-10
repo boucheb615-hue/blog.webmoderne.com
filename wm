@@ -205,9 +205,15 @@ description: "[Résumé en 150-160 caractères max - ce qui apparaît dans Googl
 
 ---
 
-**Prochain article** : [Teaser concret - ce que le lecteur va apprendre la prochaine fois]
+### 💬 Rejoins la Discussion
 
-> **Tu as des questions ?** [Lien vers Telegram/YouTube/Discord pour la communauté]
+Tu as des questions sur cet article ? Des retours d'expérience à partager ?
+
+→ **[Rejoins le Telegram WebModerne](https://t.me/+Fon2ltdbEcc3N2Nh)** — on en parle en direct avec la communauté.
+
+---
+
+**Prochain article** : [Teaser concret - ce que le lecteur va apprendre la prochaine fois]
 TEMPLATE
 
     log_info "Created: $file"
