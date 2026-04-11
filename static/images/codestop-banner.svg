@@ -1,0 +1,22 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#090935"/>
+  
+  <!-- Title -->
+  <text x="600" y="280" font-family="monospace" font-size="44" fill="#ffffff" text-anchor="middle" font-weight="bold">
+    &gt; CoDE-Stop : L'IA Qui Sait Quand Arrêter
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="340" font-family="monospace" font-size="26" fill="#db1a1a" text-anchor="middle">
+    # 50% de tokens en moins
+  </text>
+  
+  <!-- Decorative line -->
+  <rect x="50" y="550" width="1100" height="3" fill="#db1a1a"/>
+  
+  <!-- Footer -->
+  <text x="600" y="590" font-family="monospace" font-size="18" fill="#888888" text-anchor="middle">
+    WebModerne — arXiv:2604.04930 décrypté
+  </text>
+</svg>
