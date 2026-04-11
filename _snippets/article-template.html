@@ -280,30 +280,45 @@
       <!-- TITLE + DATE + TAGS -->
       <div class="page-intro">
         <h1>ARTICLE_TITLE</h1>
-        <p>Publié le DATE • Tags: <span style="color: #db1a1a;">#tag1</span> <span style="color: #db1a1a;">#tag2</span></p>
+        <p>Publié le DATE • Tags : <span style="color: #00ff00;">#tag1</span> <span style="color: #00ff00;">#tag2</span></p>
       </div>
 
       <!-- BANNER (after title, before intro) -->
       <img src="/static/images/SLUG-banner.png" alt="ARTICLE_TITLE" class="article-banner">
 
-      <!-- INTRO (2-3 short phrases, natural French) -->
+      <!-- INTRO (2-3 phrases courtes, français naturel) -->
       <div class="article-intro">
         <p>Phrase d'accroche courte. Fait concret. Pas de traduction littérale de l'anglais.</p>
         <p>Deuxième phrase sur l'impact réel. Troisième phrase si nécessaire.</p>
       </div>
 
+      <!-- TABLE DES MATIÈRES (obligatoire pour articles longs) -->
+      <nav class="toc" style="background: var(--code-bg); border-left: 3px solid var(--accent-color); border-radius: 0 8px 8px 0; padding: 20px; margin: 30px 0;">
+        <h4 style="color: var(--accent-color); font-family: var(--font-mono); margin: 0 0 15px; text-transform: uppercase; font-size: 0.85em;">📋 Sommaire</h4>
+        <ul style="margin: 0; padding-left: 20px; color: #ddd;">
+          <li style="margin-bottom: 8px;"><a href="#contexte" style="color: var(--accent-color); text-decoration: none;">Le Contexte — Pourquoi maintenant</a></li>
+          <li style="margin-bottom: 8px;"><a href="#probleme" style="color: var(--accent-color); text-decoration: none;">Le Problème — Ce qui change</a></li>
+          <li style="margin-bottom: 8px;"><a href="#solution" style="color: var(--accent-color); text-decoration: none;">La Solution — Comment ils répondent</a></li>
+          <li style="margin-bottom: 8px;"><a href="#impact" style="color: var(--accent-color); text-decoration: none;">L'Impact — Pourquoi TOI</a></li>
+          <li style="margin-bottom: 8px;"><a href="#limites" style="color: var(--accent-color); text-decoration: none;">Les Limites — Ce qui reste à faire</a></li>
+          <li style="margin-bottom: 8px;"><a href="#conclusion" style="color: var(--accent-color); text-decoration: none;">Les 3 Points Clés</a></li>
+        </ul>
+      </nav>
+
       <article class="post-content">
-        <h3>Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)</h3>
+        <!-- SECTION 1 : CONTEXTE -->
+        <h2 id="contexte">Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)</h2>
         <p>Paragraphe de contexte...</p>
-        <p class="callout">💡 <strong>Le saviez-vous ?</strong> Insight surprenant ici.</p>
+        <p class="callout">💡 <strong>Le saviez-vous ?</strong> Insight surprenant avec source.</p>
 
-        <h2>Le Problème</h2>
-        <p>Description du problème...</p>
+        <!-- SECTION 2 : PROBLÈME (AVANT/MAINTENANT) -->
+        <h2 id="probleme">Le Problème (Ce Qui Change)</h2>
+        <p><strong>Avant</strong> : Situation stable, rassurante.</p>
+        <p><strong>Maintenant</strong> : Bouleversement, urgence.</p>
+        <p class="callout"><strong>Exemple concret</strong> : Cas réel avec date + acteur.</p>
 
-        <h3>Sous-titre</h3>
-        <p>Détails...</p>
-
-        <h2>La Solution</h2>
+        <!-- SECTION 3 : SOLUTION -->
+        <h2 id="solution">La Solution (Comment Ils Ont Répondu)</h2>
         <p>Description de la solution...</p>
 
         <h3>Leur Approche (Étape par Étape)</h3>
@@ -311,7 +326,7 @@
         <p>2. <strong>Étape 2</strong> : Description</p>
         <p>3. <strong>Étape 3</strong> : Description</p>
 
-        <!-- FINDING CARDS — for key discoveries -->
+        <!-- FINDING CARDS — pour découvertes clés -->
         <div class="finding-cards">
           <div class="finding-card">
             <div class="finding-title">Découverte 1</div>
@@ -321,22 +336,24 @@
           </div>
         </div>
 
-        <!-- STAT CARDS — for benchmark/performance data -->
+        <!-- STAT CARDS — pour benchmarks/données -->
         <h4>Ce Que les Chiffres Disent Vraiment</h4>
+        <p>Phrase d'intro pour contextualiser les données.</p>
         <div class="stat-cards">
           <div class="stat-card">
-            <div class="stat-name">Nom du test</div>
+            <div class="stat-name">Nom du test ou benchmark</div>
             <div class="stat-values">
-              <span class="stat-new">Nouveau</span>
-              <span class="stat-old">Ancien</span>
-              <span class="stat-gain">+X%</span>
+              <span class="stat-new">Nouveau : XX%</span>
+              <span class="stat-old">Ancien : YY%</span>
+              <span class="stat-gain">+ZZ%</span>
             </div>
           </div>
         </div>
 
-        <h2>Pourquoi Ça Compte Pour Toi (L'Impact Réel)</h2>
+        <!-- SECTION 4 : IMPACT PERSONNEL -->
+        <h2 id="impact">Pourquoi Ça Compte Pour Toi (L'Impact Réel)</h2>
 
-        <!-- CONTRAST BLOCKS — before/after comparisons -->
+        <!-- CONTRAST BLOCKS — comparaisons avant/après -->
         <h4>Avant vs Maintenant</h4>
         <div class="contrast-list">
           <div class="contrast-block">
@@ -353,31 +370,47 @@
 
         <h4>Concrètement, Tu Gagnes :</h4>
         <ul>
-          <li>✅ <strong>Bénéfice 1</strong> : Explication</li>
+          <li>✅ <strong>Bénéfice 1</strong> : Explication avec outils grand public (pas de jargon technique)</li>
           <li>✅ <strong>Bénéfice 2</strong> : Explication</li>
+          <li>⚠️ <strong>Risque si rien n'est fait</strong> : Explication</li>
         </ul>
-        <p class="callout">⚠️ <strong>Par contre</strong> : Limitation honnête ici.</p>
+        <p class="callout">⚠️ <strong>Par contre</strong> : Limitation honnête ici pour la crédibilité.</p>
 
-        <h2>Les Limites</h2>
+        <!-- SECTION 5 : LIMITES -->
+        <h2 id="limites">Les Limites (Ce Que Ça Ne Résout Pas)</h2>
         <ul>
           <li>❌ <strong>Limite 1</strong> : Description</li>
           <li>❌ <strong>Limite 2</strong> : Description</li>
+          <li>❌ <strong>Limite 3</strong> : Description</li>
         </ul>
 
-        <h2>Les 3 Points Clés à Retenir</h2>
-        <p>1. <strong>Point 1</strong> : Phrase mémorable</p>
-        <p>2. <strong>Point 2</strong> : Phrase mémorable</p>
-        <p>3. <strong>Point 3</strong> : Phrase mémorable</p>
+        <!-- SECTION 6 : FAQ / RÉSOLUTION -->
+        <h2 id="conclusion">Les 3 Points Clés à Retenir</h2>
+        <div class="faq-list">
+          <div class="faq-block">
+            <div class="faq-q">🔐 Question que le lecteur se pose vraiment ?</div>
+            <div class="faq-a">Réponse en 2-3 phrases max. Direct, pas de jargon.</div>
+          </div>
+          <div class="faq-block">
+            <div class="faq-q">⏱️ Deuxième question importante ?</div>
+            <div class="faq-a">Réponse en 2-3 phrases max.</div>
+          </div>
+          <div class="faq-block">
+            <div class="faq-q">🎯 Troisième question clé ?</div>
+            <div class="faq-a">Réponse en 2-3 phrases max.</div>
+          </div>
+        </div>
 
+        <!-- SECTION 7 : SOURCES + CTA -->
         <h3>Pour Aller Plus Loin (Sources et Lectures)</h3>
         <h4>Sources Originales</h4>
         <ul>
-          <li>📄 <strong>Nom de la source</strong> : <a href="URL">lien</a></li>
+          <li>📄 <strong>Nom de la source</strong> : <a href="URL">lien</a> (en anglais si applicable)</li>
         </ul>
 
         <h4>💬 Rejoins la Discussion</h4>
-        <p>Tu as des questions sur cet article ?</p>
-        <p>→ <strong><a href="https://t.me/+Fon2ltdbEcc3N2Nh" style="color: #db1a1a;">Rejoins le Telegram WebModerne</a></strong></p>
+        <p>Tu as des questions sur cet article ? Des retours d'expérience à partager ?</p>
+        <p>→ <strong><a href="https://t.me/+Fon2ltdbEcc3N2Nh" style="color: #db1a1a;">Rejoins le Telegram WebModerne</a></strong> — on en parle en direct avec la communauté.</p>
         <p><strong>Prochain article</strong> : Teaser du prochain article.</p>
         <hr>
 

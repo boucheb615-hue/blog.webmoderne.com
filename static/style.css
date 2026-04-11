@@ -521,6 +521,154 @@ a:hover {
   margin-bottom: 20px;
 }
 
+/* === VALUE PROP CARDS (index.html) === */
+.value-prop {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.value-prop > div {
+  flex: 1 1 250px;
+  background: var(--code-bg);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.value-prop > div:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.value-prop > div h4 {
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  margin: 0 0 10px;
+  font-size: 1em;
+}
+
+.value-prop > div p {
+  color: #aaa;
+  font-size: 0.9em;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* === COMMUNITY CTA === */
+.community-cta {
+  background: var(--code-bg);
+  border-left: 3px solid var(--accent-color);
+  padding: 25px;
+  border-radius: 0 8px 8px 0;
+  margin: 40px 0;
+}
+
+.community-cta h3 {
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  margin: 0 0 15px;
+  font-size: 1.1em;
+}
+
+.community-cta p {
+  color: #ddd;
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+.community-cta a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.community-cta a:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* === FEATURED ARTICLE (posts/index.html) === */
+.featured-article {
+  background: var(--code-bg);
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 25px;
+  margin: 30px 0;
+}
+
+.featured-article > span:first-child {
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.featured-article h2 {
+  margin: 10px 0;
+  font-family: var(--font-mono);
+  font-size: 1.3em;
+}
+
+.featured-article h2 a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.featured-article h2 a:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.featured-article p {
+  color: #aaa;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+/* === FEATURE CARDS (about.html) === */
+.feature-cards {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.feature-cards > div {
+  flex: 1 1 200px;
+  background: var(--code-bg);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.feature-cards > div:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.feature-cards > div h4 {
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  margin: 0 0 8px;
+  font-size: 1em;
+}
+
+.feature-cards > div p {
+  color: #aaa;
+  font-size: 0.9em;
+  margin: 0;
+  line-height: 1.6;
+}
+
 /* === 404 PAGE === */
 .cli-error {
   background: var(--code-bg);
