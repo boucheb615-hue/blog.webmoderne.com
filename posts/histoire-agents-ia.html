@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Des Agents IA : Comment On Est Passés de Clippy à AutoGPT - WebModerne</title>
+  <meta name="description" content="L'histoire complète des agents IA autonomes. De 1956 à aujourd'hui : Dartmouth, ELIZA, ChatGPT, AutoGPT, BabyAGI. Chronologie détaillée.">
+  <meta name="author" content="WebModerne">
+  <meta property="og:title" content="Des Agents IA : Comment On Est Passés de Clippy à AutoGPT - WebModerne">
+  <meta property="og:description" content="L'histoire complète des agents IA autonomes. De 1956 à aujourd'hui : Dartmouth, ELIZA, ChatGPT, AutoGPT, BabyAGI. Chronologie détaillée.">
+  <meta property="og:url" content="https://blog.webmoderne.com/posts/histoire-agents-ia.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://blog.webmoderne.com/static/images/histoire-agents-ia-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Des Agents IA : Comment On Est Passés de Clippy à AutoGPT - WebModerne">
+  <meta name="twitter:description" content="L'histoire complète des agents IA autonomes. De 1956 à aujourd'hui.">
+  <meta name="twitter:image" content="https://blog.webmoderne.com/static/images/histoire-agents-ia-banner.png">
+  <link rel="canonical" href="https://blog.webmoderne.com/posts/histoire-agents-ia.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+  <link rel="stylesheet" href="/static/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Des Agents IA : Comment On Est Passés de Clippy à AutoGPT",
+    "description": "L'histoire complète des agents IA autonomes. De 1956 à aujourd'hui : Dartmouth, ELIZA, ChatGPT, AutoGPT, BabyAGI.",
+    "url": "https://blog.webmoderne.com/posts/histoire-agents-ia.html",
+    "inLanguage": "fr",
+    "datePublished": "2026-04-10",
+    "author": {
+      "@type": "Organization",
+      "name": "WebModerne",
+      "url": "https://blog.webmoderne.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "WebModerne",
+      "url": "https://blog.webmoderne.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://blog.webmoderne.com/static/logo.png"
+      }
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://blog.webmoderne.com/static/images/histoire-agents-ia-banner.png"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-top">
+        <a href="/" class="header-brand">
+          <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
+          <span class="brand-name">WebModerne</span>
+        </a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
+        <nav class="nav">
+          <a href="/">Accueil</a>
+          <a href="/about.html">À Propos</a>
+          <a href="/posts/" class="active">Articles</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-intro">
+        <h1>Des Agents IA : Comment On Est Passés de Clippy à AutoGPT</h1>
+        <p>Publié le 10 avril 2026 • Tags : <span style="color: #00ff00;">#AgentsIA</span> <span style="color: #00ff00;">#Histoire</span> <span style="color: #00ff00;">#AutoGPT</span> <span style="color: #00ff00;">#ChatGPT</span></p>
+      </div>
+
+      <img src="/static/images/histoire-agents-ia-banner.png" alt="Des Agents IA : Comment On Est Passés de Clippy à AutoGPT" class="article-banner">
+
+      <div class="article-intro">
+        <p>Novembre 2022 : ChatGPT débarque. 3 mois plus tard : AutoGPT et BabyAGI permettent à l'IA d'agir seule.</p>
+        <p>Mais les agents autonomes ne sont pas nés en 2023. Leur histoire commence en 1956.</p>
+        <p>Chronologie complète : de Dartmouth à l'explosion des agents autonomes.</p>
+      </div>
+
+      <nav class="toc" style="background: var(--code-bg); border-left: 3px solid var(--accent-color); border-radius: 0 8px 8px 0; padding: 20px; margin: 30px 0;">
+        <h4 style="color: var(--accent-color); font-family: var(--font-mono); margin: 0 0 15px; text-transform: uppercase; font-size: 0.85em;">📋 Sommaire</h4>
+        <ul style="margin: 0; padding-left: 20px; color: #ddd;">
+          <li style="margin-bottom: 8px;"><a href="#contexte" style="color: var(--accent-color); text-decoration: none;">Le Contexte — Pourquoi maintenant</a></li>
+          <li style="margin-bottom: 8px;"><a href="#probleme" style="color: var(--accent-color); text-decoration: none;">Le Problème — Ce qui change</a></li>
+          <li style="margin-bottom: 8px;"><a href="#solution" style="color: var(--accent-color); text-decoration: none;">La Solution — Comment ils répondent</a></li>
+          <li style="margin-bottom: 8px;"><a href="#impact" style="color: var(--accent-color); text-decoration: none;">L'Impact — Pourquoi TOI</a></li>
+          <li style="margin-bottom: 8px;"><a href="#limites" style="color: var(--accent-color); text-decoration: none;">Les Limites — Ce qui reste à faire</a></li>
+          <li style="margin-bottom: 8px;"><a href="#conclusion" style="color: var(--accent-color); text-decoration: none;">Les 3 Points Clés</a></li>
+        </ul>
+      </nav>
+
+      <article class="post-content">
+        <h2 id="contexte">Le Contexte (Pourquoi Ce Sujet Est Important Maintenant)</h2>
+        <p><strong>2023 restera dans l'histoire comme l'année des agents IA autonomes.</strong> En quelques mois, des projets comme AutoGPT, BabyAGI et AgentGPT ont transformé ChatGPT — un simple chatbot — en un système capable d'agir seul sur internet.</p>
+        <p>Mais cette révolution n'est pas sortie de nulle part. Elle est le résultat de <strong>70 ans de recherche</strong>, depuis la conférence de Dartmouth en 1956 jusqu'à l'API de GPT-4 en mars 2023.</p>
+        <p class="callout">💡 <strong>Le saviez-vous ?</strong> AutoGPT est devenu l'un des projets open-source à la croissance la plus rapide de l'histoire GitHub — 100 000 étoiles en moins de 2 semaines après son lancement en mars 2023.</p>
+
+        <h2 id="probleme">Le Problème (Ce Qui Change)</h2>
+        <p><strong>Avant 2023</strong> : Les IA étaient passives. Tu poses une question, elles répondent. Point final.</p>
+        <p><strong>Maintenant</strong> : Les IA peuvent créer leurs propres sous-objectifs, exécuter des tâches en boucle, et agir sur le monde réel (naviguer sur le web, envoyer des emails, modifier des fichiers).</p>
+        <p class="callout"><strong>Exemple concret</strong> : En mars 2023, un utilisateur demande à AutoGPT : « Crée-moi un business plan pour une startup de café ». L'agent décompose seul la tâche, recherche des données marché, rédige chaque section, et sauvegarde le document final — sans intervention humaine.</p>
+
+        <h2 id="solution">La Solution (Comment Ils Ont Répondu)</h2>
+        <p>Les agents autonomes combinent 3 briques technologiques :</p>
+        <ul>
+          <li><strong>Un modèle de langage</strong> (GPT-4) pour raisonner et planifier</li>
+          <li><strong>Une mémoire</strong> pour stocker le contexte et les résultats intermédiaires</li>
+          <li><strong>Des outils</strong> (navigation web, exécution de code, API) pour agir</li>
+        </ul>
+
+        <h3>Leur Approche (Étape par Étape)</h3>
+        <p>1. <strong>Objectif principal</strong> : L'utilisateur donne un but (« Crée un site web »)</p>
+        <p>2. <strong>Décomposition</strong> : L'IA crée une liste de sous-tâches (rechercher un hébergeur, écrire le code, déployer)</p>
+        <p>3. <strong>Exécution en boucle</strong> : L'IA exécute chaque tâche, vérifie le résultat, et passe à la suivante</p>
+        <p>4. <strong>Auto-correction</strong> : Si une tâche échoue, l'IA réessaie avec une autre approche</p>
+
+        <div class="finding-cards">
+          <div class="finding-card">
+            <div class="finding-title">🚀 Vitesse d'Adoption</div>
+            <div class="finding-stat">100K étoiles</div>
+            <div class="finding-label">AutoGPT sur GitHub en 2 semaines</div>
+            <div class="finding-detail">Jamais un projet open-source n'avait atteint ce niveau d'engouement aussi vite. Comparaison : React a mis 6 mois pour atteindre 50K étoiles.</div>
+          </div>
+          <div class="finding-card">
+            <div class="finding-title">📅 Date Clé</div>
+            <div class="finding-stat">Mars 2023</div>
+            <div class="finding-label">Lancement simultané</div>
+            <div class="finding-detail">AutoGPT (31 mars), BabyAGI (avril), AgentGPT (avril) — tous lancés dans la même fenêtre de 2 semaines, indépendamment.</div>
+          </div>
+        </div>
+
+        <h4>Ce Que les Chiffres Disent Vraiment</h4>
+        <p>Voici les milestones clés de l'évolution des agents IA :</p>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-name">1956 — Dartmouth</div>
+            <div class="stat-values">
+              <span class="stat-new">Naissance de l'IA</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-name">1966 — ELIZA</div>
+            <div class="stat-values">
+              <span class="stat-new">1er chatbot</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-name">Nov 2022 — ChatGPT</div>
+            <div class="stat-values">
+              <span class="stat-new">1M d'utilisateurs en 5 jours</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-name">Mars 2023 — AutoGPT</div>
+            <div class="stat-values">
+              <span class="stat-new">1er agent autonome grand public</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="impact">Pourquoi Ça Compte Pour Toi (L'Impact Réel)</h2>
+
+        <h4>Avant vs Maintenant</h4>
+        <div class="contrast-list">
+          <div class="contrast-block">
+            <div class="contrast-label">Recherche d'information</div>
+            <div class="contrast-rows">
+              <div class="contrast-row">
+                <span class="cr-before">🕐 Avant : Tu ouvres 10 onglets, tu copies-colles</span>
+                <span class="cr-arrow">→</span>
+                <span class="cr-after">⚡ Maintenant : L'agent cherche, synthétise, cite</span>
+              </div>
+            </div>
+          </div>
+          <div class="contrast-block">
+            <div class="contrast-label">Automatisation de tâches</div>
+            <div class="contrast-rows">
+              <div class="contrast-row">
+                <span class="cr-before">🕐 Avant : Scripts complexes, APIs à configurer</span>
+                <span class="cr-arrow">→</span>
+                <span class="cr-after">⚡ Maintenant : « Trouve-moi 5 fournisseurs et compare les prix »</span>
+              </div>
+            </div>
+          </div>
+          <div class="contrast-block">
+            <div class="contrast-label">Apprentissage</div>
+            <div class="contrast-rows">
+              <div class="contrast-row">
+                <span class="cr-before">🕐 Avant : Tutos YouTube, documentation technique</span>
+                <span class="cr-arrow">→</span>
+                <span class="cr-after">⚡ Maintenant : L'agent t'explique pas à pas, adapte le rythme</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Concrètement, Tu Gagnes :</h4>
+        <ul>
+          <li>✅ <strong>Temps économisé</strong> : Les tâches répétitives (recherche, comparaison, synthèse) sont déléguées</li>
+          <li>✅ <strong>Accessibilité</strong> : Plus besoin de savoir coder pour automatiser des workflows complexes</li>
+          <li>✅ <strong>Itération rapide</strong> : Tester une idée prend des minutes, pas des jours</li>
+          <li>⚠️ <strong>Risque si rien n'est fait</strong> : Ceux qui maîtrisent les agents auront un avantage décisif sur ceux qui ne les utilisent pas</li>
+        </ul>
+        <p class="callout">⚠️ <strong>Par contre</strong> : Les agents actuels sont encore imprévisibles. Ils peuvent boucler à l'infini, prendre de mauvaises décisions, ou coûter cher en tokens API. C'est puissant, mais pas encore fiable à 100%.</p>
+
+        <h2 id="limites">Les Limites (Ce Que Ça Ne Résout Pas)</h2>
+        <ul>
+          <li>❌ <strong>Fiabilité</strong> : Les agents peuvent échouer silencieusement ou prendre des décisions absurdes</li>
+          <li>❌ <strong>Coût</strong> : Une session AutoGPT peut consommer des dizaines de dollars en tokens GPT-4</li>
+          <li>❌ <strong>Sécurité</strong> : Donner à une IA l'accès à tes fichiers, emails, ou APIs ouvre des vecteurs d'attaque</li>
+          <li>❌ <strong>Complexité</strong> : Configurer un agent autonome demande encore des compétences techniques (Python, APIs, variables d'environnement)</li>
+        </ul>
+
+        <h2 id="conclusion">Les 3 Points Clés à Retenir</h2>
+        <div class="faq-list">
+          <div class="faq-block">
+            <div class="faq-q">🔐 Les agents IA, c'est juste une mode ou c'est durable ?</div>
+            <div class="faq-a">Durable. L'architecture des agents (raisonnement + mémoire + outils) résout un problème fondamental : les LLM seuls sont passifs. Les agents les rendent actifs. C'est une évolution structurelle, pas un gadget.</div>
+          </div>
+          <div class="faq-block">
+            <div class="faq-q">⏱️ Je dois m'y mettre maintenant ou je peux attendre ?</div>
+            <div class="faq-a">Maintenant. La courbe d'apprentissage est raide mais courte. Dans 6-12 mois, les outils seront matures et l'avantage concurrentiel sera moins grand. Commence avec des cas simples (recherche automatisée, synthèse de documents).</div>
+          </div>
+          <div class="faq-block">
+            <div class="faq-q">🎯 Quel est le meilleur point d'entrée pour un non-technique ?</div>
+            <div class="faq-a">Les interfaces no-code comme AgentGPT ou les extensions navigateur. Évite AutoGPT en local pour commencer — la configuration est trop complexe. Teste d'abord avec un budget limité (5-10$ de crédits API).</div>
+          </div>
+        </div>
+
+        <h3>Pour Aller Plus Loin (Sources et Lectures)</h3>
+        <h4>Sources Originales</h4>
+        <ul>
+          <li>📄 <strong>Rentelligence — History of AI Agents</strong> : <a href="https://rentelligence.ai/blog/history-of-ai-agents/" style="color: #db1a1a;">https://rentelligence.ai/blog/history-of-ai-agents/</a> (en anglais)</li>
+          <li>📄 <strong>BairesDev — Rise of Autonomous Agents</strong> : <a href="https://www.bairesdev.com/blog/the-rise-of-autonomous-agents-autogpt-agentgpt-and-babyagi/" style="color: #db1a1a;">https://www.bairesdev.com/blog/the-rise-of-autonomous-agents-autogpt-agentgpt-and-babyagi/</a> (en anglais)</li>
+          <li>📄 <strong>GitHub — AutoGPT Repository</strong> : <a href="https://github.com/Significant-Gravitas/AutoGPT" style="color: #db1a1a;">https://github.com/Significant-Gravitas/AutoGPT</a></li>
+        </ul>
+
+        <h4>💬 Rejoins la Discussion</h4>
+        <p>Tu as des questions sur cet article ? Tu as déjà testé AutoGPT ou BabyAGI ?</p>
+        <p>→ <strong><a href="https://t.me/+Fon2ltdbEcc3N2Nh" style="color: #db1a1a;">Rejoins le Telegram WebModerne</a></strong> — on en parle en direct avec la communauté.</p>
+        <p><strong>Prochain article</strong> : Tutoriel pratique — Créer ton premier agent autonome sans coder.</p>
+        <hr>
+
+        <div style="margin-top: 40px; text-align: center;">
+          <a href="/posts/" style="color: #db1a1a;">← Retour aux articles</a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 WebModerne - Tous droits réservés</p>
+      <p style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://youtube.com/@WebModerne" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#db1a1a" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          YouTube
+        </a>
+        <a href="https://t.me/+Fon2ltdbEcc3N2Nh" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#db1a1a" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.42.9-4.15 2.75-.39.27-.74.4-1.05.39-.35-.01-1.02-.2-1.52-.36-.61-.2-1.1-.31-1.06-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .22z"/>
+          </svg>
+          Telegram
+        </a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
