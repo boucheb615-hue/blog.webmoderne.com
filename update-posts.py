@@ -6,12 +6,14 @@ Usage: python update-posts.py
 
 import os
 import re
+import sys
+import html
 from pathlib import Path
 from datetime import datetime
 
 POSTS_DIR = "posts"
 INDEX_FILE = "index.html"
-MAX_ARTICLES = 5
+MAX_ARTICLES = 5  # Homepage performance: keeps initial load under 100KB
 
 def extract_metadata(filepath):
     """Extract title, description and date from HTML file."""
@@ -22,10 +24,12 @@ def extract_metadata(filepath):
     title_match = re.search(r'<title>([^<]+)</title>', content)
     title = title_match.group(1) if title_match else "Sans titre"
     title = re.sub(r'\s*-\s*WebModerne$', '', title)
+    title = html.escape(title)  # Security: prevent XSS
     
     # Extract description
     desc_match = re.search(r'<meta name="description" content="([^"]+)"', content)
     description = desc_match.group(1) if desc_match else ""
+    description = html.escape(description)  # Security: prevent XSS
     
     # Extract date from content (div class="date")
     date_match = re.search(r'<div class="date">([^<]+)</div>', content)
@@ -82,11 +86,14 @@ def main():
     
     new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
     
-    # Write back
-    with open(INDEX_FILE, 'w', encoding='utf-8') as f:
-        f.write(new_content)
-    
-    print(f"✅ {INDEX_FILE} mis à jour")
+    # Write back with error handling
+    try:
+        with open(INDEX_FILE, 'w', encoding='utf-8') as f:
+            f.write(new_content)
+        print(f"✅ {INDEX_FILE} mis à jour")
+    except Exception as e:
+        print(f"❌ Erreur écriture {INDEX_FILE}: {e}")
+        sys.exit(1)
     print()
     print("Articles inclus :")
     for filepath in html_files:

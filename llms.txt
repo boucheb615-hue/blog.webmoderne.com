@@ -4,32 +4,58 @@
 
 ## À propos
 
-- Nom : WebModerne
-- Langue : Français
-- Thème : Intelligence artificielle expliquée aux non-techniques
-- URL : https://blog.webmoderne.com
-- YouTube : https://youtube.com/@WebModerne
-- Telegram : https://t.me/+Fon2ltdbEcc3N2Nh
+- **Nom :** WebModerne
+- **Langue :** Français
+- **Thème :** Intelligence artificielle expliquée aux non-techniques
+- **URL :** https://blog.webmoderne.com
+- **YouTube :** https://youtube.com/@WebModerne
+- **Telegram :** https://t.me/+Fon2ltdbEcc3N2Nh
+- **Contact :** angel@webmoderne.com
 
-## Articles
+## Tous les Articles (2026)
 
-- [Project Glasswing : L'IA Trop Puissante Pour Être Publique](https://blog.webmoderne.com/posts/project-glasswing.html) : Anthropic a développé Claude Mythos, un modèle IA qui trouve des milliers de failles de sécurité invisibles. Trop dangereux pour être public.
+### Avril 2026
+
+- **[CoDE-Stop : L'IA Qui Sait Quand Arrêter de Réfléchir](https://blog.webmoderne.com/posts/codestop-arret-raisonnement-ia.html)** — Une nouvelle méthode réduit de 50% les tokens des modèles de raisonnement. CoDE-Stop utilise la confiance du modèle pour arrêter le raisonnement au bon moment.
+
+- **[IA au Travail : L'Étude Qui Prouve Que Tu Gagnes du Temps (Mais Pas de Productivité)](https://blog.webmoderne.com/posts/ia-travail-etude-productivite.html)** — 51,8% des travailleurs utilisent l'IA. Ils gagnent 3,8% de temps. Mais leur productivité n'a pas bougé. Une étude coréenne sur 5 512 personnes explique pourquoi.
+
+- **[Des Agents IA : Comment On Est Passés de Clippy à AutoGPT](https://blog.webmoderne.com/posts/histoire-agents-ia.html)** — L'histoire complète des agents IA autonomes. De 1956 à aujourd'hui : Dartmouth, ELIZA, ChatGPT, AutoGPT, BabyAGI. Chronologie détaillée.
+
+- **[Project Glasswing : L'IA Trop Puissante Pour Être Publique](https://blog.webmoderne.com/posts/project-glasswing.html)** — Anthropic a développé Claude Mythos, un modèle IA qui trouve des milliers de failles de sécurité invisibles. Trop dangereux pour être public.
 
 ## Pages
 
-- [Accueil](https://blog.webmoderne.com/) : Page d'accueil avec les derniers articles
-- [À Propos](https://blog.webmoderne.com/about.html) : Mission et philosophie de WebModerne
-- [Tous les articles](https://blog.webmoderne.com/posts/) : Liste complète des articles publiés
+- [Accueil](https://blog.webmoderne.com/) — Page d'accueil avec les derniers articles
+- [À Propos](https://blog.webmoderne.com/about.html) — Mission et philosophie de WebModerne
+- [Tous les articles](https://blog.webmoderne.com/posts/) — Liste complète des articles publiés
 
-## Structure du site
+## Structure du Site
 
 Chaque article suit le même format :
-1. Introduction contextuelle du sujet
-2. Explication en termes simples (pas de jargon)
-3. Tableaux de données et comparaisons avant/après quand applicable
-4. Section "Les Limites" pour la transparence
-5. Résumé "3 Points Clés" en fin d'article
+1. **Hook** — 30s avec un fait/chiffre choc
+2. **Introduction contextuelle** — Pourquoi ce sujet importe
+3. **Explication simple** — Pas de jargon, analogies concrètes
+4. **Données & Preuves** — Tableaux, comparaisons AVANT/MAINTENANT
+5. **Les Limites** — Transparence sur ce qu'on ne sait pas
+6. **FAQ** — Réponses aux objections courantes
+7. **3 Points Clés** — Résumé actionnable
+8. **CTA Telegram** — Rejoindre la communauté
 
-## Contact
+## Conventions de Contenu
 
-- Email : angel@webmoderne.com
+- **100% Français** — Aucun anglicisme inutile (framework→structure, CTA→appel à l'action)
+- **Mobile-first** — Paragraphes de 3 lignes maximum
+- **Crédibilité** — Sources citées, données chiffrées, limites honnêtes
+- **Sans baratin** — Opinion basée sur des faits, pas de spéculation
+
+## Flux RSS
+
+- [RSS Feed](https://blog.webmoderne.com/rss.xml) — Tous les articles au format RSS
+
+## API & Données
+
+Le site est un statique HTML pur sur GitHub Pages. Pas d'API REST. Pour extraire du contenu :
+- Utiliser `llms.txt` pour une vue d'ensemble structurée
+- Scraper les pages HTML (structure cohérente, balises sémantiques)
+- JSON-LD présent sur chaque page pour les métadonnées structurées

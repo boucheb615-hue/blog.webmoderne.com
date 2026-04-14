@@ -57,6 +57,26 @@ if [[ -z "$TITLE" || -z "$OUTPUT" ]]; then
     exit 1
 fi
 
+# Input sanitization - prevent injection attacks
+if [[ "$TITLE" =~ [\"\'] ]]; then
+    echo "❌ Erreur: le titre ne peut pas contenir de guillemets"
+    exit 1
+fi
+if [[ "$SUBTITLE" =~ [\"\'] ]]; then
+    echo "❌ Erreur: le sous-titre ne peut pas contenir de guillemets"
+    exit 1
+fi
+if [[ "$OUTPUT" =~ [\/\\] ]]; then
+    echo "❌ Erreur: le nom de fichier ne peut pas contenir de / ou \\"
+    exit 1
+fi
+
+# Validate output extension
+if [[ ! "$OUTPUT" =~ \.png$ ]]; then
+    echo "❌ Erreur: le fichier de sortie doit être un .png"
+    exit 1
+fi
+
 # Output path
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OUTPUT_PATH="${SCRIPT_DIR}/static/images/${OUTPUT}"
