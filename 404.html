@@ -28,8 +28,7 @@
   </script>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
+<header class="header">
       <div class="header-top">
         <a href="/" class="header-brand">
           <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
@@ -43,8 +42,7 @@
         </nav>
       </div>
     </header>
-    
-    <main>
+  <main class="container">
       <div class="error-content">
         <p class="error-code">404</p>
         <h2>Page Introuvable</h2>
@@ -59,7 +57,23 @@
       </div>
     </main>
     
-    <footer class="footer">
+    
+  </div>
+  <script>
+    (function() {
+      var seconds = 10;
+      var el = document.getElementById('countdown');
+      var timer = setInterval(function() {
+        seconds--;
+        if (el) el.textContent = seconds;
+        if (seconds <= 0) {
+          clearInterval(timer);
+          window.location.href = '/';
+        }
+      }, 1000);
+    })();
+  </script>
+<footer class="footer">
       <p>&copy; 2026 WebModerne - Tous droits réservés</p>
       <p style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
         <a href="https://youtube.com/@WebModerne" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
@@ -76,20 +90,5 @@
         </a>
       </p>
     </footer>
-  </div>
-  <script>
-    (function() {
-      var seconds = 10;
-      var el = document.getElementById('countdown');
-      var timer = setInterval(function() {
-        seconds--;
-        if (el) el.textContent = seconds;
-        if (seconds <= 0) {
-          clearInterval(timer);
-          window.location.href = '/';
-        }
-      }, 1000);
-    })();
-  </script>
 </body>
 </html>

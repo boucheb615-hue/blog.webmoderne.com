@@ -53,8 +53,7 @@
   </script>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
+<header class="header">
       <div class="header-top">
         <a href="/" class="header-brand">
           <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
@@ -68,29 +67,29 @@
         </nav>
       </div>
     </header>
-    
-    <main>
+  <main class="container">
       <div class="page-intro">
         <h1>L'IA Sans le Baratin</h1>
         <p>Rapports scientifiques + actualité IA. Expliqués sans jargon.</p>
-        <p style="color: #db1a1a; font-family: var(--font-mono); font-size: 0.9em; margin-top: 20px;">
-          🔥 Nouveau : Project Glasswing — L'IA trop puissante pour être publique
-        </p>
+        <div class="flash-alert">
+          <span class="flash-tag">NEW</span>
+          <a href="/posts/project-glasswing.html">Project Glasswing : L'IA trop puissante pour être publique</a>
+        </div>
       </div>
       
       <!-- CE QU'ON FAIT -->
-      <div class="value-prop" style="display: flex; gap: 20px; flex-wrap: wrap; margin: 40px 0;">
-        <div style="flex: 1 1 250px; background: var(--code-bg); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);">
+      <div class="value-prop">
+        <div class="card">
           <div style="font-size: 2em; margin-bottom: 10px;">📄</div>
           <h4 style="color: var(--accent-color); margin: 0 0 10px; font-family: var(--font-mono);">Articles Scientifiques</h4>
           <p style="color: #aaa; font-size: 0.9em; margin: 0;">Nous lisons les rapports scientifiques parfois très techniques. Nous les résumons en français facile à comprendre par tous.</p>
         </div>
-        <div style="flex: 1 1 250px; background: var(--code-bg); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);">
+        <div class="card">
           <div style="font-size: 2em; margin-bottom: 10px;">📰</div>
           <h4 style="color: var(--accent-color); margin: 0 0 10px; font-family: var(--font-mono);">Actualité IA</h4>
           <p style="color: #aaa; font-size: 0.9em; margin: 0;">Annonces, sorties, controverses — nous trions le signal du bruit.</p>
         </div>
-        <div style="flex: 1 1 250px; background: var(--code-bg); padding: 20px; border-radius: 8px; border: 1px solid var(--border-color);">
+        <div class="card">
           <div style="font-size: 2em; margin-bottom: 10px;">💭</div>
           <h4 style="color: var(--accent-color); margin: 0 0 10px; font-family: var(--font-mono);">Analyses &amp; Avis</h4>
           <p style="color: #aaa; font-size: 0.9em; margin: 0;">Quand c'est pertinent, nous donnons notre opinion — toujours basée sur des faits.</p>
@@ -127,7 +126,9 @@
       </div>
     </main>
     
-    <footer class="footer">
+    
+  </div>
+<footer class="footer">
       <p>&copy; 2026 WebModerne - Tous droits réservés</p>
       <p style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
         <a href="https://youtube.com/@WebModerne" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
@@ -144,6 +145,5 @@
         </a>
       </p>
     </footer>
-  </div>
 </body>
 </html>
