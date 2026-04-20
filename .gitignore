@@ -1,0 +1,9 @@
+.env
+*.pyc
+__pycache__/
+.DS_Store
+*.tmp
+.hermes/
+regen_horizontal_banners.py
+generate-banner.py
+test_google_img.py
