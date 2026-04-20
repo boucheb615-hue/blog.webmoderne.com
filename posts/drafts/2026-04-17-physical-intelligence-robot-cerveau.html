@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Intelligence π0.7 : le cerveau robotique qui apprend seul</title>
+    <meta name="description" content="La startup Physical Intelligence dévoile π0.7, un modèle d'IA robotique capable de combiner des compétences apprises dans des contextes différents pour résoudre des tâches jamais rencontrées.">
+    <link rel="stylesheet" href="../styles.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5TVB83GPH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G5TVB83GPH');
+  </script>
+</head>
+<body>
+    <header>
+        <img src="../brand_assets/image.png" alt="WebModerne" class="logo">
+        <nav>
+            <a href="../index.html">Accueil</a>
+            <a href="../about.html">À propos</a>
+        </nav>
+    </header>
+
+    <main class="page-intro">
+        <h1>Physical Intelligence π0.7 : le cerveau robotique qui apprend seul des tâches jamais vues</h1>
+        <p class="subtitle">Un robot qui cuisine sans recette — la généralisation compositionnelle arrive en robotique</p>
+        <p class="meta">Publié le 17 avril 2026 · Source: TechCrunch <a href="https://techcrunch.com/2026/04/16/physical-intelligence-a-hot-robotics-startup-says-its-new-robot-brain-can-figure-out-tasks-it-was-never-taught/" target="_blank" rel="noopener">Physical Intelligence π0.7</a></p>
+    </main>
+
+    <article class="content">
+        <!-- SECTION 1: INTRO -->
+        <h2>Introduction</h2>
+        <p>Jusqu'à présent, les robots intelligents fonctionnaient comme des acteurs apprenant un rôle par cœur : capables de répéter exactement ce qu'on leur a montré, mais démunis face à l'imprévu. Physical Intelligence, une startup de robotique basée à San Francisco, vient de publier des résultats qui changent la donne avec son modèle π0.7.</p>
+        <p>Pour la première fois en robotique, un modèle démontre ce que les chercheurs appellent la <strong>généralisation compositionnelle</strong> : la capacité à combiner des fragments de compétences appris séparément pour accomplir des tâches jamais rencontrées. Un peu comme un cuisinier qui, ayant appris à émincer des légumes et à utiliser un four, réussit sans instruction à cuisiner un repas complet dans un appareil qu'il n'a jamais vu — une friteuse à air.</p>
+        <p>D'abord, nous verrons ce qu'est le modèle π0.7 et comment il fonctionne. Ensuite, nous analyserons les résultats concrets démontrés par l'équipe. Enfin, nous examinerons les limites actuelles et les implications pour l'avenir de la robotique.</p>
+
+        <!-- SECTION 2: CORPS -->
+        <h2>Qu'est-ce que π0.7 et comment fonctionne-t-il ?</h2>
+        <p>Physical Intelligence est une startup fondée il y a deux ans, ayant déjà levé plus d'un milliard de dollars et valorisée à 5,6 milliards. Son co-fondateur, <strong>Sergey Levine</strong>, est professeur à l'Université de Californie à Berkeley et l'un des chercheurs les plus cités en apprentissage par renforcement.</p>
+        <p>Le modèle π0.7 repose sur un principe fondamental : au lieu d'entraîner un robot spécialisé pour chaque tâche individuelle (la « mémorisation par cœur »), le modèle apprend un large éventail de compétences à partir de données variées, puis les recombiner dynamiquement face à de nouvelles situations.</p>
+        <p>Concrètement, cela signifie que le robot ne mémorise pas des séquences de mouvements. Il développe plutôt des <strong>composants de compétences réutilisables</strong> — comme des briques de Lego — qu'il assemble en temps réel selon la situation. Ce mécanisme s'appelle la généralisation compositionnelle.</p>
+        <p>Comme l'explique Levine : <em>« Une fois que le modèle franchit le seuil où il passe de ne faire que ce pour quoi on a collecté des données à remixer les choses de nouvelles manières, les capacités augmentent plus que linéairement avec la quantité de données. »</em> C'est le même phénomène observé dans les modèles de langage et de vision.</p>
+
+        <h2>L'expérience de la friteuse à air : un test révélateur</h2>
+        <p>L'équipe a demandé au robot d'utiliser une friteuse à air qu'il n'avait <strong>essentiellement jamais vue</strong> dans ses données d'entraînement. Seulement deux épisodes pertinents existaient dans tout le jeu de données :</p>
+        <ul>
+            <li>Un autre robot poussant la friteuse pour la fermer</li>
+            <li>Un jeu de données open source où un robot plaçait une bouteille en plastique dans une friteuse</li>
+        </ul>
+        <p>À partir de ces fragments minuscules combinés avec des données de pré-entraînement issues du web, le modèle a synthétisé une compréhension fonctionnelle de l'appareil. Sans aucune instruction, il a fait une tentative passable pour cuire une patate douce. Avec des instructions verbales étape par étape, il a réussi de manière satisfaisante.</p>
+
+        <table>
+            <thead>
+                <tr><th>Condition</th><th>Taux de succès</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Sans instruction (première tentative)</td><td>~5%</td></tr>
+                <tr><td>Avec instructions affinées (~30 min)</td><td>~95%</td></tr>
+            </tbody>
+        </table>
+
+        <p>Ce bond de 5 % à 95 % illustre une réalité importante : le <strong>prompt engineering</strong> — la façon de formuler les instructions au robot — compte énormément. Comme le souligne Ashwin Balakrishna, chercheur chez Physical Intelligence : <em>« Parfois le mode d'échec n'est pas du robot ou du modèle. C'est nous. Parce qu'on n'est pas bons en prompt engineering. »</em></p>
+
+        <h2>Performances : généraliser sans perdre en précision</h2>
+        <p>Le test clé n'était pas seulement de faire des choses nouvelles, mais de les faire aussi bien que des modèles spécialisés. π0.7 a été comparé aux modèles <strong>spécialistes précédents</strong> de Physical Intelligence — des systèmes entraînés individuellement pour chaque tâche.</p>
+        <p>Résultat : le modèle généraliste a <strong>égalé les performances</strong> des modèles spécialistes sur des tâches complexes incluant :</p>
+        <ul>
+            <li>Préparer du café</li>
+            <li>Plier du linge</li>
+            <li>Assembler des boîtes</li>
+        </ul>
+        <p>C'est un résultat remarquable. Historiquement, les modèles généraux sacrifiaient toujours en performance par rapport aux spécialistes. L'égalité suggère que la robotique approche d'un point d'inflexion similaire à celui qu'ont connu les modèles de langage.</p>
+
+        <h2>La capacité de « coaching » : un nouveau paradigme de déploiement</h2>
+        <p>π0.7 introduit aussi la notion de <strong>coaching en temps réel</strong>. Imaginons : un robot est déployé dans un environnement nouveau. Plutôt que de le ré-entraîner avec de nouvelles données — un processus coûteux en temps et en argent — un humain peut littéralement guider le robot pas à pas, comme on expliquerait le travail à un nouvel employé.</p>
+        <p>Le robot s'améliore en temps réel, sans collecte de données supplémentaire ni ré-entraînement du modèle. C'est un changement de paradigme par rapport aux approches actuelles où chaque nouveau déploiement nécessite des semaines de collecte de données spécifiques.</p>
+
+        <h2>Les limites : ne criez pas victoire trop vite</h2>
+        <p>Malgré ces résultats impressionnants, π0.7 a des limites significatives que les auteurs reconnaissent honnêtement :</p>
+        <p><strong>Pas d'autonomie complète :</strong> On ne peut pas dire au robot « Prépare-moi du toast » et s'attendre à un résultat. Les tâches multi-étapes complexes nécessitent encore des instructions pas à pas. Levine l'admet clairement : <em>« On ne peut pas lui dire 'Prépare-moi du toast.' Mais si on le guide — 'pour le grille-pain, ouvre cette partie, appuie sur ce bouton, fais ça' — alors ça fonctionne plutôt bien. »</em></p>
+        <p><strong>Pas de benchmarks standardisés :</strong> La robotique souffre d'un manque cruel de benchmarks externes reproductibles. Les résultats reposent sur les propres évaluations de Physical Intelligence, sans validation indépendante.</p>
+        <p><strong>Un produit de recherche, pas un produit commercial :</strong> Le papier utilise des précautions de langage — « premiers signes » de généralisation, « démonstrations initiales ». La startup refuse d'offrir aux investisseurs un calendrier de commercialisation.</p>
+        <p><strong>Le biais du prompt :</strong> La sensibilité extrême aux instructions (5 % → 95 % avec affinage) soulève des questions de fiabilité en conditions réelles, où les utilisateurs ne sont pas des experts en prompt engineering.</p>
+
+        <!-- SECTION 3: CONCLUSION -->
+        <h2>Conclusion</h2>
+        <p>Les résultats de π0.7 suggèrent que la robotique approche d'un point d'inflexion majeur. Quatre points clés à retenir :</p>
+        <ul>
+            <li>Un modèle robotique généraliste égale désormais les spécialistes, enlevant le besoin d'entraîner un modèle par tâche</li>
+            <li>La généralisation compositionnelle permet d'accomplir des tâches jamais vues en combinant des fragments d'expérience</li>
+            <li>Le coaching en temps réel élimine le besoin de ré-entraînement coûteux pour chaque nouveau déploiement</li>
+            <li>Les limites restent réelles : pas d'autonomie complète, pas de benchmarks standardisés, pas de calendrier commercial</li>
+        </ul>
+        <p>Mais la question qui mérite réflexion est celle-ci : si un robot peut apprendre à utiliser un appareil inconnu à partir de deux fragments d'expérience, qu'est-ce qui empêche cette même capacité de généralisation de s'appliquer à des tâches aux conséquences bien plus graves — comme intervenir sur un réseau électrique ou gérer des données médicales ? La généralisation est une épée à double tranchant : elle rend les robots plus utiles, mais aussi potentiellement plus imprévisibles.</p>
+    </article>
+
+    <footer>
+        <p>© 2026 WebModerne. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

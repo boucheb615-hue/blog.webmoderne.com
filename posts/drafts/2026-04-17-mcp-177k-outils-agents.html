@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP : 177 000 outils analysés révèlent comment les agents IA sont vraiment utilisés</title>
+    <meta name="description" content="Une étude exhaustive de 177 436 outils MCP montre que les agents IA passent de la lecture à l'action — avec des implications majeures pour la sécurité et la régulation.">
+    <link rel="stylesheet" href="../styles.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5TVB83GPH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G5TVB83GPH');
+  </script>
+</head>
+<body>
+    <header>
+        <img src="../brand_assets/image.png" alt="WebModerne" class="logo">
+        <nav>
+            <a href="../index.html">Accueil</a>
+            <a href="../about.html">À propos</a>
+        </nav>
+    </header>
+
+    <main class="page-intro">
+        <h1>MCP : 177 000 outils analysés révèlent comment les agents IA sont vraiment utilisés</h1>
+        <p class="subtitle">Les agents IA ne se contentent plus de lire — ils agissent. Et personne ne regardait jusqu'ici.</p>
+        <p class="meta">Publié le 17 avril 2026 · Source: arXiv <a href="https://arxiv.org/abs/2603.23802" target="_blank" rel="noopener">arXiv:2603.23802</a> · Auteur: Merlin Stein</p>
+    </main>
+
+    <article class="content">
+        <!-- SECTION 1: INTRO -->
+        <h2>Introduction</h2>
+        <p>Les agents IA — ces systèmes capables de prendre des décisions et d'agir dans le monde numérique — se multiplient à une vitesse vertigineuse. Mais pendant que les entreprises et les média s'enthousiasment pour ces « assistants autonomes », personne ne prenait la mesure de ce qu'ils font réellement, ni des risques qu'ils posent. Jusqu'à maintenant.</p>
+        <p>Une étude publiée le 25 mars 2026 sur arXiv par Merlin Stein offre la première vue d'ensemble systématique de l'écosystème des outils pour agents IA. En analysant <strong>177 436 outils</strong> créés entre novembre 2024 et février 2026, cette recherche met en lumière une transformation rapide : les agents ne se contentent plus de lire l'information — ils la modifient, et de plus en plus dans des domaines à enjeux élevés.</p>
+        <p>D'abord, nous présenterons la méthode et le cadre de classification de l'étude. Ensuite, nous examinerons les résultats clés et les tendances inquiétantes qui émergent. Enfin, nous analyserons les implications pour la régulation et la sécurité des systèmes d'IA.</p>
+
+        <!-- SECTION 2: CORPS -->
+        <h2>Qu'est-ce que MCP et pourquoi cette étude est-elle nécessaire ?</h2>
+        <p>Le <strong>Model Context Protocol</strong> (MCP) est un protocole open source lancé par Anthropic en novembre 2024. Son rôle : servir de standard universel pour connecter des agents IA à des outils externes — fichiers, API, bases de données, services web. Si un agent IA est un cerveau, les outils MCP sont ses mains.</p>
+        <p>Avant cette étude, notre compréhension de l'utilisation des agents IA reposait soit sur des sondages utilisateurs — qui confondent souvent modèles de langage et agents — soit sur des données de plateformes spécifiques comme Perplexity ou OpenRouter. Aucune vue d'ensemble systématique n'existait sur l'écosystème des outils qui donnent aux agents leurs capacités d'action.</p>
+        <p>Stein a comblé cette lacune en monitorant tous les dépôts publics de serveurs MCP, cataloguant chaque outil par type, domaine d'application et niveau de conséquence potentielle.</p>
+
+        <h2>La classification : perception, raisonnement, action</h2>
+        <p>L'étude classe les 177 436 outils en trois catégories selon leur impact direct sur l'environnement :</p>
+
+        <table>
+            <thead>
+                <tr><th>Catégorie</th><th>Définition</th><th>Exemples</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Perception</strong></td><td>Lire et accéder à des données</td><td>Rechercher des fichiers, lire des bases de données, scraper des pages web</td></tr>
+                <tr><td><strong>Raisonnement</strong></td><td>Analyser des données ou des concepts</td><td>Calculs statistiques, classification, planification</td></tr>
+                <tr><td><strong>Action</strong></td><td>Modifier directement l'environnement</td><td>Éditer des fichiers, envoyer des e-mails, effectuer des transactions financières, piloter des drones</td></tr>
+            </tbody>
+        </table>
+
+        <p>Cette distinction est fondamentale. Un outil de perception qui lit un fichier de paie ne pose pas le même risque qu'un outil d'action qui peut virer de l'argent. Or, comme nous allons le voir, la part des outils d'action ne cesse de croître.</p>
+
+        <h2>Résultat clé n°1 : le développement logiciel domine, mais pas pour longtemps</h2>
+        <p>Le constat est net : <strong>67 % de tous les outils agents</strong> ciblent le développement logiciel. Et ce domaine représente <strong>90 % des téléchargements</strong> de serveurs MCP. Autrement dit, l'écosystème actuel des agents IA est massivement orienté vers l'aide au code.</p>
+        <p>Ce n'est pas surprenant. Les développeurs sont les premiers adopteurs de toute nouvelle technologie, et les outils de programmation sont les plus faciles à créer pour un environnement numérique structuré. Mais cette concentration signifie que les risques dans d'autres domaines — finance, santé, sécurité — sont sous-représentés dans les statistiques, non pas parce qu'ils n'existent pas, mais parce qu'ils sont moins nombreux.</p>
+
+        <h2>Résultat clé n°2 : la bascule vers l'action</h2>
+        <p>C'est le résultat le plus frappant de l'étude. Sur la période de 16 mois analysée :</p>
+
+        <table>
+            <thead>
+                <tr><th>Période</th><th>Part des outils d'action</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Novembre 2024</td><td>27 %</td></tr>
+                <tr><td>Février 2026</td><td>65 %</td></tr>
+            </tbody>
+        </table>
+
+        <p>En seize mois, la proportion d'outils capables de <strong>modifier directement leur environnement</strong> a été multipliée par 2,4. Les agents ne consultent plus — ils agissent. Et cette transition s'est produite sans que les cadres de surveillance ne s'adaptent.</p>
+        <p>Cette évolution rappelle les premiers jours des modèles de langage, où on ne surveillait que les sorties textuelles. Aujourd'hui, les agents envoient des e-mails, modifient des fichiers de production, et certains effectuent des <strong>transactions financières</strong>. Le saut de « lire » à « agir » est considérable en termes de risques.</p>
+
+        <h2>Résultat clé n°3 : des enjeux financiers réels</h2>
+        <p>L'étude identifie des outils MCP permettant des <strong>transactions financières</strong> — par exemple via le serveur Coinbase MCP. Stein démontre avec un cas concret comment cette méthode de surveillance peut être étendue au-delà des sorties du modèle pour inclure la couche d'outils.</p>
+        <p>Le problème est clair : les régulateurs actuels surveillent les modèles d'IA (ce qu'ils génèrent comme texte ou images), mais <strong>personne ne surveille la couche d'outils</strong> qui donne aux agents leur pouvoir d'action. C'est comme réguler les moteurs des voitures sans surveiller les routes ni les permis de conduire.</p>
+        <p>La méthode proposée dans l'étude — mapper les outils à la base de données O*NET qui classifie les professions et leurs tâches selon leur niveau de conséquence — offre un cadre concret pour évaluer systématiquement les risques. Une transaction financière a des conséquences bien différentes de la lecture d'un article de blog.</p>
+
+        <h2>Les limites de l'étude</h2>
+        <p>Comme toute recherche pionnière, cette étude a des limites importantes :</p>
+        <p><strong>Biais de visibilité :</strong> L'étude ne capte que les serveurs MCP publics. Les outils internes développés par les entreprises — probablement les plus sensibles — restent invisibles. La réalité du déploiement des agents est probablement encore plus orientée vers l'action que ce que montrent ces chiffres.</p>
+        <p><strong>Corrélation, pas causalité :</strong> La croissance des outils d'action reflète la croissance de l'écosystème MCP, pas nécessairement une adoption massive par les utilisateurs finaux. Un outil téléchargé n'est pas un outil utilisé.</p>
+        <p><strong>MCP n'est pas tout l'écosystème :</strong> D'autres protocoles d'outils existent — les « function calling » natifs d'OpenAI, les plugins de ChatGPT, les outils LangChain. MCP est devenu un standard dominant, mais pas exclusif.</p>
+        <p><strong>Pas de mesure d'impact réel :</strong> L'étude classe les outils par leur capacité d'action, pas par les conséquences observées de leur utilisation. Un outil de transaction financière qui n'est jamais utilisé à mauvais escient reste un risque théorique.</p>
+
+        <!-- SECTION 3: CONCLUSION -->
+        <h2>Conclusion</h2>
+        <p>Cinq points clés à retenir de cette étude :</p>
+        <ul>
+            <li>177 436 outils pour agents IA ont été analysés — c'est la première cartographie systématique de l'écosystème MCP</li>
+            <li>Le développement logiciel représente 67 % des outils et 90 % des téléchargements — les développeurs restent les premiers adopteurs</li>
+            <li>La part des outils d'action est passée de 27 % à 65 % en 16 mois — les agents passent de la lecture à la modification</li>
+            <li>Des outils existent pour des tâches à hauts enjeux comme les transactions financières — sans surveillance régulatoire adaptée</li>
+            <li>La méthode de mapping O*NET offre un cadre concret pour que les régulateurs surveillent la couche d'outils, pas seulement les sorties des modèles</li>
+        </ul>
+        <p>La question la plus provocante que soulève cette étude est moins technique que politique : si les agents IA ont déjà plus de 100 000 outils leur permettant de modifier notre monde numérique — et que ce nombre double tous les quelques mois — à quel moment décidons-nous que ce n'est plus seulement une question de technologie, mais de gouvernance démocratique ? Les modèles de langage, on peut encore les éteindre. Mais un agent qui a déjà envoyé votre e-mail ou effectué votre transaction, impossible de revenir en arrière.</p>
+    </article>
+
+    <footer>
+        <p>© 2026 WebModerne. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
