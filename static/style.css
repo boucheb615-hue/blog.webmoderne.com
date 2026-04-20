@@ -74,6 +74,9 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .header-brand {
@@ -211,12 +214,29 @@ a:hover {
 
 .post-item {
   background: var(--bg-surface);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
+  box-shadow: var(--shadow-ui);
+}
+
+.post-item:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+/* Disable hover on "Voir tous" link item */
+.post-item.no-hover:hover {
+  border: none;
+  background: none;
+  backdrop-filter: none;
+  transform: none;
+  box-shadow: none;
 }
 
 .post-banner-thumb {
@@ -224,6 +244,11 @@ a:hover {
   aspect-ratio: 16/9;
   object-fit: cover;
   border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.post-item:hover .post-banner-thumb {
+  border-bottom-color: var(--accent-color);
 }
 
 .post-item-content {
@@ -237,6 +262,8 @@ a:hover {
 }
 
 .post-item h4 a { color: #fff; }
+
+.post-item h4 a:hover { color: var(--accent-color); }
 
 .post-item .date {
   font-family: var(--font-mono);

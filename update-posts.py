@@ -88,7 +88,7 @@ def update_homepage(posts):
         <h3>Derniers Articles</h3>
         <ul class="post-list">
 {articles_html}
-          <li class="post-item" style="text-align: center; margin-top: 20px; border: none; background: none; backdrop-filter: none;">
+          <li class="post-item no-hover" style="text-align: center; margin-top: 20px;">
             <a href="/posts/" style="color: var(--accent-color); font-family: var(--font-mono); font-weight: 600;">→ Voir tous les articles</a>
           </li>
         </ul>
@@ -147,8 +147,8 @@ def update_archives(posts):
             # Remove featured article on pages > 1
             page_content = re.sub(r'<!-- ARTICLE EN VEDETTE -->.*?<h3', '<h3', page_content, flags=re.DOTALL)
 
-        # Replace post list and add pagination
-        list_pattern = r'<ul class="post-list">.*?</ul>'
+        # Replace post list + any existing pagination, then add new pagination
+        list_pattern = r'<ul class="post-list">.*?</ul>\s*(?:<div class="pagination">.*?</div>\s*)?'
         page_content = re.sub(list_pattern, f'<ul class="post-list">\n{articles_html}\n      </ul>\n{pagination_html}', page_content, flags=re.DOTALL)
 
         # Write file
