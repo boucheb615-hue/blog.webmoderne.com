@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mythos entre à la Maison Blanche — quand la cybersécurité bat la politique</title>
+    <meta name="description" content="Anthropic, blacklisté par le Pentagone il y a quelques semaines, vient d'être reçu à la Maison Blanche. Son modèle Mythos, capable de trouver des failles vieilles de 27 ans, a changé la donne.">
+    <link rel="stylesheet" href="../static/style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Mythos entre à la Maison Blanche — quand la cybersécurité bat la politique",
+      "datePublished": "2026-04-20",
+      "author": {
+        "@type": "Organization",
+        "name": "WebModerne"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "WebModerne",
+        "url": "https://blog.webmoderne.com"
+      },
+      "description": "Anthropic, blacklisté par le Pentagone il y a quelques semaines, vient d'être reçu à la Maison Blanche. Son modèle Mythos, capable de trouver des failles vieilles de 27 ans, a changé la donne."
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="/brand_assets/image.png" alt="WebModerne" class="logo">
+        <nav>
+            <a href="/index.html">Accueil</a>
+            <a href="/about.html">À propos</a>
+            <a href="/posts/index.html">Articles</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main class="page-intro">
+            <h1>Mythos entre à la Maison Blanche</h1>
+            <p class="subtitle">Quand la cybersécurité force le renversement politique</p>
+            <p class="meta">Publié le 20 avril 2026 · Source : <a href="https://www.artificialintelligence-news.com/news/anthropic-mythos-ai-cybersecurity-white-house/">AI News</a>, <a href="https://www.washingtonpost.com/technology/2026/04/17/anthropic-ai-trump-security/">Washington Post</a> · Tags : #Anthropic #Mythos #Cybersécurité #Politique</p>
+        </main>
+
+        <article class="content">
+
+            <!-- INTRO -->
+            <div class="article-intro">
+                <p>Il y a quelques semaines, l'administration Trump déclarait Anthropic « risque pour la chaîne d'approvisionnement » — une étiquette normalement réservée aux adversaires étrangers. Le 18 avril, son PDG Dario Amodei était reçu dans l'aile ouest de la Maison Blanche.</p>
+                <p>Qu'est-ce qui a changé? Un modèle d'IA nommé Mythos. Pas sorti d'un laboratoire de cybersécurité — né de l'amélioration générale du raisonnement. Et capable de trouver un bug vieux de 27 ans dans OpenBSD qu'aucun outil n'avait jamais détecté.</p>
+                <p>D'abord, nous analyserons ce qui s'est passé entre la Maison Blanche et le Pentagone cette semaine. Ensuite, nous décortiquerons les capacités de Mythos et le projet Glasswing qui l'encadre. Enfin, nous examinerons les implications pour l'avenir de la relation entre IA et gouvernements.</p>
+            </div>
+
+            <!-- SOMMAIRE -->
+            <nav class="toc" style="background: var(--code-bg); border-left: 3px solid var(--accent-color); border-radius: 0 8px 8px 0; padding: 20px; margin: 30px 0;">
+                <h4 style="color: var(--accent-color); font-family: var(--font-mono); margin: 0 0 15px; text-transform: uppercase; font-size: 0.85em;">📋 Sommaire</h4>
+                <ul style="margin: 0; padding-left: 20px; color: #ddd;">
+                    <li style="margin-bottom: 8px;"><a href="#renversement" style="color: var(--accent-color); text-decoration: none;">Le Renversement — De la liste noire à l'aile ouest</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#mythos" style="color: var(--accent-color); text-decoration: none;">Mythos — L'IA qui trouve des failles de 27 ans</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#glasswing" style="color: var(--accent-color); text-decoration: none;">Project Glasswing — Contrôle, pas liberté</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#standoff" style="color: var(--accent-color); text-decoration: none;">Le Conflit — Maison Blanche vs Pentagone</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#dual_use" style="color: var(--accent-color); text-decoration: none;">L'Enjeu Dual-Use — Arme ou bouclier?</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#limites" style="color: var(--accent-color); text-decoration: none;">Les Limites — Ce que nous ne savons pas</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#conclusion" style="color: var(--accent-color); text-decoration: none;">Les 3 Points Clés</a></li>
+                </ul>
+            </nav>
+
+            <!-- SECTION 1 : LE RENVERSEMENT -->
+            <h2 id="renversement">Le Renversement — De la liste noire à l'aile ouest</h2>
+
+            <p>Le 18 avril 2026, Dario Amodei, PDG d'Anthropic, franchit les portes de la Maison Blanche pour rencontrer la chef de cabinet Susie Wiles et le secrétaire au Trésor Scott Bessent. Les deux parties qualifient les discussions de « productives et constructives ».</p>
+
+            <p>Pour comprendre l'ampleur du revirement, il faut revenir en arrière. Quelques semaines plus tôt:</p>
+
+            <table style="width:100%; border-collapse:collapse; margin:20px 0;">
+                <thead>
+                    <tr style="border-bottom:2px solid var(--accent-color);">
+                        <th style="text-align:left; padding:10px; color:var(--accent-color);">Chronologie</th>
+                        <th style="text-align:left; padding:10px; color:var(--accent-color);">Événement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #333;">
+                        <td style="padding:10px;">Février 2026</td>
+                        <td style="padding:10px;">Le Pentagone déclare Anthropic « risque pour la chaîne d'approvisionnement »</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #333;">
+                        <td style="padding:10px;">Mars 2026</td>
+                        <td style="padding:10px;">Un juge fédéral de San Francisco bloque l'application de cette désignation pour les agences non militaires</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #333;">
+                        <td style="padding:10px;">7 avril 2026</td>
+                        <td style="padding:10px;">Anthropic publie Claude Mythos Preview via le projet Glasswing</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px;">18 avril 2026</td>
+                        <td style="padding:10px;">Amodei reçu à la Maison Blanche ; les agences civiles veulent Mythos</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Donald Trump, interrogé sur la visite, a répondu qu'il n'avait « aucune idée » qu'Amodei était là. Mais les agences fédérales, elles, savent exactement pourquoi elles veulent Mythos.</p>
+
+            <!-- SECTION 2 : MYTHOS -->
+            <h2 id="mythos">Mythos — L'IA qui trouve des failles de 27 ans</h2>
+
+            <p>Claude Mythos Preview n'est pas un modèle entraîné pour la cybersécurité. Ses capacités de découverte de vulnérabilités ont <strong>émergé spontanément</strong> de l'amélioration générale du raisonnement et du code. C'est ce qui rend Mythos à la fois fascinant et inquiétant.</p>
+
+            <p>Pendant les tests internes, Mythos a localisé <strong>des milliers de vulnérabilités de haute sévérité auparavant inconnues</strong> dans tous les systèmes d'exploitation majeurs et navigateurs web. Deux découvertes illustrent sa puissance :</p>
+
+            <p><strong>Un bug de 27 ans dans OpenBSD.</strong> Ce système d'exploitation open-source, réputé pour sa sécurité, contenait une faille depuis sa création qu'aucun audit humain ni aucun outil automatisé n'avait jamais détectée. Mythos l'a trouvée.</p>
+
+            <p><strong>Une faille de 16 ans dans FFmpeg.</strong> Ce lecteur multimédia incontournable avait un défaut qui avait passé <strong>cinq millions de tests automatisés</strong> sans jamais être détecté. Cinq millions. Et Mythos l'a trouvé.</p>
+
+            <p>Ce n'est pas de la chance. C'est une capacité de raisonnement qui dépasse tout ce qui existait auparavant en matière d'analyse de sécurité. Comme l'a dit un stratège de marché cité par Reuters : « Cela montre d'une part la faiblesse des logiciels actuels, et d'autre part que l'IA continue de progresser de manière incroyable par rapport aux entreprises de logiciels traditionnelles. »</p>
+
+            <!-- SECTION 3 : PROJECT GLASSWING -->
+            <h2 id="glasswing">Project Glasswing — Contrôle, pas liberté</h2>
+
+            <p>Anthropic n'a pas publié Mythos au grand public. Au lieu de cela, l'entreprise l'a déployé via le <strong>projet Glasswing</strong>, un consortium contrôlé de plus de 40 organisations.</p>
+
+            <p>Les membres de Glasswing :</p>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin:15px 0; padding:15px; background:var(--code-bg); border-radius:8px;">
+                <div style="padding:5px;">☁️ AWS</div>
+                <div style="padding:5px;">🍎 Apple</div>
+                <div style="padding:5px;">🛡️ Cisco</div>
+                <div style="padding:5px;">🔍 Google</div>
+                <div style="padding:5px;">🪟 Microsoft</div>
+                <div style="padding:5px;">🎮 Nvidia</div>
+                <div style="padding:5px;">🦅 CrowdStrike</div>
+                <div style="padding:5px;">🏦 JPMorganChase</div>
+            </div>
+
+            <p>Le consortium est soutenu par <strong>jusqu'à 100 millions de dollars de crédits d'utilisation</strong>. Son fonctionnement est « offensif dans un sens contrôlé » : il utilise Mythos pour <strong>trouver les vulnérabilités avant que les adversaires ne le fassent</strong>, puis les corriger.</p>
+
+            <p>C'est une stratégie de « red teaming » à l'échelle industrielle. Au lieu d'attendre qu'une faille soit exploitée, on demande à l'IA de jouer le rôle du pirate pour découvrir les faiblesses en premier. Les organisations membres utilisent Mythos pour auditer leurs propres systèmes et les logiciels critiques qu'elles déploient.</p>
+
+            <p>OpenAI prépare un modèle similaire et prévoit de le publier via son propre programme « Trusted Access for Cyber », selon une source familiarisée avec les plans. La course à la cybersécurité agentic est lancée.</p>
+
+            <!-- SECTION 4 : LE CONFLIT -->
+            <h2 id="standoff">Le Conflit — Maison Blanche vs Pentagone</h2>
+
+            <p>La visite d'Amodei a permis de séparer deux conversations qui étaient jusqu'alors confondues :</p>
+
+            <table style="width:100%; border-collapse:collapse; margin:20px 0;">
+                <thead>
+                    <tr style="border-bottom:2px solid var(--accent-color);">
+                        <th style="text-align:left; padding:10px; color:var(--accent-color);"></th>
+                        <th style="text-align:center; padding:10px; color:var(--accent-color);">Maison Blanche / Agences civiles</th>
+                        <th style="text-align:center; padding:10px; color:var(--accent-color);">Pentagone / Département de la Défense</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom:1px solid #333;">
+                        <td style="padding:10px; font-weight:bold;">Statut</td>
+                        <td style="text-align:center; padding:10px; color:#4ade80;">Progrès en cours</td>
+                        <td style="text-align:center; padding:10px; color:#f87171;">Aucun progrès</td>
+                    </tr>
+                    <tr style="border-bottom:1px solid #333;">
+                        <td style="padding:10px; font-weight:bold;">Intérêt</td>
+                        <td style="text-align:center; padding:10px;">Accès à Mythos pour défendre les infrastructures critiques</td>
+                        <td style="text-align:center; padding:10px;">Conflit juridique en cours</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px; font-weight:bold;">Éligibilité Anthropic</td>
+                        <td style="text-align:center; padding:10px;">Éligible pour les contrats non-militaires</td>
+                        <td style="text-align:center; padding:10px;">Exclu des contrats de la Défense</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Un responsable de l'administration a résumé la situation : « Il y a du progrès avec la Maison Blanche. Il n'y a pas de progrès avec le Département de la Guerre. »</p>
+
+            <p>Les agences civiles — Énergie, Trésor — sont responsables de la protection des infrastructures critiques : réseau électrique, système financier. Leurs préoccupations ne portent ni sur les armes autonomes ni sur la surveillance. Elles veulent les capacités de Mythos et <strong>refusent d'être les dommages collatéraux</strong> du conflit entre le Pentagone et Anthropic.</p>
+
+            <p>Détail révélateur : le Pentagone <strong>continue d'utiliser les modèles Claude d'Anthropic dans le conflit avec l'Iran</strong>, malgré la blacklisting. L'hypocrisie est palpable.</p>
+
+            <!-- SECTION 5 : L'ENJEU DUAL-USE -->
+            <h2 id="dual_use">L'Enjeu Dual-Use — Arme ou bouclier?</h2>
+
+            <p>La tension fondamentale autour de Mythos est celle du « dual-use » : un outil qui peut servir à défendre peut aussi servir à attaquer.</p>
+
+            <p>Le dilemme est simple à formuler :</p>
+
+            <p><strong>Scénario A (bouclier) :</strong> Les entreprises et les gouvernements utilisent Mythos pour durcir leurs défenses avant que les pirates n'exploitent les failles. C'est le scénario Glasswing : un usage offensif au service de la défense.</p>
+
+            <p><strong>Scénario B (arme) :</strong> Les pirates accèdent à Mythos — ou à un modèle équivalent — et l'utilisent pour découvrir des vulnérabilités dans les systèmes qu'ils veulent attaquer. Les mêmes capacités qui protègent deviennent des armes.</p>
+
+            <p>Comme le note AI News : « Les outils Mythos et autres IA de pointe pourraient permettre aux pirates de pénétrer le système financier américain. Alternativement, les entreprises et les agences gouvernementales pourraient utiliser Mythos pour renforcer leurs défenses cybernétiques avant que les acteurs malveillants n'y accèdent. »</p>
+
+            <p>Le directeur national de la cybersécurité, Sean Cairncross, dirige un groupe de responsables fédéraux chargés d'identifier les vulnérabilités de sécurité dans les infrastructures critiques et de renforcer les systèmes contre l'exploitation par l'IA.</p>
+
+            <p>Le Bureau de la gestion et du budget prépare déjà un protocole pour donner aux agences fédérales l'accès à Mythos. Le Trésor veut rejoindre la liste Glasswing. Les agences de renseignement et la CISA testent déjà le modèle.</p>
+
+            <!-- SECTION 6 : LES LIMITES -->
+            <h2 id="limites">Les Limites — Ce que nous ne savons pas</h2>
+
+            <p><strong>Transparence limitée.</strong> Mythos n'est pas public. Nous ne pouvons pas vérifier indépendamment les affirmations d'Anthropic sur ses capacités. Les résultats des tests internes sont rapportés mais pas audités publiquement.</p>
+
+            <p><strong>Le paradoxe de la diffusion contrôlée.</strong> Restreindre l'accès à Mythos aux organisations de confiance retarde l'accès des pirates. Mais les modèles IA convergent rapidement — ce qui est exclusif aujourd'hui sera disponible demain. OpenAI prépare déjà un modèle similaire. D'autres suivront.</p>
+
+            <p><strong>L'absence de cadre juridique.</strong> Aucune loi ne définit qui peut utiliser un modèle comme Mythos, dans quelles conditions, et avec quelles garanties. Le débat actuel se joue au niveau de l'exécutif, pas du législatif. C'est un pilotage à vue dans un domaine où les conséquences sont planétaires.</p>
+
+            <p><strong>Les interactions non documentées.</strong> Nous ne savons pas exactement ce qui s'est dit lors de la réunion à la Maison Blanche. Les sources sont anonymes. Les conditions de l'éventuel accord restent floues.</p>
+
+            <!-- CONCLUSION -->
+            <h2 id="conclusion">Les 3 Points Clés</h2>
+
+            <p><strong>1. La compétence bat l'idéologie.</strong> L'administration qui blacklistait Anthropic il y a quelques semaines le cherche maintenant. Pas parce qu'elle a changé d'avis sur les principes — parce que Mythos fait des choses qu'aucun humain ni aucun outil existant ne peut faire.</p>
+
+            <p><strong>2. L'accès contrôlé est un pis-aller, pas une solution.</strong> Glasswing retarde les risques mais ne les élimine pas. D'autres entreprises développeront des modèles équivalents, et la question du « qui y a accès » deviendra « qui n'y a pas encore accès ».</p>
+
+            <p><strong>3. Le dual-use est inevitable.</strong> Tout outil puissant peut servir à construire ou à détruire. La vraie question n'est pas « faut-il publier Mythos? » mais « comment construisons-nous des systèmes résilients face à un monde où Mythos existe? »</p>
+
+            <p>Une question contre-intuitive pour finir : si Mythos peut trouver en quelques minutes des failles que des milliers d'experts n'ont pas trouvées en décennies, le problème est-il vraiment Mythos — ou est-ce que nous vivions depuis toujours dans des infrastructures plus fragiles que nous ne le pensions?</p>
+
+            <p style="margin-top:30px; padding:15px; background:var(--code-bg); border-left:3px solid var(--accent-color); border-radius:0 8px 8px 0; font-size:0.9em;">
+                <strong>Sources :</strong> AI News (Dashveenjit Kaur, 20 avril 2026) · Washington Post (Ian Duncan, Cat Zakrzewski, 17 avril 2026) · Forbes (Antonio Pequeno IV, 16 avril 2026) · Bloomberg (16 avril 2026) · Axios (Madison Mills, 8 avril 2026) · <a href="https://www.artificialintelligence-news.com/news/anthropic-mythos-ai-cybersecurity-white-house/" style="color:var(--accent-color);">Article principal</a>
+            </p>
+
+        </article>
+    </div>
+
+    <footer>
+        <p>© 2026 WebModerne. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
