@@ -15,7 +15,7 @@ from datetime import datetime
 POSTS_DIR = "posts"
 INDEX_FILE = "index.html"
 ARCHIVE_INDEX = "posts/index.html"
-MAX_HOME = 5
+MAX_HOME = 15
 MAX_PER_PAGE = 10
 
 # French month names for date formatting
