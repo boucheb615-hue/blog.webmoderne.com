@@ -12,7 +12,7 @@
     <meta property="og:image" content="https://blog.webmoderne.com/static/images/mythos-maison-blanche-banner.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://blog.webmoderne.com/posts/2026-04-20-mythos-maison-blanche.html">
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -25,7 +25,7 @@
       "publisher": {
         "@type": "Organization",
         "name": "WebModerne",
-        "logo": { "@type": "ImageObject", "url": "https://blog.webmoderne.com/brand_assets/image.png" },
+        "logo": { "@type": "ImageObject", "url": "https://blog.webmoderne.com/static/logo.png" },
         "url": "https://blog.webmoderne.com"
       }
     }
@@ -39,18 +39,25 @@
     </script>
 </head>
 <body>
-    <div class="banner-full">
+  <header class="header">
+    <div class="header-top">
+      <a href="/" class="header-brand">
+        <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
+        <span class="brand-name">WebModerne</span>
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
+      <nav class="nav">
+        <a href="/">Accueil</a>
+        <a href="/about.html">À Propos</a>
+        <a href="/posts/" class="active">Articles</a>
+      </nav>
+    </div>
+  </header>
+
+<div class="banner-full">
     <img src="/static/images/mythos-maison-blanche-banner.png" class="post-banner-full" alt="Anthropic blacklisté, puis reçu à la Maison Blanche">
   </div>
-
-    <header>
-        <img src="/brand_assets/image.png" alt="WebModerne" class="logo">
-        <nav>
-            <a href="/index.html">Accueil</a>
-            <a href="/about.html">À propos</a>
-            <a href="/posts/index.html">Articles</a>
-        </nav>
-    </header>
+    
 
     <div class="container">
         <main class="page-intro">

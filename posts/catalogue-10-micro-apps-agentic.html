@@ -51,167 +51,35 @@
   }
   </script>
 
-  <style>
-    :root {
-      --bg-color: #090935;
-      --accent-color: #db1a1a;
-      --text-color: #ffffff;
-      --code-bg: #0a0a4a;
-      --border-color: #1a1a5a;
-      --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-      --font-mono: 'Fira Code', 'Courier New', monospace;
-    }
-    * { box-sizing: border-box; }
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-body);
-      line-height: 1.7;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-
-    .header { border-bottom: 2px solid var(--accent-color); padding: 12px 0; margin-bottom: 0; }
-    .header-top { display: flex; align-items: center; justify-content: space-between; }
-    .header-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo { height: 40px; width: auto; border-radius: 6px; }
-    .header h1, .header .brand-name {
-      color: var(--accent-color); font-family: var(--font-mono); font-size: 1.4em;
-      margin: 0; text-transform: uppercase; letter-spacing: 2px;
-    }
-    .nav { display: flex; align-items: center; gap: 6px; }
-    .nav a {
-      color: var(--text-color); text-decoration: none; padding: 6px 14px;
-      border: 1px solid var(--border-color); border-radius: 4px;
-      font-family: var(--font-mono); font-size: 0.85em; transition: all 0.3s ease;
-    }
-    .nav a:hover, .nav a.active {
-      background-color: var(--accent-color); color: var(--bg-color); border-color: var(--accent-color);
-    }
-
-    .page-intro {
-      padding: 40px 0 20px;
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 20px;
-      margin-top: 20px;
-    }
-    .page-intro h1 {
-      color: var(--accent-color); font-family: var(--font-mono); font-size: 2.2em;
-      margin: 0 0 8px; text-transform: uppercase; letter-spacing: 1px;
-    }
-    .page-intro p { color: #aaa; font-size: 1.05em; margin: 0; }
-
-    .article-intro {
-      margin-bottom: 30px;
-      padding: 20px;
-      background: var(--code-bg);
-      border-left: 3px solid var(--accent-color);
-      border-radius: 0 8px 8px 0;
-    }
-    .article-intro p {
-      color: #ddd;
-      margin: 0 0 12px;
-      line-height: 1.8;
-    }
-    .article-intro p:last-child { margin-bottom: 0; }
-
-    .article-banner { width: 100%; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 30px; }
-
-    .post-content h2 { color: var(--accent-color); font-family: var(--font-mono); margin-top: 45px; font-size: 1.5em; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
-    .post-content h3 { color: var(--accent-color); font-family: var(--font-mono); margin-top: 30px; font-size: 1.2em; }
-    .post-content p { color: #ddd; }
-
-    .callout {
-      color: #00ff00; font-family: var(--font-mono); font-size: 0.95em; line-height: 1.6;
-      background: rgba(0, 255, 0, 0.05); border-left: 3px solid #00ff00;
-      padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 16px 0;
-    }
-
-    .prompt-box {
-      background: #000;
-      border: 1px solid var(--accent-color);
-      border-radius: 8px;
-      padding: 20px;
-      margin: 20px 0;
-      font-family: var(--font-mono);
-      position: relative;
-    }
-    .prompt-box::before {
-      content: "PROMPT À COPIER";
-      position: absolute;
-      top: -12px;
-      right: 20px;
-      background: var(--accent-color);
-      color: #fff;
-      padding: 2px 10px;
-      font-size: 0.7em;
-      border-radius: 4px;
-    }
-    .prompt-text {
-      color: #00ff00;
-      white-space: pre-wrap;
-      font-size: 0.95em;
-    }
-
-    .stat-cards { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
-    .stat-card {
-      flex: 1 1 200px; background: var(--code-bg); border: 1px solid var(--border-color);
-      border-radius: 8px; padding: 16px;
-    }
-    .stat-card .stat-name {
-      font-family: var(--font-mono); color: #aaa; font-size: 0.8em;
-      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;
-    }
-    .stat-card .stat-values { display: flex; align-items: baseline; gap: 12px; }
-    .stat-card .stat-new { color: var(--accent-color); font-size: 1.5em; font-weight: 700; }
-    .stat-card .stat-old { color: #666; font-size: 1em; text-decoration: line-through; }
-
-    .faq-list { display: flex; flex-direction: column; gap: 16px; margin: 20px 0; }
-    .faq-block {
-      background: var(--code-bg); border: 1px solid var(--border-color);
-      border-left: 3px solid var(--accent-color); border-radius: 0 8px 8px 0; padding: 16px;
-    }
-    .faq-block .faq-q { font-family: var(--font-mono); color: var(--accent-color); font-weight: 600; margin-bottom: 8px; font-size: 0.95em; }
-    .faq-block .faq-a { color: #ddd; font-size: 0.95em; }
-
-    .footer {
-      margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border-color);
-      text-align: center; color: #666; font-size: 0.9em;
-    }
-
-    @media (max-width: 768px) {
-      .container { padding: 15px; }
-      .page-intro h1 { font-size: 1.8em; }
-    }
-  </style>
+  
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <div class="header-top">
-        <a href="/" class="header-brand">
-          <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
-          <span class="brand-name">WebModerne</span>
-        </a>
-        <nav class="nav">
-          <a href="/">Accueil</a>
-          <a href="/about.html">À Propos</a>
-          <a href="/posts/" class="active">Articles</a>
-        </nav>
-      </div>
-    </header>
+  <header class="header">
+    <div class="header-top">
+      <a href="/" class="header-brand">
+        <img src="/static/logo.png" alt="WebModerne Logo" class="logo">
+        <span class="brand-name">WebModerne</span>
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav').classList.toggle('active')">☰</button>
+      <nav class="nav">
+        <a href="/">Accueil</a>
+        <a href="/about.html">À Propos</a>
+        <a href="/posts/" class="active">Articles</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-      <div class="page-intro">
-        <h1>10 Micro-Apps que tu peux bâtir ce week-end (sans coder)</h1>
-        <p>Publié le 21 avril 2026 • Tags : <span style="color: #00ff00;">#AgenticCoding</span> <span style="color: #00ff00;">#NoCode</span></p>
-      </div>
+  <div class="banner-full">
+    <img src="/static/images/catalogue-10-micro-apps-agentic-banner.png" class="post-banner-full" alt="10 Micro-Apps que tu peux bâtir ce week-end (sans coder)">
+  </div>
+  <main class="container">
+    <div class="page-intro">
+      <h1>10 Micro-Apps que tu peux bâtir ce week-end (sans coder)</h1>
+      <p>Publié le 21 avril 2026 • Tags : <span style="color: #00ff00;">#AgenticCoding</span> <span style="color: #00ff00;">#NoCode</span></p>
+    </div>
 
-      <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2MzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjMwIiBmaWxsPSIjMDkwOTM1Ii8+CiAgPHRleHQgeD0iNjAwIiB5PSIyODAiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iNDQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgJmd0OyAxMCBNSUNSTy1BUFBTIEFHRU5USUMKICA8L3RleHQ+CiAgPHRleHQgeD0iNjAwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNkYjFhMWEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgIyBCw6p0aXIgc2FucyBjb2RlciBjZSB3ZWVrLWVuZAogIDwvdGV4dD4KICA8cmVjdCB4PSI1MCIgeT0iNTUwIiB3aWR0aD0iMTEwMCIgaGVpZ2h0PSIzIiBmaWxsPSIjZGIxYTFhIi8+Cjwvc3ZnPg==" alt="10 Micro-Apps Agentic Banner" class="article-banner">
-
-      <div class="article-intro">
+    <div class="article-intro">
         <p>93% des entrepreneurs abandonnent leur idée d'application à cause du coût technique. Aujourd'hui, un Agent IA peut coder votre prototype en 120 secondes.</p>
         <p>Si vous savez décrire votre besoin sur un bout de papier, vous avez un CTO gratuit dans votre poche. Voici comment transformer vos idées en outils réels.</p>
       </div>
