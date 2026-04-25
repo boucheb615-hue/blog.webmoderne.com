@@ -366,6 +366,26 @@ a:hover {
 }
 
 /* === ARTICLE CONTENT === */
+.banner-full {
+  width: 100%;
+  margin: 0 0 30px;
+  background: #000;
+  overflow: hidden;
+}
+
+.post-banner-full {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .post-banner-full {
+    height: 250px; /* Force better height on mobile */
+  }
+}
+
 .article-banner {
   width: 100%;
   border-radius: 12px;
