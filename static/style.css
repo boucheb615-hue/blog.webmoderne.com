@@ -369,7 +369,7 @@ a:hover {
 /* === ARTICLE CONTENT === */
 .banner-full {
   width: 100%;
-  margin: 0 0 30px;
+  margin: 30px 0;
   background: #000;
   overflow: hidden;
 }
@@ -384,7 +384,7 @@ a:hover {
 
 @media (max-width: 767px) {
   .banner-full {
-    margin: 0; /* Remove side gaps on mobile */
+    margin: 20px 0 0; /* Breathable top margin on mobile, no side/bottom to stay full-bleed */
     border-radius: 0;
   }
   .post-banner-full {
