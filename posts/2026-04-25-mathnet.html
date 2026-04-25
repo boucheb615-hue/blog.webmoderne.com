@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MathNet : L'IA Bute Encore sur les Mathématiques de Haut Niveau - WebModerne</title>
-  <meta name="description" content="MathNet, un nouveau comparatif multimodal, révèle que même Gemini 3.1 Pro et GPT-5 peinent face aux problèmes de niveau Olympiade. Décryptage d'un test qui change la donne.">
+  <meta name="description" content="Le comparatif MathNet montre une lacune majeure dans le raisonnement des IA : leur incapacité à reconnaître des problèmes équivalents présentés différemment.">
   <meta name="author" content="WebModerne">
   <meta property="og:title" content="MathNet : L'IA Bute Encore sur les Mathématiques de Haut Niveau - WebModerne">
-  <meta property="og:description" content="MathNet, un nouveau comparatif multimodal, révèle que même Gemini 3.1 Pro et GPT-5 peinent face aux problèmes de niveau Olympiade. Décryptage d'un test qui change la donne.">
+  <meta property="og:description" content="Le comparatif MathNet montre une lacune majeure dans le raisonnement des IA : leur incapacité à reconnaître des problèmes équivalents présentés différemment.">
   <meta property="og:url" content="https://blog.webmoderne.com/posts/2026-04-25-mathnet.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://blog.webmoderne.com/static/images/mathnet-banner.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MathNet : L'IA Bute Encore sur les Mathématiques de Haut Niveau - WebModerne">
-  <meta name="twitter:description" content="MathNet, un nouveau comparatif multimodal, révèle que même Gemini 3.1 Pro et GPT-5 peinent face aux problèmes de niveau Olympiade. Décryptage d'un test qui change la donne.">
+  <meta name="twitter:description" content="Le comparatif MathNet montre une lacune majeure dans le raisonnement des IA : leur incapacité à reconnaître des problèmes équivalents présentés différemment.">
   <meta name="twitter:image" content="https://blog.webmoderne.com/static/images/mathnet-banner.png">
   <link rel="canonical" href="https://blog.webmoderne.com/posts/2026-04-25-mathnet.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,6 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
   <link rel="stylesheet" href="/static/style.css">
-    <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PPJ1BDS8Q"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -31,8 +30,6 @@
     gtag('js', new Date());
     gtag('config', 'G-6PPJ1BDS8Q');
   </script>
-
-  <!-- JSON-LD Article Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -90,25 +87,24 @@
     </div>
 
     <div class="article-intro">
-      <p>Gemini 3.1 Pro réussit près de 80% des problèmes de niveau Olympiade, mais les modèles de base plafonnent sous les 30%. Pourquoi l'IA n'arrive-t-elle pas à reconnaître un problème qu'elle a déjà résolu?</p>
+      <p>Gemini 3.1 Pro réussit près de 80 % des problèmes de niveau Olympiade, mais les modèles de base plafonnent sous les 30 %. Pourquoi l'IA n'arrive-t-elle pas à reconnaître un problème qu'elle a déjà résolu ?</p>
     </div>
 
-    <!-- SOMMAIRE -->
     <nav class="toc" style="background: var(--code-bg); border-left: 3px solid var(--accent-color); border-radius: 0 8px 8px 0; padding: 20px; margin: 30px 0;">
       <h4 style="color: var(--accent-color); font-family: var(--font-mono); margin: 0 0 15px; text-transform: uppercase; font-size: 0.85em;">📋 Sommaire</h4>
       <ul style="margin: 0; padding-left: 20px; color: #ddd;">
-        <li style="margin-bottom: 8px;"><a href="#probleme" style="color: var(--accent-color); text-decoration: none;">Le Conflit — Quand le même devient invisible</a></li>
-        <li style="margin-bottom: 8px;"><a href="#preuve" style="color: var(--accent-color); text-decoration: none;">La Preuve — Gemini vs GPT-5</a></li>
-        <li style="margin-bottom: 8px;"><a href="#impact" style="color: var(--accent-color); text-decoration: none;">L'Impact — Pourquoi ça compte pour toi</a></li>
-        <li style="margin-bottom: 8px;"><a href="#limites" style="color: var(--accent-color); text-decoration: none;">Les Limites — Ce que MathNet oublie</a></li>
+        <li style="margin-bottom: 8px;"><a href="#probleme" style="color: var(--accent-color); text-decoration: none;">Le Conflat : quand le même devient invisible</a></li>
+        <li style="margin-bottom: 8px;"><a href="#preuve" style="color: var(--accent-color); text-decoration: none;">La Preuve : Gemini vs GPT-5</a></li>
+        <li style="margin-bottom: 8px;"><a href="#impact" style="color: var(--accent-color); text-decoration: none;">L'Impact : pourquoi ça compte pour toi</a></li>
+        <li style="margin-bottom: 8px;"><a href="#limites" style="color: var(--accent-color); text-decoration: none;">Les Limites : ce que MathNet oublie</a></li>
         <li style="margin-bottom: 8px;"><a href="#conclusion" style="color: var(--accent-color); text-decoration: none;">Maintenant, vous savez.</a></li>
       </ul>
     </nav>
 
-    <h2 id="probleme">Le Conflit : Quand le même devient invisible</h2>
-    <p><strong>Avant</strong> : Nous demandions à l'IA de résoudre des équations isolées, sans image, sans contexte. Les tests mesuraient simplement si le modèle trouvait la bonne réponse numérique.</p>
+    <h2 id="probleme">Le Conflat : quand le même devient invisible</h2>
+    <p><strong>Avant</strong> : nous demandions à l'IA de résoudre des équations isolées, sans image, sans contexte. Les tests mesuraient simplement si le modèle trouvait la bonne réponse numérique.</p>
     <p><strong>Maintenant</strong> : MathNet confronte l'IA à des problèmes complexes avec des graphiques et des schémas. Le modèle doit comprendre le texte et l'image simultanément pour réussir.</p>
-    <p class="callout"><strong>Le constat</strong> : L'étude révèle une faille de "récupération". L'IA ne reconnaît pas un concept mathématique si on change simplement l'habillage ou les variables. Elle manque de cette flexibilité qui permet à un humain de faire des liens logiques.</p>
+    <p class="callout"><strong>Le constat</strong> : l'étude révèle une faille de « récupération ». L'IA ne reconnaît pas un concept mathématique si on change simplement l'habillage ou les variables. Elle manque de cette flexibilité qui permet à un humain de faire des liens logiques.</p>
 
     <h2 id="preuve">La Preuve : Gemini vs GPT-5</h2>
     <p>MathNet a passé au crible les meilleurs modèles du marché sur des milliers de problèmes inédits. Les résultats montrent une hiérarchie très claire.</p>
@@ -117,29 +113,29 @@
       <div class="stat-card">
         <div class="stat-name">Gemini 3.1 Pro (Olympiades Multimodales)</div>
         <div class="stat-values">
-          <span class="stat-new">Taux : 78.4 %</span>
-          <span class="stat-gain">+9.1% vs GPT-5</span>
+          <span class="stat-new">Taux : 78,4 %</span>
+          <span class="stat-gain">+9,1 % vs GPT-5</span>
         </div>
       </div>
       <div class="stat-card">
         <div class="stat-name">GPT-5 (Olympiades Multimodales)</div>
         <div class="stat-values">
-          <span class="stat-new">Taux : 69.3 %</span>
+          <span class="stat-new">Taux : 69,3 %</span>
         </div>
       </div>
     </div>
 
-    <p>Si les modèles haut de gamme s'en sortent honorablement, les versions standard, elles, s'effondrent sous la barre des 30 %. Cela prouve que le raisonnement mathématique n'est pas encore "gratuit" dans l'IA.</p>
+    <p>Si les modèles haut de gamme s'en sortent honorablement, les versions standard, elles, s'effondrent sous la barre des 30 %. Cela prouve que le raisonnement mathématique n'est pas encore « gratuit » dans l'IA.</p>
 
-    <h2 id="impact">Pourquoi ça compte pour toi</h2>
+    <h2 id="impact">L'Impact : pourquoi ça compte pour toi</h2>
     <p>Tu n'as peut-être pas besoin de résoudre des intégrales triples tous les matins. Mais ce test mesure en réalité la capacité de l'IA à comprendre tes instructions ambiguës.</p>
     <ul>
-      <li>✅ <strong>Fiabilité accrue</strong> : Un modèle capable de réussir MathNet fera moins d'erreurs logiques quand tu lui demanderas de gérer ton budget ou ton emploi du temps.</li>
-      <li>⚠️ <strong>Fragilité des prompts</strong> : Si l'IA "oublie" un concept parce que tu as tourné ta phrase différemment, ton processus repose sur du sable.</li>
+      <li>✅ <strong>Fiabilité accrue</strong> : un modèle capable de réussir MathNet fera moins d'erreurs logiques quand tu lui demanderas de gérer ton budget ou ton emploi du temps.</li>
+      <li>⚠️ <strong>Fragilité des consignes</strong> : si l'IA « oublie » un concept parce que tu as tourné ta phrase différemment, ton processus repose sur du sable.</li>
     </ul>
 
-    <h2 id="limites">Les Limites : Ce que MathNet oublie</h2>
-    <p>MathNet est un excellent "thermomètre", mais il ne valorise pas encore le cheminement de pensée. Savoir qu'une IA a trouvé 42 est utile, comprendre comment elle y est parvenue l'est bien plus pour l'éducation.</p>
+    <h2 id="limites">Les Limites : ce que MathNet oublie</h2>
+    <p>MathNet est un excellent « thermomètre », mais il ne valorise pas encore le cheminement de pensée. Savoir qu'une IA a trouvé 42 est utile, comprendre comment elle y est parvenue l'est bien plus pour l'éducation.</p>
     <p>De plus, ces tests sont réalisés dans des environnements contrôlés qui ne reflètent pas toujours le désordre des données du monde réel.</p>
 
     <h2 id="conclusion">Maintenant, vous savez.</h2>
@@ -149,24 +145,26 @@
     <p>Les chercheurs n'ont pas de réponse. Les mathématiques, elles, continuent d'évoluer.</p>
 
     <div class="community-cta">
-      <p>→ <strong><a href="https://t.me/+Fon2ltdbEcc3N2Nh">Rejoins le Telegram WebModerne</a></strong> — on en parle en direct.</p>
+      <p>→ <strong><a href="https://t.me/+Fon2ltdbEcc3N2Nh">Rejoins le Telegram WebModerne</a></strong>, on en parle en direct.</p>
     </div>
   </main>
 
   <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <span class="brand-name">WebModerne</span>
-          <p>Le futur de l'IA, décrypté pour les curieux.</p>
-        </div>
-        <div class="footer-social">
-          <a href="https://www.youtube.com/@webmoderne" class="social-link">YouTube</a>
-          <a href="https://t.me/+Fon2ltdbEcc3N2Nh" class="social-link">Telegram</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 WebModerne. Tous droits réservés.</p>
-      </div>
-    </footer>
+    <p>&copy; 2026 WebModerne - Tous droits réservés</p>
+    <p style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+      <a href="https://youtube.com/@WebModerne" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#db1a1a" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+        YouTube
+      </a>
+      <a href="https://t.me/+Fon2ltdbEcc3N2Nh" style="color: #db1a1a; display: inline-flex; align-items: center; gap: 8px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#db1a1a" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.42.9-4.15 2.75-.39.27-.74.4-1.05.39-.35-.01-1.02-.2-1.52-.36-.61-.2-1.1-.31-1.06-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .22z"/>
+        </svg>
+        Telegram
+      </a>
+    </p>
+  </footer>
 </body>
 </html>
