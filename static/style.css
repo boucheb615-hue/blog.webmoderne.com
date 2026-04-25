@@ -378,11 +378,23 @@ a:hover {
   height: auto;
   display: block;
   object-fit: cover;
+  max-width: 100vw;
 }
 
 @media (max-width: 767px) {
+  .banner-full {
+    margin: 0; /* Remove side gaps on mobile */
+    border-radius: 0;
+  }
   .post-banner-full {
-    height: 250px; /* Force better height on mobile */
+    height: 220px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    object-position: center;
+  }
+  .article-banner {
+    width: 100% !important;
+    height: auto !important;
   }
 }
 
