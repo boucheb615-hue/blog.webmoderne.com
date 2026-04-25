@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemma 4 au volant : l'IA qui voit, parle et agit sur un mini-ordinateur - WebModerne</title>
+</head>
+<body>
+    <article>
+        <h1>Gemma 4 au volant : l'IA qui voit, parle et agit sur un mini-ordinateur</h1>
+
+        <section id="introduction">
+            <p>Nous assistons aujourd'hui à une étape majeure pour l'IA embarquée. Hier, une démonstration technique a prouvé que Gemma 4, le nouveau modèle de Google, peut piloter une machine de manière totalement autonome sur un simple boîtier NVIDIA Jetson.</p>
+            <p>Il ne s'agit plus seulement de "discuter" avec un robot, mais de lui donner la capacité de voir le monde et de décider quelle action entreprendre sans aucune intervention humaine ou connexion Internet.</p>
+            <p>Dans cet article, nous explorerons d'abord ce que signifie le concept de Vision-Langage-Action (VLA). Ensuite, nous détaillerons la configuration technique nécessaire pour faire tourner ce cerveau local. Enfin, nous analyserons l'impact pour la robotique domestique.</p>
+        </section>
+
+        <section id="what">
+            <h2>Qu'est-ce que la Vision-Langage-Action (VLA) ?</h2>
+            <p>Habituellement, nous devons dire explicitement à une IA : "Regarde cette image et décris-la". Avec la technologie VLA embarquée par Gemma 4, le modèle décide lui-même de regarder s'il en a besoin.</p>
+            <p>Si vous lui demandez "Quelle heure est-il sur ma montre ?", l'IA comprend qu'elle doit déclencher la webcam, capturer l'image, analyser les aiguilles et vous répondre à haute voix.</p>
+            <p>C'est ce qu'on appelle l'appel d'outil natif ("tool-calling"). L'IA ne se contente pas de parler, elle utilise des interfaces physiques comme s'il s'agissait de ses propres sens.</p>
+        </section>
+
+        <section id="why">
+            <h2>Pourquoi est-ce une révolution pour notre quotidien ?</h2>
+            <p>Le premier argument est la souveraineté. Tout se passe localement sur votre bureau. Vos conversations et vos images ne quittent jamais votre domicile, garantissant une protection totale de votre vie privée.</p>
+            <p>Ensuite, il y a le coût. Faire fonctionner une telle intelligence sur un boîtier Jetson Orin Nano Super (environ 8 Go de RAM) rend la robotique avancée accessible aux particuliers et aux petites entreprises.</p>
+            <p>Enfin, la réactivité est décuplée. En supprimant les allers-retours vers les serveurs cloud, l'IA peut réagir en temps réel aux changements de son environnement physique.</p>
+        </section>
+
+        <section id="how">
+            <h2>Sous le capot : comment ça marche ?</h2>
+            <p>Le système utilise une chaîne de technologies open source. Votre voix est d'abord captée et transformée en texte par Parakeet. Gemma 4 traite ensuite ce texte comme une intention.</p>
+            <p>Si une action visuelle est nécessaire, l'IA appelle un script webcam. La réponse est ensuite dictée par Kokoro, une synthèse vocale ultra-réaliste qui donne une voix humaine au système.</p>
+            <p>L'optimisation est la clé. Pour tenir dans 8 Go de mémoire, les ingénieurs utilisent la "quantification" (une compression du modèle) tout en conservant une précision de raisonnement remarquable.</p>
+
+            <table>
+                <caption>Matériel requis pour le cerveau local</caption>
+                <thead>
+                    <tr>
+                        <th>Composant</th>
+                        <th>Modèle recommandé</th>
+                        <th>Rôle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ordinateur</td>
+                        <td>Jetson Orin Nano Super</td>
+                        <td>Traitement IA local</td>
+                    </tr>
+                    <tr>
+                        <td>Oeil</td>
+                        <td>Caméra USB standard</td>
+                        <td>Vision du monde</td>
+                    </tr>
+                    <tr>
+                        <td>Voix</td>
+                        <td>Kokoro ONNX</td>
+                        <td>Réponse sonore</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="limitations">
+            <h2>Les obstacles qu'il reste à franchir</h2>
+            <p>Nous devons rester lucides : la mémoire vive reste le facteur limitant. Sur 8 Go, il faut couper tous les autres programmes pour éviter que le système ne plante.</p>
+            <p>De plus, la vitesse de traitement de l'image (le "projecteur de vision") demande une puissance de calcul qui fait chauffer ces petits appareils lors d'une utilisation intensive.</p>
+            <p>L'IA peut aussi avoir des "hallucinations visuelles" si l'éclairage est mauvais, confondant parfois un objet avec un autre dans la précipitation de l'action.</p>
+        </section>
+
+        <section id="conclusion">
+            <h2>Ce qu'il faut retenir</h2>
+            <p>Nous sortons de l'ère de l'IA passive derrière un écran. La démonstration de Gemma 4 sur Jetson nous montre un futur où nos objets seront dotés de leur propre jugement et de leurs propres yeux.</p>
+            <p>C'est une avancée majeure pour les assistants personnels capables de nous aider concrètement dans le monde physique, de la cuisine à l'atelier de bricolage.</p>
+            <p>Si une IA peut désormais décider seule d'utiliser une caméra pour nous répondre, sommes-nous prêts à vivre avec des objets qui nous observent pour mieux nous servir ?</p>
+            <p>Source : "Gemma 4 VLA Demo on Jetson Orin Nano Super", Hugging Face Blog (22 avril 2026).</p>
+        </section>
+    </article>
+</body>
+</html>
