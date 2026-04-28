@@ -487,7 +487,71 @@ a:hover {
 }
 
 .post-tag {
-  color: #00ff00; /* Keeping the neon green for contrast, but as a class */
+  color: #00ff00;
   font-family: var(--font-mono);
   font-weight: 600;
+}
+
+/* Featured article (généré par update-posts.py) */
+.featured-article {
+  background: var(--code-bg);
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  padding: 25px;
+  margin: 30px 0;
+}
+
+.featured-article h2 {
+  margin: 10px 0;
+}
+
+.featured-article h2 a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.featured-article p {
+  color: #aaa;
+  margin: 10px 0;
+}
+
+.featured-badge {
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  text-transform: uppercase;
+}
+
+.featured-meta {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: #888;
+}
+
+.featured-meta .featured-tags,
+.featured-meta .featured-tags .post-tag {
+  color: var(--accent-color);
+}
+
+/* Archive link (dernier item de la liste d'articles) */
+.archive-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.archive-link a {
+  color: var(--accent-color);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.archive-title {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
 }

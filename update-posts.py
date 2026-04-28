@@ -151,8 +151,8 @@ def update_homepage(posts):
         <h3>Derniers Articles</h3>
         <ul class="post-list">
 {articles_html}
-          <li class="post-item no-hover" style="text-align: center; margin-top: 20px;">
-            <a href="/posts/" style="color: var(--accent-color); font-family: var(--font-mono); font-weight: 600;">→ Voir tous les articles</a>
+          <li class="post-item no-hover archive-link">
+            <a href="/posts/">→ Voir tous les articles</a>
           </li>
         </ul>
       </div>"""
@@ -238,20 +238,20 @@ def update_featured(posts):
                 tags_text = " ".join(span_match)
             else:
                 # Plain text tags like "#IA #Foo"
-                tags_text = " ".join([f'<span style="color: #00ff00;">{t.strip()}</span>' for t in tags_raw.split() if t.startswith('#')])
+                tags_text = " ".join([f'<span class="post-tag">{t.strip()}</span>' for t in tags_raw.split() if t.startswith('#')])
     except Exception as e:
         print(f"⚠️ Could not extract tags: {e}")
 
     # Build the new featured block — replace everything from <!-- ARTICLE EN VEDETTE --> to the closing </div> before <h3
     new_featured = f"""      <!-- ARTICLE EN VEDETTE -->
-      <div class="featured-article" style="background: var(--code-bg); border: 2px solid var(--accent-color); border-radius: 8px; padding: 25px; margin: 30px 0;">
-        <span style="color: var(--accent-color); font-family: var(--font-mono); font-size: 0.85em; text-transform: uppercase;">🔥 À la Une</span>
-        <h2 style="margin: 10px 0;"><a href="{newest['link']}" style="color: var(--text-color); text-decoration: none;">{newest['title']}</a></h2>
-        <p style="color: #aaa; margin: 10px 0;">{newest['description']}</p>
-        <div style="display: flex; gap: 15px; align-items: center; margin-top: 15px; flex-wrap: wrap;">
-          <span style="color: #888; font-family: var(--font-mono); font-size: 0.85em;">{newest['pub_date']}</span>
-          <span style="color: #888; font-family: var(--font-mono); font-size: 0.85em;">•</span>
-          <span style="color: var(--accent-color); font-family: var(--font-mono); font-size: 0.85em;">{tags_text}</span>
+      <div class="featured-article">
+        <span class="featured-badge">🔥 À la Une</span>
+        <h2><a href="{newest['link']}">{newest['title']}</a></h2>
+        <p>{newest['description']}</p>
+        <div class="featured-meta">
+          <span>{newest['pub_date']}</span>
+          <span>•</span>
+          <span class="featured-tags">{tags_text}</span>
         </div>
       </div>"""
 
