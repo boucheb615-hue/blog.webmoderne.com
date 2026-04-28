@@ -2,44 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blog.webmoderne.com/</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://blog.webmoderne.com/about.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://blog.webmoderne.com/posts/</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://blog.webmoderne.com/posts/codestop-arret-raisonnement-ia.html</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://blog.webmoderne.com/posts/2026-04-09-project-glasswing.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blog.webmoderne.com/posts/histoire-agents-ia.html</loc>
-    <lastmod>2026-04-10</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://blog.webmoderne.com/posts/2026-04-10-histoire-agents-ia.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blog.webmoderne.com/posts/ia-travail-etude-productivite.html</loc>
-    <lastmod>2026-04-11</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://blog.webmoderne.com/posts/2026-04-10-ia-travail-etude-productivite.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blog.webmoderne.com/posts/project-glasswing.html</loc>
-    <lastmod>2026-04-09</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://blog.webmoderne.com/posts/2026-04-12-codestop-arret-raisonnement-ia.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.webmoderne.com/posts/2026-04-17-mcp-177k-outils-agents.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.webmoderne.com/posts/2026-04-20-effondrement-ia-contrainte.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.webmoderne.com/posts/2026-04-20-mythos-maison-blanche.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.webmoderne.com/posts/2026-04-21-catalogue-10-micro-apps-agentic.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.webmoderne.com/posts/2026-04-25-ia-sante.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.webmoderne.com/posts/2026-04-25-mathnet.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.webmoderne.com/posts/2026-04-26-anthropic-agent-commerce.html</loc>
+    <lastmod>2026-04-26T21:37:14+00:00</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

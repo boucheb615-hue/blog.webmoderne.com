@@ -60,19 +60,26 @@ def extract_metadata(filepath):
         path_obj = Path(banner.split('blog.webmoderne.com')[-1])
         banner = str(path_obj) if 'blog.webmoderne.com' in banner else banner
 
-    # Date — extract from JSON-LD datePublished (authoritative source)
+    # Date — Prioritize filename (stable source), then JSON-LD, then content
     pub_iso = None
     mod_iso = None
 
-    dp_match = re.search(r'"datePublished":\s*"([^"]+)"', content)
-    if dp_match:
-        pub_iso = dp_match.group(1)
+    # 1. Filename extraction (YYYY-MM-DD)
+    fn_match = re.match(r'(\d{4}-\d{2}-\d{2})', filepath.name)
+    if fn_match:
+        pub_iso = fn_match.group(1)
+
+    # 2. JSON-LD fallback/override
+    if not pub_iso:
+        dp_match = re.search(r'"datePublished":\s*"([^"]+)"', content)
+        if dp_match:
+            pub_iso = dp_match.group(1)
 
     dm_match = re.search(r'"dateModified":\s*"([^"]+)"', content)
     if dm_match:
         mod_iso = dm_match.group(1)
 
-    # Fallback
+    # 3. Content regex fallback
     if not pub_iso:
         vis_match = re.search(r'Publié le (\d{1,2})\s+(\S+)\s+(\d{4})', content)
         if vis_match:
@@ -84,7 +91,9 @@ def extract_metadata(filepath):
     elif pub_iso:
         pub_date = pub_iso
     else:
-        pub_date = datetime.fromtimestamp(os.path.getmtime(filepath)).strftime("%d %B %Y")
+        # Final fallback to mtime, but format it manually in French to avoid locale issues
+        dt = datetime.fromtimestamp(os.path.getmtime(filepath))
+        pub_date = f"{dt.day:02d} {MOIS_FR.get(dt.month, 'janvier')} {dt.year}"
 
     if mod_iso and re.match(r'\d{4}-\d{2}-\d{2}', mod_iso):
         mod_date = iso_to_french(mod_iso)
