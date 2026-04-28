@@ -8,6 +8,7 @@ import os
 import re
 import sys
 import html
+import subprocess
 from pathlib import Path
 from datetime import datetime
 
@@ -273,6 +274,18 @@ def main():
     print(f"📄 Scan des articles...")
     posts_path = Path(POSTS_DIR)
     html_files = [f for f in posts_path.glob("*.html") if f.name != "index.html" and "page-" not in f.name]
+    
+    # Validation: run validate-article.py on all articles before building indices
+    VALIDATE_SCRIPT = Path(__file__).parent / "scripts" / "validate-article.py"
+    if VALIDATE_SCRIPT.exists():
+        print("🔍 Validation des articles...")
+        result = subprocess.run([sys.executable, str(VALIDATE_SCRIPT)] + [str(f) for f in html_files])
+        if result.returncode != 0:
+            print("\n❌ Validation échouée. Correction requise avant synchronisation.")
+            sys.exit(1)
+        print("✅ Validation OK.")
+    else:
+        print("⚠️ validate-article.py non trouvé, validation ignorée.")
     
     all_posts = []
     for f in html_files:
