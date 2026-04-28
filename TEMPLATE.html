@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} - WebModerne</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="author" content="WebModerne">
+  <meta property="og:title" content="{{TITLE}} - WebModerne">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="https://blog.webmoderne.com/posts/{{SLUG}}.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://blog.webmoderne.com/static/images/{{BANNER}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE}} - WebModerne">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+  <meta name="twitter:image" content="https://blog.webmoderne.com/static/images/{{BANNER}}">
+  <link rel="canonical" href="https://blog.webmoderne.com/posts/{{SLUG}}.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+  <link rel="stylesheet" href="/static/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6PPJ1BDS8Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6PPJ1BDS8Q');
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{TITLE}}",
+    "description": "{{DESCRIPTION}}",
+    "datePublished": "{{DATE}}",
+    "dateModified": "{{DATE}}",
+    "author": {"@type": "Organization", "name": "WebModerne"},
+    "publisher": {"@type": "Organization", "name": "WebModerne"}
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-top">
+      <a href="/" class="header-brand"><span class="brand-name">WebModerne</span></a>
+    </div>
+  </header>
+
+  <div class="banner-full"><img src="/static/images/{{BANNER}}" class="post-banner-full" alt="{{TITLE}}"></div>
+
+  <main class="container">
+    <div class="page-intro">
+      <h1>{{TITLE}}</h1>
+      <p>Publié le {{DATE_FR}} • Tags : <span class="post-tag">#{{TAG1}}</span> <span class="post-tag">#{{TAG2}}</span> ...</p>
+    </div>
+
+    <div class="article-intro">
+      <p>{{HOOK_1}}</p>
+      <p>{{HOOK_2}}>
+      <p>D'abord, nous verrons {{PROMISE}}. Ensuite, nous découvrirons {{PROMISE_2}}.</p>
+    </div>
+
+    <article class="post-content">
+      <!-- SOMMAIRE INJECTÉ AUTOMATIQUEMENT PAR add-toc.py -->
+
+      <h2 id="action">L'Action : {{ACTION_TITLE}}</h2>
+      ...
+
+      <h2 id="impact">L'Impact : {{IMPACT_TITLE}}</h2>
+      ...
+
+      <h2 id="gouvernance">La Gouvernance : {{GOVERNANCE_TITLE}}</h2>
+      ...
+
+      <h2 id="conclusion">Les 3 Points Clés</h2>
+      <div class="faq-list">
+        ...
+      </div>
+      <hr>
+      <p>Source : {{SOURCE}}</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    ...
+  </footer>
+</body>
+</html>
