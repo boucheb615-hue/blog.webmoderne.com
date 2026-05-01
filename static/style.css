@@ -412,12 +412,37 @@ a:hover {
   z-index: 1;
 }
 
+.post-banner,
 .post-banner-full {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
   max-width: 100vw;
+}
+
+.toc-box, nav.toc-box {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.stat-cards {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.stat-card {
+  min-width: 0; /* allow flex shrink on narrow screens */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Ensure no inline-width elements overflow */
+.post-content *,
+article * {
+  max-width: 100%;
 }
 
 .footer-social a svg {
