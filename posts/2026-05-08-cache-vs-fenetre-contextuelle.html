@@ -60,8 +60,8 @@
 
     <div class="article-intro">
       <p>Ton IA a une mémoire de poisson rouge. Mais pas pour les raisons que tu crois.</p>
-      <p>La plupart des gens confondent deux concepts techniques qui n'ont rien à voir. Par conséquent, ils gaspillent de l'argent et perdent du temps sans comprendre pourquoi.</p>
-      <p>D'abord, nous verrons ce que la fenêtre contextuelle fait vraiment. Ensuite, nous découvrirons comment le cache du modèle change la donne. Enfin, nous te montrerons comment utiliser les deux pour construire des applications plus rapides et moins chères.</p>
+      <p>La plupart des gens confondent deux concepts techniques qui n'ont rien à voir. Résultat : ils gaspillent de l'argent et perdent du temps sans comprendre pourquoi.</p>
+      <p>On va voir ce que la fenêtre contextuelle fait vraiment. Comment le cache du modèle change tout. Et comment utiliser les deux pour construire plus vite, pour moins cher.</p>
     </div>
 
     <article class="post-content">
@@ -80,57 +80,57 @@
 
       <h2 id="contexte">Pourquoi tout le monde confond ces deux idées</h2>
 
-      <p>Quand tu discutes avec ChatGPT ou Claude, tu écris des messages. L'IA répond. Tu écris d'autres messages. Elle répond encore.</p>
+      <p>Quand tu discutes avec ChatGPT ou Claude, tu écris un message. L'IA répond. Tu réponds. Elle répond encore.</p>
 
       <p>Le problème est simple : <strong>l'IA ne se souvient de rien entre les conversations</strong>. Si tu fermes l'onglet et tu reviens demain, elle a oublié tout ce que vous avez dit. C'est comme si ton médecin perdait ton dossier médical à chaque rendez-vous.</p>
 
-      <p>Les gens appellent ça "la mémoire de l'IA". Ils pensent qu'il existe un seul mécanisme. En réalité, il y en a deux : <strong>la fenêtre contextuelle</strong> (la mémoire de la conversation en cours, environ 500 pages pour Claude) et <strong>le cache du modèle</strong> (un raccourci technique pour accélérer les réponses). Ces deux outils n'ont pas la même fonction, pas le même prix, et pas la même utilité pour un créateur.</p>
+      <p>Les gens appellent ça "la mémoire de l'IA". Ils pensent qu'il n'y a qu'un seul mécanisme. Il y en a pourtant deux : <strong>la fenêtre contextuelle</strong> (la mémoire de la conversation en cours, environ 500 pages pour Claude) et <strong>le cache du modèle</strong> (un raccourci technique pour accélérer les réponses). Même fonction, même prix, même utilité ? Pas du tout.</p>
 
       <h2 id="probleme">Ce qui se passe quand on mélange</h2>
 
       <p>Avant : les utilisateurs d'IA payaient chaque mot de chaque conversation. Le coût montait en flèche pour les longs échanges.</p>
 
-      <p>Maintenant : les plateformes comme Anthropic proposent un cache du modèle (aussi appelé <em>prompt caching</em>) qui réduit le prix des répétitions de 90% et la latence de 85%. Cependant, beaucoup ne savent pas comment l'utiliser. Ils continuent à payer le prix fort pour des conversations qui pourraient coûter dix fois moins cher.</p>
+      <p>Maintenant : les plateformes comme Anthropic proposent un cache du modèle (aussi appelé <em>prompt caching</em>) qui réduit le prix des répétitions de 90% et la latence de 85%. Problème : la plupart ne savent pas comment l'utiliser. Ils paient le prix fort pour des conversations qui pourraient coûter dix fois moins.</p>
 
-      <p>L'erreur classique est de croire que "plus de fenêtre contextuelle = plus de mémoire". C'est faux. La fenêtre contextuelle de Claude 3.5 Sonnet est de <strong>200 000 tokens</strong> (environ 500 pages). C'est une contrainte de taille, pas une fonction de mémorisation. Le cache, c'est autre chose : c'est un mécanisme qui évite de recalculer des choses qu'elle a déjà vues.</p>
+      <p>L'erreur classique ? Croire que "plus de fenêtre contextuelle = plus de mémoire". Non. La fenêtre contextuelle de Claude 3.5 Sonnet est de <strong>200 000 tokens</strong> (environ 500 pages). C'est une contrainte de taille. Pas une fonction de mémorisation. Le cache, c'est autre chose : un mécanisme qui évite de recalculer ce que l'IA a déjà traité.</p>
 
       <h2 id="contexte-technique">La Fenêtre Contextuelle : ce que c'est vraiment</h2>
 
-      <p><strong>Le concept.</strong> La fenêtre contextuelle est la quantité maximale de texte (en tokens) que le modèle peut prendre en compte pour générer une réponse. Quand tu envoies un message, l'IA lit tout l'historique de la conversation. Si cet historique dépasse la limite, elle oublie les premiers échanges. Claude 3.5 Sonnet gère <strong>200 000 tokens</strong> (soit environ 500 pages). GPT-4o gère 128 000 tokens. Certains modèles récents atteignent 1 million de tokens.</p>
+      <p>La fenêtre contextuelle, c'est la quantité maximale de texte que le modèle peut traiter en une seule fois. On la mesure en tokens (des morceaux de mots). Quand tu envoies un message, l'IA lit tout l'historique de la conversation. Si ça dépasse la limite, elle oublie les premiers échanges. Claude 3.5 Sonnet gère <strong>200 000 tokens</strong>, soit environ 500 pages. GPT-4o gère 128 000. Certains modèles récents atteignent 1 million.</p>
 
-      <p><strong>L'analogie.</strong> Imagine un bureau de travail avec une surface limitée. Tu peux y poser des papiers, des livres, des notes. Mais si le bureau est plein, tu dois ranger les documents les plus anciens pour faire de la place. La fenêtre contextuelle, c'est la taille de ce bureau. Elle ne stocke rien durablement : elle propose simplement un espace de travail temporaire.</p>
+      <p>Analogie simple : imagine un bureau avec une surface limitée. Tu poses des papiers, des livres, des notes. Quand le bureau est plein, tu ranges les plus anciens pour faire de la place. La fenêtre contextuelle, c'est la taille de ce bureau. Elle ne stocke rien durablement. C'est juste un espace de travail temporaire.</p>
 
-      <p><strong>L'application.</strong> Pour un créateur qui construit des micro-apps avec l'IA, la fenêtre contextuelle détermine combien de code et d'instructions tu peux envoyer en une seule fois. Si tu dépasses la limite, l'IA tronque ton message et elle manque des informations essentielles. Par conséquent, il faut structurer ses prompts en blocs courts et essentiels. Pour un livre entier ou un code source massif, il faut découper en modules.</p>
+      <p>Pour un créateur qui construit des micro-apps avec l'IA, cette fenêtre détermine combien de code et d'instructions tu peux envoyer d'un coup. Tu dépasses la limite ? L'IA tronque ton message et elle rate des infos essentielles. Il faut donc structurer ses prompts en blocs courts. Pour un livre entier ou un code source massif, il faut découper en modules.</p>
 
       <h2 id="cache-technique">Le Cache du Modèle : la mémoire cachée</h2>
 
-      <p><strong>Le concept.</strong> Le cache est un mécanisme technique qui stocke temporairement les calculs déjà effectués par le modèle. Quand l'IA traite un long texte (par exemple, le cahier des charges de ton application), elle analyse chaque mot une première fois. Si tu renvoies le même texte dans la conversation suivante, elle n'a pas besoin de tout recalculer. Elle reprend les résultats stockés dans le cache. Attention : ce cache expire après <strong>5 minutes</strong>. Si tu dépasses ce délai, le modèle doit tout recalculer.</p>
+      <p>Le cache stocke temporairement les calculs déjà effectués par le modèle. Quand l'IA traite un long texte (le cahier des charges de ton application, par exemple), elle analyse chaque mot une première fois. Tu renvoies le même texte dans la conversation suivante ? Elle n'a pas besoin de tout recalculer. Elle reprend les résultats stockés dans le cache. Attention : ce cache expire après <strong>5 minutes</strong>. Tu dépasses ce délai, le modèle repart de zéro.</p>
 
-      <p><strong>L'analogie.</strong> Imagine un chef cuisinier qui prépare une sauce complexe. La première fois, il doit couper les légumes, faire réduire le bouillon, mélanger les épices. La deuxième fois, il a déjà la sauce prête au frigo. Il la réchauffe en quelques minutes au lieu de repartir de zéro. Le cache, c'est le frigo du chef. Il ne contient pas de nouvelles recettes : il accélère celles qu'il a déjà préparées.</p>
+      <p>Analogie simple : un chef cuisinier qui prépare une sauce complexe. La première fois, il coupe les légumes, fait réduire le bouillon, mélange les épices. La deuxième fois, il a la sauce prête au frigo. Il la réchauffe en quelques minutes. Le cache, c'est le frigo du chef. Il ne contient pas de nouvelles recettes. Il accélère celles qu'il a déjà préparées.</p>
 
-      <p><strong>L'application.</strong> Pour un développeur IA natif, le cache est un levier économique puissant. Quand tu construis une application avec un long cahier des charges, tu peux le définir une fois, puis poser des questions ciblées dessus. Le cache réduit le coût des réponses suivantes de <strong>90%</strong> et la latence de <strong>85%</strong> (selon Anthropic, août 2024). Cela signifie que tu peux itérer dix fois plus pour le même prix. Par conséquent, les créateurs indépendants peuvent tester plus d'idées avec le même budget.</p>
+      <p>Pour un développeur IA natif, le cache est un levier économique massif. Tu construis une application avec un long cahier des charges ? Tu le définis une fois, puis tu poses des questions ciblées dessus. Le cache réduit le coût des réponses suivantes de <strong>90%</strong> et la latence de <strong>85%</strong> (selon Anthropic, août 2024). Tu peux itérer dix fois plus pour le même prix. Les créateurs indépendants peuvent tester plus d'idées avec le même budget.</p>
 
       <h2 id="impact">Pourquoi ça compte pour toi</h2>
 
-      <p><strong>✅ Tu paies moins cher pour construire plus.</strong> Le cache du modèle transforme une longue conversation coûteuse en une série de questions rapides et bon marché. Pour un créateur indépendant, c'est la différence entre un projet rentable et un projet qui dévore son budget.</p>
+      <p><strong>✅ Tu paies moins cher pour construire plus.</strong> Le cache transforme une longue conversation coûteuse en questions rapides et bon marché. Pour un créateur indépendant, c'est la différence entre un projet rentable et un projet qui mange tout ton budget.</p>
 
-      <p><strong>⚠️ La fenêtre contextuelle reste un plafond.</strong> Même avec un cache efficace, tu ne peux pas envoyer un roman entier en une seule fois. Tu dois structurer ton travail en modules. Le cache accélère, mais il n'agrandit pas le bureau.</p>
+      <p><strong>⚠️ La fenêtre contextuelle reste un plafond.</strong> Même avec un cache efficace, tu ne peux pas envoyer un roman entier en une seule fois. Tu dois structurer ton travail en modules. Le cache accélère. Il n'agrandit pas le bureau.</p>
 
-      <p><strong>💡 Le combo gagnant.</strong> Les créateurs efficaces combinent les deux : un cahier des charges complet mis en cache, plus des questions ciblées qui tiennent dans la fenêtre contextuelle. C'est le secret des applications construites en quelques heures au lieu de quelques jours.</p>
+      <p><strong>💡 Le combo gagnant.</strong> Les créateurs efficaces combinent les deux : un cahier des charges complet mis en cache, plus des questions ciblées qui tiennent dans la fenêtre contextuelle. C'est le secret des applis construites en quelques heures au lieu de quelques jours.</p>
 
       <h2 id="limites">Ce que ça ne résout pas</h2>
 
-      <p>Le cache n'est pas une mémoire permanente. Quand la conversation se termine, le cache disparaît. L'IA n'apprend rien de durable d'une session à l'autre. Si tu veux qu'elle se souvienne de ton projet entre deux jours, tu dois lui renvoyer le contexte manuellement ou utiliser des outils externes (bases de données, fichiers, API).</p>
+      <p>Le cache n'est pas une mémoire permanente. Quand la conversation se termine, le cache disparaît. L'IA n'apprend rien de durable d'une session à l'autre. Tu veux qu'elle se souvienne de ton projet entre deux jours ? Tu dois lui renvoyer le contexte manuellement ou utiliser des outils externes (bases de données, fichiers, API).</p>
 
-      <p>De plus, le cache ne fonctionne que pour des textes identiques ou très proches. Si tu reformules ton cahier des charges à chaque message, le modèle doit tout recalculer. Par conséquent, la discipline du créateur compte autant que la technologie : il faut réutiliser les mêmes blocs de texte, les mêmes définitions, les mêmes consignes.</p>
+      <p>De plus, le cache ne fonctionne que pour des textes identiques ou très proches. Tu reformules ton cahier des charges à chaque message ? Le modèle doit tout recalculer. La discipline du créateur compte autant que la technologie : il faut réutiliser les mêmes blocs de texte, les mêmes définitions, les mêmes consignes.</p>
 
       <hr>
 
-      <p>Tu utilises l'IA pour construire des applications. Tu poses des questions, tu corriges, tu répètes. Mais chaque itération coûte de l'argent et du temps.</p>
+      <p>Tu utilises l'IA pour construire des applications. Tu poses des questions, tu corriges, tu répètes. Chaque itération coûte de l'argent et du temps.</p>
 
-      <p>La question est la suivante : est-ce que tu utilises le cache du modèle pour accélérer tes itérations ? Ou est-ce que tu payes le prix fort à chaque message en répétant le même contexte sans le savoir ?</p>
+      <p>Est-ce que tu utilises le cache pour accélérer tes itérations ? Ou est-ce que tu payes le prix fort à chaque message en répétant le même contexte sans le savoir ?</p>
 
-      <p>Les plateformes d'IA n'affichent pas clairement quand le cache est utilisé. Par conséquent, la plupart des créateurs ne savent même pas qu'ils pourraient payer dix fois moins cher.</p>
+      <p>Les plateformes d'IA n'affichent pas clairement quand le cache est utilisé. La plupart des créateurs ne savent même pas qu'ils pourraient payer dix fois moins cher.</p>
 
       <p>Maintenant, tu sais.</p>
 
