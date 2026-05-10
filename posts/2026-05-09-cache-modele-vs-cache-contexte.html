@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le truc gratuit qui divise ta facture IA par dix — WebModerne</title>
-  <meta name="description" content="Tu payes 90% trop cher chaque fois que tu poses une question sur un document. Voici la différence entre cache technique et cache de contexte, et comment activer l'économie chez Google, Anthropic et OpenAI.">
+    <title>Ton IA n'a pas de mémoire. Voici pourquoi. — WebModerne</title>
+  <meta name="description" content="Tu poses trois questions sur le même document. Ton IA relit tout depuis zéro à chaque fois. Découvre les deux systèmes de cache que Google, Anthropic et OpenAI n'expliquent pas.">
   <meta name="author" content="WebModerne">
-  <meta property="og:title" content="Le truc gratuit qui divise ta facture IA par dix — WebModerne">
-  <meta property="og:description" content="Tu payes 90% trop cher chaque fois que tu poses une question sur un document. Voici la différence entre cache technique et cache de contexte, et comment activer l'économie chez Google, Anthropic et OpenAI.">
+  <meta property="og:title" content="Ton IA n'a pas de mémoire. Voici pourquoi. — WebModerne">
+  <meta property="og:description" content="Tu poses trois questions sur le même document. Ton IA relit tout depuis zéro à chaque fois. Découvre les deux systèmes de cache que Google, Anthropic et OpenAI n'expliquent pas.">
   <meta property="og:url" content="https://blog.webmoderne.com/posts/2026-05-09-cache-modele-vs-cache-contexte.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://blog.webmoderne.com/static/images/2026-05-09-cache-contexte-banner.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Le truc gratuit qui divise ta facture IA par dix — WebModerne">
-  <meta name="twitter:description" content="Tu payes 90% trop cher chaque fois que tu poses une question sur un document. Voici la différence entre cache technique et cache de contexte, et comment activer l'économie chez Google, Anthropic et OpenAI.">
+  <meta name="twitter:title" content="Ton IA n'a pas de mémoire. Voici pourquoi. — WebModerne">
+  <meta name="twitter:description" content="Tu poses trois questions sur le même document. Ton IA relit tout depuis zéro à chaque fois. Découvre les deux systèmes de cache que Google, Anthropic et OpenAI n'expliquent pas.">
   <meta name="twitter:image" content="https://blog.webmoderne.com/static/images/2026-05-09-cache-contexte-banner.png">
   <link rel="canonical" href="https://blog.webmoderne.com/posts/2026-05-09-cache-modele-vs-cache-contexte.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,16 +65,16 @@
 
   <main class="container">
     <div class="page-intro">
-      <h1>90% de ta facture IA part en fumée</h1>
+      <h1>Ton IA n'a pas de mémoire</h1>
       <p>Publié le 9 mai 2026 • Tags : <span class="post-tag">#IA</span> <span class="post-tag">#Cache</span> <span class="post-tag">#API</span></p>
     </div>
 
     <div class="article-intro">
-      <p>Tu envoies un document de 50 pages à ton IA. Tu paies la lecture 1 000 mots.</p>
-      <p>Première question : tu demandes un résumé. Tu paies encore 1 000 mots. Deuxième question : tu demandes un détail. Tu paies encore 1 000 mots. Troisième question : tu modifies le ton. Tu paies encore.</p>
-      <p>Mais à chaque fois, le modèle relit les 50 pages. C'est comme si ton avocat relisait ton contrat entier à chaque email que tu lui envoies.</p>
-      <p>Le modèle a une excuse. Il utilise un mécanisme technique appelé KV cache pour stocker ses calculs internes. Mais cela ne te rend pas ton argent.</p>
-      <p>Il existe un autre cache, celui de l'API, qui peut te faire économiser jusqu'à 90% de ta facture. Voici comment l'activer chez Google, Anthropic et OpenAI.</p>
+      <p>Tu parles à ton IA pendant 20 minutes. Elle semble te comprendre, elle répond dans le bon contexte, elle te connaît par ton nom.</p>
+      <p>C'est faux.</p>
+      <p>Ton IA n'a pas de mémoire. Ce qu'elle appelle le contexte, c'est juste un bloc de texte qu'on recolle à chaque message. Et ce bloc, le modèle le relit entièrement à chaque nouveau mot qu'il écrit.</p>
+      <p>Il y a bien un mécanisme interne, le KV cache, qui évite de refaire les mêmes calculs. Mais il ne te rend pas ton argent.</p>
+      <p>Et il y a un autre cache, celui de l'API, que Google, Anthropic et OpenAI n'expliquent presque jamais. C'est celui qui divise ta facture par dix.</p>
     </div>
 
     <article class="post-content">
