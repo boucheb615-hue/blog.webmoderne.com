@@ -70,11 +70,10 @@
     </div>
 
     <div class="article-intro">
-      <p>Tu parles à ton IA depuis un quart d'heure. Elle te cite tes propres mots du début, elle suit ton raisonnement presque mieux que toi, elle anticipe même tes questions.</p>
-      <p>Pause.</p>
-      <p>Elle n'anticipe rien. Elle ne te cite pas. Ce qu'elle appelle le contexte, c'est un bloc de texte qu'elle se répète intégralement à chaque réponse. Tu poses une question, elle relit tout depuis le début. À chaque nouveau mot.</p>
-      <p>Il y a un mécanisme interne, le KV cache, qui allège un peu le travail. Mais elle paie quand même chaque mot. Deux fois. Dix fois.</p>
-      <p>Et puis il y a l'autre cache. Celui que Google appelle "context caching", Anthropic "prompt caching", et OpenAI... bah OpenAI ne le nomme même pas. C'est celui qui divise ta facture par dix. Et il est enterré dans leur documentation technique.</p>
+      <p>Lorsque tu converses avec une intelligence artificielle pendant un quart d'heure, elle semble retenir tes préférences, citer tes propos antérieurs et suivre la continuité de ton raisonnement. Cette apparente mémorisation crée l'illusion d'une entité qui te comprend.</p>
+      <p>Or, cette mémoire est fictive. Ce que l'on appelle le contexte n'est qu'un bloc de texte recollé à chaque requête, que le modèle relit intégralement pour générer chaque nouveau mot. Ainsi, à chaque question posée, l'intégralité de la conversation est retraitée, ce qui multiplie mécaniquement le coût de l'opération.</p>
+      <p>Dans ce mécanisme, une technologie interne appelée KV cache permet d'éviter certains calculs redondants. Cependant, elle ne réduit pas la facture de l'utilisateur ; elle optimise seulement la vitesse de traitement côté serveur.</p>
+      <p>En revanche, un second dispositif existe : le cache de contexte, proposé par les plateformes via leurs API. Si le premier agit dans l'ombre du modèle, le second est une fonctionnalité commerciale que Google, Anthropic et OpenAI implémentent chacun à leur manière. C'est ce dernier qui permet de diviser la facture par dix, à condition de savoir comment l'activer.</p>
     </div>
 
     <article class="post-content">
