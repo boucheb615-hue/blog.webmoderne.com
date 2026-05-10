@@ -96,7 +96,7 @@
       <nav class="toc-box">
         <h4 class="toc-title">📋 Sommaire</h4>
         <ul class="toc-list">
-          <li class="toc-item"><a href="#contexte">Le paradoxe de l'agent qui noie dans ses propres notes</a></li>
+          <li class="toc-item"><a href="#contexte">Le paradoxe de l'agent qui se noie dans ses propres notes</a></li>
           <li class="toc-item"><a href="#context-react">Contexte-ReAct : quand l'agent gère lui-même sa mémoire</a></li>
           <li class="toc-item"><a href="#operations">Les cinq opérations de niveau supérieur décryptées</a></li>
           <li class="toc-item"><a href="#entrainement">Comment LongSeeker a été entraîné</a></li>
@@ -107,7 +107,7 @@
         </ul>
       </nav>
 
-      <h2 id="contexte">Le paradoxe de l'agent qui noie dans ses propres notes</h2>
+      <h2 id="contexte">Le paradoxe de l'agent qui se noie dans ses propres notes</h2>
       <p>Un agent de recherche moderne fonctionne en boucle. Il réfléchit. Il effectue une action. Il observe le résultat. Puis il réfléchit à nouveau à partir de ce nouveau résultat. Cette approche, appelée <em>Raisonnement-Action</em> (ou ReAct dans les publications scientifiques), est intuitive. Elle reste efficace sur des tâches courtes.</p>
       <p>Le problème apparaît quand la recherche s'étend sur des dizaines ou des centaines d'étapes. Chaque observation s'ajoute à la mémoire sans distinction. Un article lu au début s'avère inutile. Il reste pourtant dans le contexte. Un lien exploré par erreur est conservé. Une information redondante est répétée à chaque étape. La mémoire grossit de manière linéaire.</p>
       <p>Cette saturation a trois conséquences concrètes. Premièrement, elle augmente le coût de calcul. Le modèle doit traiter un texte de plus en plus long à chaque étape. Deuxièmement, elle dégrade la qualité du raisonnement. Le modèle distingue mal l'essentiel du superflu au milieu de milliers de jetons. Troisièmement, elle limite l'horizon de la recherche. Le modèle atteint rapidement la taille maximale de son champ de vision.</p>
