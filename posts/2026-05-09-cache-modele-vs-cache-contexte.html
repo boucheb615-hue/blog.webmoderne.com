@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu payes dix fois trop cher ton IA ? Voici pourquoi — WebModerne</title>
-  <meta name="description" content="Cache modèle (KV cache) ou cache de contexte ? Ce guide te montre comment chaque type de cache impacte ton portefeuille, et comment l'activer chez Google, Anthropic et OpenAI.">
+    <title>Le truc gratuit qui divise ta facture IA par dix — WebModerne</title>
+  <meta name="description" content="Tu payes 90% trop cher chaque fois que tu poses une question sur un document. Voici la différence entre cache technique et cache de contexte, et comment activer l'économie chez Google, Anthropic et OpenAI.">
   <meta name="author" content="WebModerne">
-  <meta property="og:title" content="Tu payes dix fois trop cher ton IA ? Voici pourquoi — WebModerne">
-  <meta property="og:description" content="Cache modèle (KV cache) ou cache de contexte ? Ce guide te montre comment chaque type de cache impacte ton portefeuille, et comment l'activer chez Google, Anthropic et OpenAI.">
+  <meta property="og:title" content="Le truc gratuit qui divise ta facture IA par dix — WebModerne">
+  <meta property="og:description" content="Tu payes 90% trop cher chaque fois que tu poses une question sur un document. Voici la différence entre cache technique et cache de contexte, et comment activer l'économie chez Google, Anthropic et OpenAI.">
   <meta property="og:url" content="https://blog.webmoderne.com/posts/2026-05-09-cache-modele-vs-cache-contexte.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://blog.webmoderne.com/static/images/2026-05-09-cache-contexte-banner.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tu payes dix fois trop cher ton IA ? Voici pourquoi — WebModerne">
-  <meta name="twitter:description" content="Cache modèle (KV cache) ou cache de contexte ? Ce guide te montre comment chaque type de cache impacte ton portefeuille, et comment l'activer chez Google, Anthropic et OpenAI.">
+  <meta name="twitter:title" content="Le truc gratuit qui divise ta facture IA par dix — WebModerne">
+  <meta name="twitter:description" content="Tu payes 90% trop cher chaque fois que tu poses une question sur un document. Voici la différence entre cache technique et cache de contexte, et comment activer l'économie chez Google, Anthropic et OpenAI.">
   <meta name="twitter:image" content="https://blog.webmoderne.com/static/images/2026-05-09-cache-contexte-banner.png">
   <link rel="canonical" href="https://blog.webmoderne.com/posts/2026-05-09-cache-modele-vs-cache-contexte.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,14 +65,16 @@
 
   <main class="container">
     <div class="page-intro">
-      <h1>Tu payes dix fois trop cher ton IA ? Voici pourquoi</h1>
+      <h1>90% de ta facture IA part en fumée</h1>
       <p>Publié le 9 mai 2026 • Tags : <span class="post-tag">#IA</span> <span class="post-tag">#Cache</span> <span class="post-tag">#API</span></p>
     </div>
 
     <div class="article-intro">
-      <p>Tu poses une question à ChatGPT. Il répond. Tu poses la suite. Il répond encore.</p>
-      <p>Mais à chaque fois qu'il écrit un mot, le modèle recalcule l'intégralité de la conversation. Sans un mécanisme appelé KV cache, générer ta réponse prendrait 10 000 fois plus de temps. Ce cache est inscrit dans ton ticket. Mais ce n'est pas le seul.</p>
-      <p>Il existe un autre cache, celui de l'API, qui peut te faire économiser jusqu'à 90% de ta facture. Et les trois géants (Google, Anthropic, OpenAI) ne le gèrent pas de la même manière. Voici ce que tu dois savoir pour ne plus payer le prix fort.</p>
+      <p>Tu envoies un document de 50 pages à ton IA. Tu paies la lecture 1 000 mots.</p>
+      <p>Première question : tu demandes un résumé. Tu paies encore 1 000 mots. Deuxième question : tu demandes un détail. Tu paies encore 1 000 mots. Troisième question : tu modifies le ton. Tu paies encore.</p>
+      <p>Mais à chaque fois, le modèle relit les 50 pages. C'est comme si ton avocat relisait ton contrat entier à chaque email que tu lui envoies.</p>
+      <p>Le modèle a une excuse. Il utilise un mécanisme technique appelé KV cache pour stocker ses calculs internes. Mais cela ne te rend pas ton argent.</p>
+      <p>Il existe un autre cache, celui de l'API, qui peut te faire économiser jusqu'à 90% de ta facture. Voici comment l'activer chez Google, Anthropic et OpenAI.</p>
     </div>
 
     <article class="post-content">
